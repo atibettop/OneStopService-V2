@@ -209,8 +209,9 @@ tbody tr:hover td{background:rgba(125,160,200,.07)}
 
 /* ช่องทางติดต่อในกล่องน้ำเงิน */
 .contact-cta .channels{display:grid;gap:10px;margin:20px 0;position:relative;z-index:1}
-.contact-cta .channels a{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#fff;text-decoration:none;transition:background .15s ease,transform .15s ease}
+.contact-cta .channels a,.contact-cta .channels .channel{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#fff;text-decoration:none;transition:background .15s ease,transform .15s ease}
 .contact-cta .channels a:hover{background:rgba(255,255,255,.16);transform:translateY(-1px)}
+.contact-cta .channels .cic.line{background:#06C755;color:#fff}
 .contact-cta .channels .cic{width:38px;height:38px;flex:0 0 auto;border-radius:50%;background:var(--orange);color:#152b45;display:grid;place-items:center}
 .contact-cta .channels .cic svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 .contact-cta .channels small{display:block;color:rgba(255,255,255,.62);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}

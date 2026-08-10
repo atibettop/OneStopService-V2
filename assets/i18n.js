@@ -5,6 +5,7 @@
   html.lang = currentLang;
   const translations = new Map([
     ["ข้ามไปเนื้อหาหลัก", "Skip to main content"],
+    ["ค้นหาด้วยเบอร์ 098-1465449", "Search by phone: 098-1465449"],
     ["ติดต่อเรา", "Contact"],
     ["เตรียมข้อมูลและติดต่อทีมงาน", "Get ready and contact us"],
     ["ส่งข้อมูลมาให้ทีมงาน", "Send us your details"],
