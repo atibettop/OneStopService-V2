@@ -17,6 +17,7 @@
     ["ดูบริการทั้งหมด", "Explore all services"],
     ["✓ ทีมงานเชี่ยวชาญด้าน HR", "✓ Experienced HR team"],
     ["✓ ดูแลข้อมูลตามสิทธิ์", "✓ Role-based data handling"],
+    ["✓ บริการครบวงจร", "✓ Complete HR services"],
     ["✓ ดูแลครบวงจร", "✓ End-to-end support"],
     ["พันธมิตรผู้ดูแลทุกความต้องการด้านทรัพยากรบุคคล", "Your partner for every HR requirement"],
     ["เราเป็นผู้ให้บริการด้านทรัพยากรบุคคลแบบครบวงจร (One Stop Service) ที่มุ่งมั่นช่วยให้องค์กรธุรกิจลดภาระงานบริหารจัดการระบบภายใน เพื่อมุ่งเน้นการเติบโตเชิงกลยุทธ์ได้อย่างเต็มที่", "We provide end-to-end human resources services that reduce administrative workload, allowing your team to focus on strategic business growth."],
