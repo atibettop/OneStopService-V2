@@ -46,7 +46,8 @@
         <small>PROFESSIONAL HR &amp; BUSINESS SUPPORT</small>
       </span>
     </a>
-    <nav class="menu">
+    <button class="menu-toggle" type="button" aria-label="เปิดเมนู" aria-expanded="false">☰</button>
+    <nav class="menu" aria-label="เมนูหลัก">
       <a href="#about" class="active">เกี่ยวกับเรา</a>
       <a href="#solutions">บริการ</a>
       <a href="#workflow">ขั้นตอน</a>
@@ -59,15 +60,24 @@
 
 <!-- ============ HERO ============ -->
 <div class="hero">
-  <div class="wrap">
-    <h1>ONE STOP<br>HR SOLUTIONS</h1>
-    <div class="rule"></div>
-    <p>Professional HR &amp; Business Support Services<br>
-       Your Trusted Partner for Complete HR Solutions</p>
-    <div class="actions">
-      <a class="btn btn-primary" href="pricing.html">คำนวณค่าบริการ Payroll →</a>
-      <a class="btn btn-ghost" href="#solutions">ดูบริการทั้งหมด</a>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="hero-kicker">YOUR TRUSTED HR PARTNER</span>
+      <h1>ดูแลงาน HR ให้ครบ<br><em>เพื่อให้ธุรกิจคุณโตต่อ</em></h1>
+      <p>บริการ HR และงานสนับสนุนธุรกิจแบบครบวงจร ตั้งแต่ Payroll จัดหาบุคลากร วีซ่าแรงงาน ไปจนถึงที่ปรึกษาองค์กร</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="pricing.html">คำนวณราคา Payroll</a>
+        <a class="btn btn-ghost" href="#solutions">ดูบริการทั้งหมด</a>
+      </div>
+      <div class="hero-trust"><span>✓ ผู้เชี่ยวชาญกว่า 15 ปี</span><span>✓ ข้อมูลปลอดภัย</span><span>✓ ดูแลครบวงจร</span></div>
     </div>
+    <aside class="hero-panel" aria-label="บริการหลัก">
+      <div class="hero-panel-head"><span>บริการที่ธุรกิจเลือกใช้</span><b>6 Solutions</b></div>
+      <a href="#solutions"><strong>Payroll Outsourcing</strong><small>เงินเดือน ภาษี และประกันสังคม</small><span>01</span></a>
+      <a href="#solutions"><strong>Recruitment</strong><small>สรรหาและคัดเลือกบุคลากร</small><span>02</span></a>
+      <a href="#solutions"><strong>Visa &amp; Work Permit</strong><small>ดูแลแรงงานต่างชาติครบขั้นตอน</small><span>03</span></a>
+      <a href="#solutions"><strong>HR Consulting</strong><small>วางระบบและพัฒนาองค์กร</small><span>04</span></a>
+    </aside>
   </div>
 </div>
 
@@ -167,7 +177,7 @@
   <div class="wrap">
     <p class="eyebrow">OUR SOLUTIONS</p>
     <h2 class="sec">บริการแบบครบวงจร</h2>
-    <p class="lead">6 กลุ่มบริการที่ครอบคลุมงานทรัพยากรบุคคลตั้งแต่ต้นจนจบกระบวนการ</p>
+    <p class="lead">เลือกดูบริการตามปัญหาที่องค์กรกำลังเผชิญ เราดูแลได้ตั้งแต่ต้นจนจบกระบวนการ</p>
 
     <div class="grid g3" style="margin-bottom:34px">
       <div class="card"><div class="ico"><svg><use href="#i-receipt"/></svg></div>
@@ -511,6 +521,18 @@ const io = new IntersectionObserver(entries => {
   });
 }, { rootMargin: '-45% 0px -50% 0px' });
 targets.forEach(t => io.observe(t));
+const menuToggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('nav.menu');
+menuToggle.addEventListener('click', () => {
+  const open = menu.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', open);
+  menuToggle.textContent = open ? '×' : '☰';
+});
+menu.addEventListener('click', () => {
+  menu.classList.remove('open');
+  menuToggle.setAttribute('aria-expanded', 'false');
+  menuToggle.textContent = '☰';
+});
 </script>
 </body>
 </html>

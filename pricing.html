@@ -18,7 +18,8 @@
         <small>PROFESSIONAL HR &amp; BUSINESS SUPPORT</small>
       </span>
     </a>
-    <nav class="menu">
+    <button class="menu-toggle" type="button" aria-label="เปิดเมนู" aria-expanded="false">☰</button>
+    <nav class="menu" aria-label="เมนูหลัก">
       <a href="index.html#about">เกี่ยวกับเรา</a>
       <a href="index.html#solutions">บริการ</a>
       <a href="index.html#workflow">ขั้นตอน</a>
@@ -30,12 +31,18 @@
 </header>
 
 <!-- ============ HERO ============ -->
-<div class="hero" style="padding:48px 0 42px">
-  <div class="wrap">
-    <h1 style="font-size:clamp(1.5rem,3.6vw,2.3rem)">PAYROLL PRICING CALCULATOR</h1>
-    <div class="rule"></div>
-    <p>เครื่องมือคำนวณราคาค่าบริการรายเดือนและสรุปแพ็กเกจ —
-       ระบุจำนวนพนักงานเพื่อคำนวณราคาของแต่ละแพ็กเกจโดยอัตโนมัติ</p>
+<div class="hero pricing-hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="hero-kicker">PAYROLL PRICING CALCULATOR</span>
+      <h1>รู้ค่าบริการ Payroll<br><em>ได้ทันทีในไม่กี่วินาที</em></h1>
+      <p>กรอกจำนวนพนักงานเพียงครั้งเดียว ระบบจะคำนวณราคาและเปรียบเทียบทุกแพ็กเกจให้อัตโนมัติ</p>
+    </div>
+    <div class="calc-how">
+      <div><b>1</b><span><strong>กรอกจำนวนพนักงาน</strong><small>ระบุจำนวนปัจจุบันของบริษัท</small></span></div>
+      <div><b>2</b><span><strong>เปรียบเทียบ 3 แพ็กเกจ</strong><small>ดูยอดรวมและค่าเฉลี่ยต่อคน</small></span></div>
+      <div><b>3</b><span><strong>เลือกบริการที่เหมาะสม</strong><small>ตรวจสอบฟังก์ชันก่อนติดต่อทีมงาน</small></span></div>
+    </div>
   </div>
 </div>
 
@@ -46,8 +53,8 @@
     <h2 class="sec">คำนวณค่าบริการรายเดือน</h2>
 
     <div class="input-row" style="margin-top:20px">
-      <label for="pax">ระบุจำนวนพนักงาน (คน):</label>
-      <input id="pax" type="number" min="1" step="1" value="120" inputmode="numeric">
+      <label for="pax"><small>จำนวนพนักงานปัจจุบัน</small>ระบุจำนวนพนักงาน</label>
+      <div class="input-control"><input id="pax" type="number" min="1" step="1" value="120" inputmode="numeric"><span>คน</span></div>
       <span class="tier-badge">ช่วงอัตรา: <b id="tierName">–</b></span>
     </div>
 
@@ -204,6 +211,18 @@ buildRateTable();
 buildCompareTable();
 document.getElementById("pax").addEventListener("input", render);
 render();
+const menuToggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('nav.menu');
+menuToggle.addEventListener('click', () => {
+  const open = menu.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', open);
+  menuToggle.textContent = open ? '×' : '☰';
+});
+menu.addEventListener('click', () => {
+  menu.classList.remove('open');
+  menuToggle.setAttribute('aria-expanded', 'false');
+  menuToggle.textContent = '☰';
+});
 </script>
 </body>
 </html>
