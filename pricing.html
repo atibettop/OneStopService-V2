@@ -7,6 +7,9 @@
 <meta name="description" content="คำนวณค่าบริการ Payroll รายเดือนตามจำนวนพนักงาน พร้อมเปรียบเทียบแพ็กเกจ Lite, Pro และ Premium ของ One Stop HR Solutions">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://atibettop.github.io/OneStopService/pricing.html">
+<link rel="alternate" hreflang="th" href="https://atibettop.github.io/OneStopService/pricing.html">
+<link rel="alternate" hreflang="en" href="https://atibettop.github.io/OneStopService/pricing.html?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://atibettop.github.io/OneStopService/pricing.html">
 <meta property="og:type" content="website"><meta property="og:locale" content="th_TH">
 <meta property="og:site_name" content="One Stop HR Solutions">
 <meta property="og:title" content="คำนวณราคา Payroll รายเดือน | One Stop HR">
@@ -14,12 +17,13 @@
 <meta property="og:url" content="https://atibettop.github.io/OneStopService/pricing.html">
 <meta property="og:image" content="https://atibettop.github.io/OneStopService/assets/og-cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="assets/style.css?v=20260810-3">
+<link rel="stylesheet" href="assets/style.css?v=20260810-4">
+<script src="assets/i18n.js?v=20260810-1" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"Payroll Pricing Calculator","url":"https://atibettop.github.io/OneStopService/pricing.html","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"เครื่องมือประเมินค่าบริการ Payroll รายเดือนตามจำนวนพนักงาน","provider":{"@type":"Organization","name":"One Stop HR Solutions","url":"https://atibettop.github.io/OneStopService/"}}
 </script>
 </head>
-<body>
+<body data-page="pricing">
 
 <!-- ============ NAV ============ -->
 <header class="topbar">
@@ -30,15 +34,20 @@
         <small>PROFESSIONAL HR &amp; BUSINESS SUPPORT</small>
       </span>
     </a>
-    <button class="menu-toggle" type="button" aria-label="เปิดเมนู" aria-expanded="false">☰</button>
     <nav class="menu" aria-label="เมนูหลัก">
       <a href="index.html#about">เกี่ยวกับเรา</a>
       <a href="index.html#solutions">บริการ</a>
       <a href="index.html#workflow">ขั้นตอน</a>
-      <a href="index.html#packages">แพ็กเกจ</a>
+      <a href="index.html#packages">รูปแบบบริการ</a>
       <a href="index.html#contact">ติดต่อ</a>
       <a href="pricing.html" class="cta">คำนวณราคา</a>
     </nav>
+    <div class="lang-switch" aria-label="เลือกภาษา">
+      <a href="pricing.html?lang=th" data-lang="th" class="active" aria-current="page">TH</a>
+      <span aria-hidden="true">/</span>
+      <a href="pricing.html?lang=en" data-lang="en">EN</a>
+    </div>
+    <button class="menu-toggle" type="button" aria-label="เปิดเมนู" aria-expanded="false">☰</button>
   </div>
 </header>
 
@@ -77,9 +86,9 @@
 <!-- ============ RATE TABLE ============ -->
 <section class="block alt" id="rates">
   <div class="wrap">
-    <p class="eyebrow">RATE ASSUMPTIONS</p>
-    <h2 class="sec">ตารางอัตราค่าบริการอ้างอิง</h2>
-    <p class="lead">อัตราต่อคนจะถูกเลือกตามจำนวนพนักงานรวม แล้วคิดเพิ่มจากราคาเหมา 30 คนแรก</p>
+    <p class="eyebrow">HOW PRICING WORKS</p>
+    <h2 class="sec">วิธีคิดค่าบริการ</h2>
+    <p class="lead">30 คนแรกเป็นราคาเหมารายเดือน ส่วนจำนวนที่เกินจะคิดเพิ่มตามช่วงจำนวนพนักงานขององค์กร</p>
 
     <div class="tbl-scroll">
       <table>
@@ -89,8 +98,7 @@
         <tbody id="rateBody"></tbody>
       </table>
     </div>
-    <p class="note">*หมายเหตุ: อัตราค่าบริการสำหรับช่วงพนักงาน 31 – 50 คน อ้างอิงตามอัตราของช่วง 51 – 200 คน
-      ตามตารางมาตรฐานของ One Stop HR Solutions</p>
+    <p class="note">ราคานี้ใช้สำหรับการประเมินเบื้องต้น ขอบเขตงานจริงอาจปรับตามรอบจ่าย รูปแบบข้อมูล ระบบเดิม และบริการเพิ่มเติมที่องค์กรเลือกใช้</p>
   </div>
 </section>
 
@@ -110,18 +118,32 @@
       </table>
     </div>
     <p class="note">ต้องการภาพรวมบริการทั้งหมดขององค์กร ดูได้ที่ <a href="index.html#solutions">หน้าโปรไฟล์บริษัท</a></p>
+
+    <div class="pricing-next">
+      <div>
+        <span class="pricing-next-tag">NEXT STEP</span>
+        <h3>พร้อมรับใบเสนอราคาที่เหมาะกับองค์กร?</h3>
+        <p>ส่งจำนวนพนักงาน รอบการจ่าย และบริการที่สนใจให้ทีมงานตรวจสอบ เพื่อยืนยันขอบเขตและราคาอย่างเป็นทางการ</p>
+      </div>
+      <ul>
+        <li>ประเมินความต้องการเบื้องต้น</li>
+        <li>สรุปขอบเขตและแผนเริ่มงาน</li>
+        <li>จัดทำใบเสนอราคาสำหรับองค์กร</li>
+      </ul>
+      <a class="btn btn-primary" href="https://line.me/R/ti/p/@onestophr" target="_blank" rel="noopener">ติดต่อทีมงานทาง LINE →</a>
+    </div>
   </div>
 </section>
 
 <footer class="site">
   <div class="wrap">
-    <span>© One Stop HR Co., Ltd. — ราคาเป็นการประเมินเบื้องต้น มิใช่ใบเสนอราคา</span>
+    <span>© One Stop HR Co., Ltd. — ราคาที่แสดงเป็นการประเมินเบื้องต้น โปรดติดต่อทีมงานเพื่อรับใบเสนอราคาอย่างเป็นทางการ</span>
     <span><a href="index.html">กลับหน้าโปรไฟล์บริษัท</a></span>
   </div>
 </footer>
 
 <script>
-/* ---------- อัตราค่าบริการ (จากชีต 1. Calculator & Summary) ---------- */
+/* ---------- อัตราค่าบริการรายเดือน ---------- */
 const RATES = [
   { label: "0 - 30 คน (ราคาเหมา)",        lite: 5000, pro: 10000, premium: 15000 },
   { label: "31 - 200 คน (เพิ่มต่อคน)*",    lite: 80,   pro: 100,   premium: 120   },
@@ -141,7 +163,7 @@ const PACKAGES = [
     for:"บริษัทขนาดกลาง-ใหญ่ ที่ต้องการเอาท์ซอร์สงานระบบบุคคลและการตอกบัตรเต็มรูปแบบ" }
 ];
 
-/* ---------- ตารางเปรียบเทียบ (จากชีต 2. Service Comparison) ---------- */
+/* ---------- รายการบริการของแต่ละแพ็กเกจ ---------- */
 const FEATURES = [
   ["1. บริการคำนวณ เงินเดือน-ค่าแรง ค่าล่วงเวลา ตามระเบียบข้อบังคับ","✓","✓","✓"],
   ["2. บริการคำนวณเงินประกันสังคม กองทุนสำรองเลี้ยงชีพ และภาษีหัก ณ ที่จ่าย","✓","✓","✓"],
@@ -162,7 +184,7 @@ const FEATURES = [
 const baht  = n => n.toLocaleString("th-TH", {maximumFractionDigits:0});
 const baht2 = n => n.toLocaleString("th-TH", {minimumFractionDigits:2, maximumFractionDigits:2});
 
-/* สูตรเดียวกับใน Excel:
+/* วิธีคำนวณ:
    n<=30  -> ราคาเหมา
    n>30   -> ราคาเหมา + (n-30) × อัตราต่อคนของช่วงที่ n ตกอยู่ */
 function tierIndex(n){
@@ -209,12 +231,13 @@ function render(){
   document.getElementById("packs").innerHTML = PACKAGES.map(p=>{
     const total = n ? fee(p.key, n) : 0;
     const per   = n ? total / n : 0;
+    const en = new URLSearchParams(location.search).get("lang") === "en";
     return `<div class="pack${p.best ? " best" : ""}">
       <div class="name">${p.name}</div>
-      <div class="fee">${n ? baht(total) : "–"} <small>บาท/เดือน</small></div>
-      <div class="per">เฉลี่ย ${n ? baht2(per) : "–"} บาท / คน / เดือน</div>
+      <div class="fee">${n ? baht(total) : "–"} <small>${en ? "THB/month" : "บาท/เดือน"}</small></div>
+      <div class="per">${en ? `Average ${n ? baht2(per) : "–"} THB / employee / month` : `เฉลี่ย ${n ? baht2(per) : "–"} บาท / คน / เดือน`}</div>
       <div class="hl">${p.hl}</div>
-      <div class="for"><b>เหมาะสำหรับ:</b> ${p.for}</div>
+      <div class="for"><b>${en ? "Best for:" : "เหมาะสำหรับ:"}</b> ${p.for}</div>
     </div>`;
   }).join("");
 }

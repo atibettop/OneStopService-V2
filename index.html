@@ -7,6 +7,9 @@
 <meta name="description" content="One Stop HR Solutions ให้บริการ Payroll Outsourcing สรรหาบุคลากร วีซ่าและใบอนุญาตทำงาน แรงงานต่างด้าว และที่ปรึกษา HR สำหรับธุรกิจในประเทศไทย">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://atibettop.github.io/OneStopService/">
+<link rel="alternate" hreflang="th" href="https://atibettop.github.io/OneStopService/">
+<link rel="alternate" hreflang="en" href="https://atibettop.github.io/OneStopService/index.html?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://atibettop.github.io/OneStopService/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="th_TH">
 <meta property="og:site_name" content="One Stop HR Solutions">
@@ -20,7 +23,8 @@
 <meta name="twitter:description" content="บริการ HR สำหรับธุรกิจ ตั้งแต่ Payroll ถึงการวางระบบองค์กร">
 <meta name="twitter:image" content="https://atibettop.github.io/OneStopService/assets/og-cover.jpg">
 <link rel="preload" as="image" href="assets/hr-team-hero.webp" type="image/webp">
-<link rel="stylesheet" href="assets/style.css?v=20260810-3">
+<link rel="stylesheet" href="assets/style.css?v=20260810-4">
+<script src="assets/i18n.js?v=20260810-1" defer></script>
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -36,8 +40,19 @@
   "contactPoint":{"@type":"ContactPoint","telephone":"+66-2-123-4567","contactType":"customer service","availableLanguage":["Thai","English"]}
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"ค่าบริการ Payroll คิดอย่างไร?","acceptedAnswer":{"@type":"Answer","text":"ค่าบริการประเมินจากจำนวนพนักงานและแพ็กเกจที่เลือก โดย 30 คนแรกเป็นราคาเหมารายเดือน และจำนวนที่เกินคิดเพิ่มตามช่วงจำนวนพนักงาน"}},
+    {"@type":"Question","name":"ต้องเตรียมข้อมูลอะไรเพื่อเริ่มประเมินบริการ?","acceptedAnswer":{"@type":"Answer","text":"เตรียมจำนวนพนักงาน รอบการจ่ายเงินเดือน ระบบที่ใช้อยู่ และขอบเขตบริการที่ต้องการ เพื่อให้ทีมงานวางแนวทางได้ตรงกับองค์กร"}},
+    {"@type":"Question","name":"เลือกใช้เฉพาะบางบริการได้หรือไม่?","acceptedAnswer":{"@type":"Answer","text":"ได้ สามารถเริ่มจากบริการเดียว เช่น Payroll, Recruitment หรือ Visa and Work Permit และเพิ่มบริการอื่นภายหลังได้"}}
+  ]
+}
+</script>
 </head>
-<body>
+<body data-page="home">
 
 <!-- ============ ICON SPRITE ============ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -76,15 +91,20 @@
         <small>PROFESSIONAL HR &amp; BUSINESS SUPPORT</small>
       </span>
     </a>
-    <button class="menu-toggle" type="button" aria-label="เปิดเมนู" aria-expanded="false">☰</button>
     <nav class="menu" aria-label="เมนูหลัก">
       <a href="#about" class="active">เกี่ยวกับเรา</a>
       <a href="#solutions">บริการ</a>
       <a href="#workflow">ขั้นตอน</a>
-      <a href="#packages">แพ็กเกจ</a>
+      <a href="#packages">รูปแบบบริการ</a>
       <a href="#contact">ติดต่อ</a>
       <a href="pricing.html" class="cta">คำนวณราคา</a>
     </nav>
+    <div class="lang-switch" aria-label="เลือกภาษา">
+      <a href="index.html?lang=th" data-lang="th" class="active" aria-current="page">TH</a>
+      <span aria-hidden="true">/</span>
+      <a href="index.html?lang=en" data-lang="en">EN</a>
+    </div>
+    <button class="menu-toggle" type="button" aria-label="เปิดเมนู" aria-expanded="false">☰</button>
   </div>
 </header>
 
@@ -417,37 +437,53 @@
   </div>
 </section>
 
-<!-- ============ PACKAGES ============ -->
+<!-- ============ SERVICE OPTIONS ============ -->
 <section class="block" id="packages">
   <div class="wrap">
-    <p class="eyebrow">SERVICE PACKAGES</p>
-    <h2 class="sec">แพ็กเกจบริการ</h2>
-    <p class="lead">เปรียบเทียบขอบเขตบริการของแต่ละระดับแพ็กเกจ</p>
+    <p class="eyebrow">CHOOSE YOUR SERVICE</p>
+    <h2 class="sec">เลือกบริการให้เหมาะกับองค์กร</h2>
+    <p class="lead">เริ่มจากบริการเดียว หรือให้ทีมงานช่วยออกแบบขอบเขตงานร่วมกันตามขนาดและเป้าหมายของธุรกิจ</p>
 
-    <div class="tbl-scroll">
-      <table>
-        <thead>
-          <tr>
-            <th>คุณสมบัติบริการ / Feature</th>
-            <th>Basic</th><th>Standard</th><th>Premium</th><th>Professional</th><th>Enterprise</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>บริการ Payroll และภาษีรายเดือน</td>
-            <td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td>ทีมจัดหาแรงงาน Recruiter เฉพาะเจาะจง</td>
-            <td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td>ทีมประสานงาน Visa / Work Permit รายคน</td>
-            <td class="no">–</td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td>ที่ปรึกษากฎหมายแรงงานรายเดือน</td>
-            <td class="no">–</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td>Dashboard วิเคราะห์และเจ้าหน้าที่ดูแลตลอด 24 ชั่วโมง</td>
-            <td class="no">–</td><td class="no">–</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
-        </tbody>
-      </table>
+    <div class="service-paths">
+      <article class="service-path featured">
+        <span class="path-tag">ประเมินราคาได้ทันที</span>
+        <div class="path-icon"><svg><use href="#i-calc"/></svg></div>
+        <h3>Payroll รายเดือน</h3>
+        <p>เหมาะกับองค์กรที่ต้องการลดภาระการคำนวณเงินเดือน ภาษี ประกันสังคม และการจัดทำรายงานประจำงวด</p>
+        <ul>
+          <li>เลือกแพ็กเกจ Lite, Pro หรือ Premium</li>
+          <li>ดูราคาโดยประมาณตามจำนวนพนักงาน</li>
+          <li>เปรียบเทียบฟังก์ชันก่อนตัดสินใจ</li>
+        </ul>
+        <a class="path-link" href="pricing.html">คำนวณราคา Payroll <span>→</span></a>
+      </article>
+
+      <article class="service-path">
+        <span class="path-tag">เลือกใช้เป็นรายบริการ</span>
+        <div class="path-icon"><svg><use href="#i-brief"/></svg></div>
+        <h3>บริการ HR เฉพาะด้าน</h3>
+        <p>เลือกเฉพาะงานที่องค์กรต้องการผู้เชี่ยวชาญ เช่น สรรหาบุคลากร วีซ่าและใบอนุญาตทำงาน หรือแรงงานต่างด้าว</p>
+        <ul>
+          <li>กำหนดขอบเขตงานตามความต้องการ</li>
+          <li>มีผู้ประสานงานดูแลแต่ละโครงการ</li>
+          <li>เริ่มจากบริการเดียวและขยายภายหลังได้</li>
+        </ul>
+        <a class="path-link" href="#solutions">ดูรายละเอียดบริการ <span>→</span></a>
+      </article>
+
+      <article class="service-path">
+        <span class="path-tag">ออกแบบร่วมกับทีมที่ปรึกษา</span>
+        <div class="path-icon"><svg><use href="#i-gear"/></svg></div>
+        <h3>โซลูชันสำหรับองค์กร</h3>
+        <p>สำหรับองค์กรที่ต้องการวางระบบ HR ใหม่ เชื่อมหลายบริการ หรือปรับกระบวนการให้รองรับการเติบโต</p>
+        <ul>
+          <li>สำรวจกระบวนการและปัญหาปัจจุบัน</li>
+          <li>วางแผนขอบเขต ระยะเวลา และผลลัพธ์</li>
+          <li>จัดทำข้อเสนอให้เหมาะกับองค์กร</li>
+        </ul>
+        <a class="path-link" href="#contact">ปรึกษาทีมงาน <span>→</span></a>
+      </article>
     </div>
-    <p class="note">แพ็กเกจชุดนี้มาจากเอกสารนำเสนอองค์กร (Basic – Enterprise) ซึ่งเป็นคนละชุดกับแพ็กเกจ Payroll
-      <b>Lite / Pro / Premium</b> ในหน้า <a href="pricing.html">คำนวณราคา</a> ที่อ้างอิงตารางอัตราค่าบริการรายเดือน</p>
   </div>
 </section>
 
@@ -477,6 +513,40 @@
       <span>✓ กำหนดขอบเขต SLA ในสัญญาชัดเจน</span>
       <span>✓ มีผู้ประสานงานประจำบริษัท</span>
       <span>✓ ติดตามและรายงานสถานะอย่างต่อเนื่อง</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="block" id="faq">
+  <div class="wrap faq-layout">
+    <div class="faq-intro">
+      <p class="eyebrow">FREQUENTLY ASKED QUESTIONS</p>
+      <h2 class="sec">คำถามที่ลูกค้าถามบ่อย</h2>
+      <p class="lead">ข้อมูลเบื้องต้นก่อนเริ่มพูดคุยกับทีมงาน หากต้องการคำแนะนำเฉพาะองค์กร สามารถติดต่อเพื่อประเมินได้โดยไม่มีค่าใช้จ่าย</p>
+      <a class="btn btn-primary" href="#contact">ขอคำปรึกษาเบื้องต้น →</a>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>ค่าบริการ Payroll คิดอย่างไร?<span></span></summary>
+        <p>ค่าบริการประเมินจากจำนวนพนักงานและแพ็กเกจที่เลือก โดย 30 คนแรกเป็นราคาเหมารายเดือน และจำนวนที่เกินคิดเพิ่มตามช่วงจำนวนพนักงาน สามารถทดลองคำนวณได้ทันทีในหน้าคำนวณราคา</p>
+      </details>
+      <details class="faq-item">
+        <summary>ต้องเตรียมข้อมูลอะไรเพื่อเริ่มประเมินบริการ?<span></span></summary>
+        <p>เตรียมจำนวนพนักงาน รอบการจ่ายเงินเดือน ระบบที่ใช้อยู่ และขอบเขตบริการที่ต้องการ ข้อมูลเหล่านี้ช่วยให้ทีมงานวางแนวทางได้ตรงกับองค์กร</p>
+      </details>
+      <details class="faq-item">
+        <summary>ใช้เวลาเริ่มระบบนานเท่าไร?<span></span></summary>
+        <p>ระยะเวลาเริ่มงานขึ้นอยู่กับความพร้อมของข้อมูล ระบบเดิม และขอบเขตบริการ ทีมงานจะแจ้งแผนดำเนินงานและวันเริ่มใช้งานหลังประเมินรายละเอียดร่วมกัน</p>
+      </details>
+      <details class="faq-item">
+        <summary>ข้อมูลเงินเดือนและข้อมูลพนักงานได้รับการดูแลอย่างไร?<span></span></summary>
+        <p>ทีมงานกำหนดสิทธิ์เข้าถึงข้อมูลตามหน้าที่ ตรวจสอบข้อมูลก่อนส่งมอบ และตกลงช่องทางรับส่งข้อมูลที่เหมาะสมกับองค์กรก่อนเริ่มบริการ</p>
+      </details>
+      <details class="faq-item">
+        <summary>เลือกใช้เฉพาะบางบริการได้หรือไม่?<span></span></summary>
+        <p>ได้ องค์กรสามารถเริ่มจาก Payroll, Recruitment, Visa &amp; Work Permit หรือบริการอื่นเพียงรายการเดียว และเพิ่มบริการภายหลังได้ตามความต้องการ</p>
+      </details>
     </div>
   </div>
 </section>

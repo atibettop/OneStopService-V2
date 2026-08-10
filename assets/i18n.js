@@ -1,0 +1,379 @@
+(() => {
+  const html = document.documentElement;
+  const requestedLang = new URLSearchParams(location.search).get("lang");
+  const currentLang = requestedLang === "en" ? "en" : "th";
+  html.lang = currentLang;
+  const translations = new Map([
+    ["เกี่ยวกับเรา", "About us"],
+    ["บริการ", "Services"],
+    ["ขั้นตอน", "Process"],
+    ["รูปแบบบริการ", "Service options"],
+    ["ติดต่อ", "Contact"],
+    ["คำนวณราคา", "Pricing calculator"],
+    ["ดูแลงาน HR ให้ครบ", "Complete HR support"],
+    ["เพื่อให้ธุรกิจเติบโต", "so your business can grow"],
+    ["บริการ HR และงานสนับสนุนธุรกิจแบบครบวงจร ตั้งแต่ Payroll จัดหาบุคลากร วีซ่าแรงงาน ไปจนถึงที่ปรึกษาองค์กร", "End-to-end HR and business support, from payroll and recruitment to work permits and HR consulting."],
+    ["คำนวณราคา Payroll", "Calculate payroll pricing"],
+    ["ดูบริการทั้งหมด", "Explore all services"],
+    ["✓ ผู้เชี่ยวชาญกว่า 15 ปี", "✓ 15+ years of expertise"],
+    ["✓ ข้อมูลปลอดภัย", "✓ Secure data handling"],
+    ["✓ ดูแลครบวงจร", "✓ End-to-end support"],
+    ["พันธมิตรผู้ดูแลทุกความต้องการด้านทรัพยากรบุคคล", "Your partner for every HR requirement"],
+    ["เราเป็นผู้ให้บริการด้านทรัพยากรบุคคลแบบครบวงจร (One Stop Service) ที่มุ่งมั่นช่วยให้องค์กรธุรกิจลดภาระงานบริหารจัดการระบบภายใน เพื่อมุ่งเน้นการเติบโตเชิงกลยุทธ์ได้อย่างเต็มที่", "We provide end-to-end human resources services that reduce administrative workload, allowing your team to focus on strategic business growth."],
+    ["ลดภาระงานบริหาร", "Reduce administration"],
+    ["จัดการเรื่องสิทธิ กฎหมาย และงานธุรการทั้งหมดแทนทีมงานภายในขององค์กร", "Let our team handle employee benefits, compliance, and HR administration."],
+    ["เพิ่มประสิทธิภาพ", "Improve efficiency"],
+    ["ดึงเทคโนโลยีและผู้เชี่ยวชาญมาเพิ่มความเร็วและความถูกต้องของงาน HR", "Combine technology and specialist expertise to improve speed and accuracy."],
+    ["ดำเนินงานถูกต้องตามกฎหมาย", "Stay compliant"],
+    ["ป้องกันความเสี่ยงทางข้อบังคับแรงงานได้อย่างครบถ้วน 100%", "Reduce employment-law and regulatory risks through structured processes."],
+    ["วิสัยทัศน์และค่านิยม", "Vision and values"],
+    ["ทิศทางและหลักการที่เรายึดถือในการส่งมอบบริการทุกงาน", "The principles that guide every service we deliver."],
+    ["VISION — วิสัยทัศน์", "VISION"],
+    ["เป็นผู้นำด้านการให้บริการทรัพยากรบุคคลครบวงจรอันดับหนึ่งในประเทศไทย ที่องค์กรระดับสากลไว้วางใจสูงสุด เพื่อขับเคลื่อนธุรกิจให้เติบโตอย่างมั่นคง", "To become Thailand's trusted leader in integrated HR services, helping organizations grow with confidence."],
+    ["MISSION — พันธกิจ", "MISSION"],
+    ["ส่งมอบการบริการด้าน HR ที่ถูกต้อง รวดเร็ว ปลอดภัย และสอดคล้องกับข้อกฎหมายแรงงาน เพื่อยกระดับความสุขและประสิทธิภาพของพนักงานในทุกองค์กร", "To deliver accurate, responsive, secure, and compliant HR services that improve employee experience and organizational performance."],
+    ["CORE VALUES — ค่านิยม", "CORE VALUES"],
+    ["ความโปร่งใสเป็นเลิศ (Integrity) ความเชี่ยวชาญระดับมืออาชีพ (Professionalism) และการขับเคลื่อนด้วยเทคโนโลยีที่ทันสมัย (Innovation)", "Integrity, professionalism, and innovation shape the way we work with every client."],
+    ["ความท้าทายของธุรกิจ", "Business challenges"],
+    ["อุปสรรคสำคัญที่ทำให้หลายธุรกิจไม่สามารถเติบโตได้อย่างเต็มที่ เนื่องจากต้องพะวงกับงานหลังบ้านด้านทรัพยากรบุคคล", "Common back-office HR challenges that keep growing businesses from focusing on their core goals."],
+    ["Payroll ซับซ้อน", "Complex payroll"],
+    ["ข้อผิดพลาดด้านภาษี ประกันสังคม OT และสิทธิประโยชน์ที่ทำให้เกิดปัญหาภายใน", "Errors involving tax, social security, overtime, and employee benefits can create costly internal issues."],
+    ["หาแรงงานยาก", "Recruitment gaps"],
+    ["การขาดแคลนกำลังคนหรือคัดเลือกคนไม่ตรงความต้องการ ส่งผลต่อการดำเนินงานหลัก", "Talent shortages and poor role fit can disrupt day-to-day operations."],
+    ["ข้อกฎหมายเปลี่ยนบ่อย", "Changing regulations"],
+    ["พระราชบัญญัติคุ้มครองแรงงานและเงื่อนไขวีซ่าแรงงานต่างด้าวที่มีความเข้มงวดและปรับปรุงตลอดเวลา", "Employment regulations and foreign-worker requirements are complex and continue to evolve."],
+    ["บริการแบบครบวงจร", "End-to-end HR services"],
+    ["เลือกดูบริการตามปัญหาที่องค์กรกำลังเผชิญ เราดูแลได้ตั้งแต่ต้นจนจบกระบวนการ", "Choose the service that matches your current challenge. Our specialists manage the process from start to finish."],
+    ["คำนวณเงินเดือน ภาษี ประกันสังคม และจัดทำสลิปอย่างถูกต้องตรงเวลา", "Accurate, on-time payroll, tax, social security, and payslip processing."],
+    ["สรรหาและคัดกรองบุคลากรที่เหมาะสม ตั้งแต่ระดับปฏิบัติการถึงผู้บริหาร", "Recruit and screen suitable candidates, from operational roles to executives."],
+    ["ออกแบบและดูแลงานสัมมนา กิจกรรมทีม และงานเลี้ยงองค์กรครบวงจร", "Plan and manage corporate seminars, team activities, and company events."],
+    ["บริหารเอกสาร วีซ่า และใบอนุญาตทำงานสำหรับชาวต่างชาติครบขั้นตอน", "Manage visas, work permits, and related documentation for foreign employees."],
+    ["นำเข้าและดูแลแรงงานต่างด้าว 3 สัญชาติอย่างถูกต้องตามกฎหมาย", "Legally recruit and support migrant workers from Myanmar, Laos, and Cambodia."],
+    ["วางโครงสร้างองค์กร เงินเดือน KPI และระบบ HR ให้พร้อมต่อการเติบโต", "Build HR strategy, organization structure, salary frameworks, and KPIs for growth."],
+    ["เงินเดือน ภาษี ประกันสังคม และรายงานประจำเดือน", "Payroll, tax, social security, and monthly reports"],
+    ["ดูรายละเอียด", "View details"],
+    ["ระบบบริหารจัดการจ่ายเงินเดือนอย่างมืออาชีพ ป้องกันความผิดพลาด รักษาความลับข้อมูลขั้นสูงสุด", "Professional payroll management designed for accuracy, consistency, and confidentiality."],
+    ["ลดต้นทุนซอฟต์แวร์", "Lower software costs"],
+    ["รักษาข้อมูลเป็นความลับ", "Confidential data handling"],
+    ["ถูกต้องและตรงต่อเวลา", "Accurate and on time"],
+    ["ความถูกต้อง 100%", "Structured accuracy checks"],
+    ["ดำเนินการและตรวจทานข้อมูลซ้ำเพื่อป้องกันข้อผิดพลาดทางด้านกฎหมายภาษีและสวัสดิการ", "Payroll data is reviewed before delivery to reduce tax, compliance, and benefits errors."],
+    ["สรรหา คัดกรอง และประสานงานสัมภาษณ์", "Recruitment, screening, and interview coordination"],
+    ["จัดหาพนักงานที่ “ใช่” ในเวลาที่ทันท่วงที ครอบคลุมทุกความต้องการตั้งแต่อุดหนุนฝ่ายปฏิบัติการจนถึงผู้บริหารระดับสูง", "Find the right people at the right time, from operational support to senior leadership roles."],
+    ["ลดเวลาจัดหาคน", "Shorter hiring cycle"],
+    ["การรับประกันการเปลี่ยนคน", "Replacement support"],
+    ["ฐานข้อมูลผู้สมัครขนาดใหญ่", "Extensive candidate network"],
+    ["ลดระยะเวลาในการจ้างงานลง 45%", "A more efficient hiring process"],
+    ["กระบวนการคัดกรองเบื้องต้นทำให้บริษัทได้รับแคนดิเดตที่พร้อมสัมภาษณ์ทันที", "Structured screening helps your team meet interview-ready candidates sooner."],
+    ["กิจกรรมองค์กร สัมมนา และงานเลี้ยงประจำปี", "Corporate activities, seminars, and annual events"],
+    ["การจัดงานกิจกรรมองค์กรครบวงจร — สร้างวัฒนธรรมที่แข็งแกร่งด้วยการจัดกิจกรรมทีมบิวดิ้ง งานสัมมนา หรือเลี้ยงสังสรรค์ประจำปีโดยมืออาชีพที่พร้อมคิดคอนเซปต์และดูแลทุกรายละเอียด", "End-to-end corporate event management for team building, seminars, and annual celebrations, including concept development and on-site coordination."],
+    ["บริการที่ครอบคลุม", "Services covered"],
+    ["จุดเด่น", "Highlights"],
+    ["ดีไซน์กิจกรรมตอบโจทย์กลุ่มเป้าหมาย", "Activity concepts tailored to your audience"],
+    ["อุปกรณ์พร้อมไฟแสงสีเสียงครบครัน", "Complete event production and equipment support"],
+    ["นำเข้าและดูแลแรงงานต่างด้าวอย่างถูกกฎหมาย", "Compliant migrant-worker recruitment and support"],
+    ["การบริหารจัดการนำเข้าและจัดหาแรงงานต่างด้าวอย่างถูกกฎหมาย — เราเป็นตัวแทนบริการจัดเตรียมเอกสาร ประสานงาน และนำเข้าแรงงานต่างด้าว 3 สัญชาติ (เมียนมา, ลาว, กัมพูชา) อย่างมีจริยธรรม ถูกต้องตามมาตรฐานของกระทรวงแรงงาน", "We coordinate documentation and the compliant recruitment of workers from Myanmar, Laos, and Cambodia in line with Ministry of Labour requirements."],
+    ["นำเข้าและรายงานตัวครบวงจร", "End-to-end onboarding and reporting"],
+    ["จัดการเอกสาร MOU ข้ามแดนอย่างราบรื่น ย้ายนายจ้าง และประสานงานส่งคนถึงโรงงาน", "Coordinate cross-border MOU documentation, employer transfers, and worker arrival at the workplace."],
+    ["รายงานที่พักอาศัย การตรวจสุขภาพประจำปี และประสานงานเรื่องใบอนุญาตหมดอายุล่วงหน้า", "Support accommodation reporting, annual health checks, and proactive permit-renewal coordination."],
+    ["การดำเนินการรวดเร็วและถูกต้อง 100%", "A structured and compliant process"],
+    ["หมดกังวลเรื่องคดีความทางกฎหมายแรงงานและบทลงโทษจากทางภาครัฐ", "Reduce exposure to employment-law issues and government penalties."],
+    ["วีซ่า ใบอนุญาตทำงาน และรายงานตัว 90 วัน", "Visas, work permits, and 90-day reporting"],
+    ["อำนวยความสะดวกบุคลากรระดับผู้บริหารและพนักงานต่างชาติ — เราช่วยลดความยุ่งยากของงานวีซ่าและเวิร์คเพอร์มิต มอบประสบการณ์การย้ายถิ่นฐานทำงานในไทยอย่างไร้กังวลให้กับกลุ่มนักลงทุนและผู้เชี่ยวชาญต่างชาติ", "Visa and work-permit support for executives, investors, and foreign professionals relocating to work in Thailand."],
+    ["ยื่นเอกสารอนุมัติจ้างงานชาวต่างชาติตามมาตรฐานบีโอไอ (BOI) และวีซ่าทำงานทุกประเภท", "Prepare foreign-employment applications under BOI requirements and other work-visa categories."],
+    ["แจ้งรายงานตัว 90 วันและดำเนินต่ออายุใบอนุญาตทำงานแบบไร้รอยต่อโดยเจ้าหน้าที่ดูแลส่วนตัว", "Coordinate 90-day reporting and work-permit renewals through a dedicated contact."],
+    ["ติดต่อประสานงานสำนักงานตรวจคนเข้าเมืองอย่างใกล้ชิด", "Close coordination with immigration authorities"],
+    ["เจ้าหน้าที่ส่งเอกสารและรับ-ส่งเอกสารด่วนตรงถึงบริษัท", "Document collection and delivery support"],
+    ["กลยุทธ์ โครงสร้างองค์กร เงินเดือน และ KPI", "HR strategy, organization design, salary structures, and KPIs"],
+    ["วางรากฐานและพัฒนาระบบบริหารจัดการทรัพยากรมนุษย์เพื่อทรานส์ฟอร์มธุรกิจให้พร้อมรับมือการเติบโตและการแข่งขัน", "Build and improve HR systems that help your organization scale and compete effectively."],
+    ["ขับเคลื่อนด้วยข้อมูลวิเคราะห์จริง", "Decisions supported by practical analysis"],
+    ["ปรับปรุงความสอดคล้องตามกฎหมายแรงงาน พร้อมส่งมอบคุณค่าการเป็นองค์กรต้นแบบที่น่าทำงานด้วย", "Improve employment-law alignment while building a stronger employee experience."],
+    ["ขั้นตอนการให้บริการ", "How our service works"],
+    ["7 ขั้นตอนมาตรฐานตั้งแต่ติดต่อครั้งแรกจนถึงการดูแลต่อเนื่องรายเดือน", "Seven clear steps from the first conversation to ongoing monthly support."],
+    ["รับความต้องการ", "Discovery"],
+    ["แจ้งโจทย์และข้อมูลเบื้องต้น", "Share your goals and initial information"],
+    ["วิเคราะห์และให้คำปรึกษา", "Consultation"],
+    ["ทำความเข้าใจกระบวนการปัจจุบัน", "Review your current process"],
+    ["นำเสนอแผนบริการ", "Service proposal"],
+    ["สรุปขอบเขต ระยะเวลา และราคา", "Confirm scope, timeline, and pricing"],
+    ["ยืนยันข้อตกลง", "Agreement"],
+    ["ตรวจสอบเงื่อนไขและลงนาม", "Review terms and sign the agreement"],
+    ["เตรียมระบบ", "Setup"],
+    ["รับข้อมูลและตั้งค่าการทำงาน", "Collect data and configure the workflow"],
+    ["เริ่มให้บริการ", "Go live"],
+    ["ทดสอบและเปิดใช้งานจริง", "Validate and launch the service"],
+    ["ดูแลต่อเนื่อง", "Ongoing support"],
+    ["ติดตามผลและช่วยเหลือทุกเดือน", "Monthly follow-up and assistance"],
+    ["เส้นทางความร่วมมือ", "Customer journey"],
+    ["มุมมองฝั่งลูกค้า ตั้งแต่ติดต่อครั้งแรกจนระบบเริ่มทำงานเต็มรูปแบบ", "What clients can expect from the first contact through full service launch."],
+    ["รับรายละเอียดผ่านช่องทางด่วน", "Share initial requirements"],
+    ["ประชุมประเมินระบบที่ใช้อยู่จริง", "Review the current operating process"],
+    ["ปรับแผนที่เหมาะสมตามงบประมาณ", "Tailor the plan to priorities and budget"],
+    ["ความสอดคล้องความร่วมมือทางกฎหมาย", "Confirm commercial and legal terms"],
+    ["ถ่ายโอนฐานข้อมูลขององค์กรตั้งเดิม", "Transfer and prepare existing data"],
+    ["พร้อมบริการและช่วยประหยัดเวลาเต็มพิกัด", "Launch with ongoing support"],
+    ["ทำไมต้องเลือกเรา", "Why choose us"],
+    ["จุดแข็งที่ทำให้องค์กรชั้นนำไว้วางใจให้เราดูแลงานทรัพยากรบุคคล", "The strengths behind our long-term client partnerships."],
+    ["ทีมงานที่ปรึกษา HR ระดับมืออาชีพที่มีประสบการณ์การทำงานในองค์กรสากลมามากกว่า 15 ปี", "Professional HR consultants with more than 15 years of experience in international organizations."],
+    ["รักษาข้อมูลพนักงานและฐานเงินเดือนอย่างเป็นความลับขั้นสูงสุดด้วยมาตรฐานไอทีระดับสากล", "Confidential handling of employee and payroll information through controlled working processes."],
+    ["ตอบกลับไว แก้ไขปัญหาได้อย่างรวดเร็วทันใจ มีเจ้าหน้าที่ดูแลส่วนตัวประจำเป็นรายบริษัท", "Responsive assistance with a dedicated coordinator for each client organization."],
+    ["การดำเนินการทุกขั้นตอนตรวจสอบซ้ำกับข้อบังคับแรงงานฉบับปัจจุบันอย่างสม่ำเสมอ", "Processes are reviewed against current employment requirements on an ongoing basis."],
+    ["เอกสารรายงานที่ส่งมอบ", "Service deliverables"],
+    ["รายงานที่เป็นระบบ ตรวจสอบได้ง่ายผ่าน Dashboard", "Structured reports that are easy to review"],
+    ["เราส่งมอบข้อมูลที่มีโครงสร้างสมบูรณ์ ถูกต้อง และจัดส่งไฟล์ในรูปแบบดิจิทัลที่สามารถนำไปใช้วิเคราะห์ประสิทธิภาพองค์กรต่อได้อย่างรวดเร็ว", "Receive structured digital files that are ready for operational review and management analysis."],
+    ["สลิปเงินเดือนพนักงานทั้งแบบเอกสารและไฟล์ดิจิทัล", "Employee payslips in printed and digital formats"],
+    ["ไฟล์นำส่งธนาคารสำหรับโอนเงินเดือนพร้อมใช้งานทันที", "Bank-ready payroll transfer files"],
+    ["รายงานสรุปค่าใช้จ่ายและข้อมูลบุคคลสำหรับผู้บริหาร", "Management summaries for payroll costs and HR data"],
+    ["รายงานตรงเวลาทุกรอบสิ้นเดือน", "Reports delivered for each agreed payroll cycle"],
+    ["ส่งมอบตามกำหนดทุกงวด ไม่มีความดีเลย์", "Delivery schedules are confirmed during service setup."],
+    ["พร้อมช่วยส่งชุดยื่นหน่วยงานราชการ", "Government submission support"],
+    ["ทั้งกรมสรรพากรและสำนักงานประกันสังคม", "Support for Revenue Department and Social Security Office submissions."],
+    ["เลือกบริการให้เหมาะกับองค์กร", "Choose the right service for your organization"],
+    ["เริ่มจากบริการเดียว หรือให้ทีมงานช่วยออกแบบขอบเขตงานร่วมกันตามขนาดและเป้าหมายของธุรกิจ", "Start with one service or work with our team to design a solution around your size and business goals."],
+    ["ประเมินราคาได้ทันที", "Instant estimate"],
+    ["Payroll รายเดือน", "Monthly payroll"],
+    ["เหมาะกับองค์กรที่ต้องการลดภาระการคำนวณเงินเดือน ภาษี ประกันสังคม และการจัดทำรายงานประจำงวด", "For organizations that want to reduce the workload of payroll, tax, social security, and recurring reports."],
+    ["เลือกแพ็กเกจ Lite, Pro หรือ Premium", "Choose Lite, Pro, or Premium"],
+    ["ดูราคาโดยประมาณตามจำนวนพนักงาน", "Estimate pricing by employee count"],
+    ["เปรียบเทียบฟังก์ชันก่อนตัดสินใจ", "Compare included features"],
+    ["คำนวณราคา Payroll →", "Calculate payroll pricing →"],
+    ["เลือกใช้เป็นรายบริการ", "Choose individual services"],
+    ["บริการ HR เฉพาะด้าน", "Specialist HR services"],
+    ["เลือกเฉพาะงานที่องค์กรต้องการผู้เชี่ยวชาญ เช่น สรรหาบุคลากร วีซ่าและใบอนุญาตทำงาน หรือแรงงานต่างด้าว", "Choose the specialist support you need, including recruitment, visas and work permits, or migrant-worker services."],
+    ["กำหนดขอบเขตงานตามความต้องการ", "Define a scope around your needs"],
+    ["มีผู้ประสานงานดูแลแต่ละโครงการ", "Work with a dedicated coordinator"],
+    ["เริ่มจากบริการเดียวและขยายภายหลังได้", "Start with one service and expand later"],
+    ["ดูรายละเอียดบริการ", "Explore services"],
+    ["ออกแบบร่วมกับทีมที่ปรึกษา", "Designed with our consultants"],
+    ["โซลูชันสำหรับองค์กร", "Organization-wide solutions"],
+    ["สำหรับองค์กรที่ต้องการวางระบบ HR ใหม่ เชื่อมหลายบริการ หรือปรับกระบวนการให้รองรับการเติบโต", "For organizations that need a new HR operating model, connected services, or processes built for growth."],
+    ["สำรวจกระบวนการและปัญหาปัจจุบัน", "Review current processes and challenges"],
+    ["วางแผนขอบเขต ระยะเวลา และผลลัพธ์", "Plan scope, timeline, and outcomes"],
+    ["จัดทำข้อเสนอให้เหมาะกับองค์กร", "Receive a tailored proposal"],
+    ["ปรึกษาทีมงาน", "Talk to our team"],
+    ["มาตรฐานการให้บริการ (SLA)", "Service standards (SLA)"],
+    ["เรากำหนด SLA ชัดเจนในสัญญาเพื่อรักษาความพึงพอใจและประสิทธิภาพการทำงานสูงสุดแก่พนักงานและบริษัทคู่ค้าของคุณ", "Service levels are clearly defined in the agreement so expectations, response times, and delivery responsibilities remain transparent."],
+    ["ความถูกต้องของ Payroll", "Payroll accuracy"],
+    ["ตรวจสอบข้อมูลเป็นระบบก่อนส่งมอบในทุกรอบการจ่ายเงินเดือน", "Payroll data is systematically reviewed before every scheduled delivery."],
+    ["≤ 2 ชั่วโมง", "≤ 2 hours"],
+    ["เวลาตอบกลับเบื้องต้น", "Initial response time"],
+    ["≤ 3 วัน", "≤ 3 days"],
+    ["จัดส่งร่างรายงาน", "Draft report delivery"],
+    ["สายด่วนสำหรับงานสำคัญ", "Priority support channel"],
+    ["ประสานงานกรณีเร่งด่วน", "Urgent-case coordination"],
+    ["✓ กำหนดขอบเขต SLA ในสัญญาชัดเจน", "✓ SLA scope defined in the agreement"],
+    ["✓ มีผู้ประสานงานประจำบริษัท", "✓ Dedicated client coordinator"],
+    ["✓ ติดตามและรายงานสถานะอย่างต่อเนื่อง", "✓ Ongoing status tracking and reporting"],
+    ["คำถามที่ลูกค้าถามบ่อย", "Frequently asked questions"],
+    ["ข้อมูลเบื้องต้นก่อนเริ่มพูดคุยกับทีมงาน หากต้องการคำแนะนำเฉพาะองค์กร สามารถติดต่อเพื่อประเมินได้โดยไม่มีค่าใช้จ่าย", "Helpful information before speaking with our team. Contact us for an initial assessment tailored to your organization."],
+    ["ขอคำปรึกษาเบื้องต้น →", "Request an initial consultation →"],
+    ["ค่าบริการ Payroll คิดอย่างไร?", "How is payroll pricing calculated?"],
+    ["ค่าบริการประเมินจากจำนวนพนักงานและแพ็กเกจที่เลือก โดย 30 คนแรกเป็นราคาเหมารายเดือน และจำนวนที่เกินคิดเพิ่มตามช่วงจำนวนพนักงาน สามารถทดลองคำนวณได้ทันทีในหน้าคำนวณราคา", "Pricing is estimated from your employee count and selected package. The first 30 employees use a flat monthly fee, with additional employees charged at the applicable volume tier."],
+    ["ต้องเตรียมข้อมูลอะไรเพื่อเริ่มประเมินบริการ?", "What information is needed for an initial assessment?"],
+    ["เตรียมจำนวนพนักงาน รอบการจ่ายเงินเดือน ระบบที่ใช้อยู่ และขอบเขตบริการที่ต้องการ ข้อมูลเหล่านี้ช่วยให้ทีมงานวางแนวทางได้ตรงกับองค์กร", "Prepare your employee count, payroll cycle, current systems, and required service scope so our team can recommend a suitable approach."],
+    ["ใช้เวลาเริ่มระบบนานเท่าไร?", "How long does implementation take?"],
+    ["ระยะเวลาเริ่มงานขึ้นอยู่กับความพร้อมของข้อมูล ระบบเดิม และขอบเขตบริการ ทีมงานจะแจ้งแผนดำเนินงานและวันเริ่มใช้งานหลังประเมินรายละเอียดร่วมกัน", "Timing depends on data readiness, existing systems, and service scope. We confirm the implementation plan and go-live date after the initial assessment."],
+    ["ข้อมูลเงินเดือนและข้อมูลพนักงานได้รับการดูแลอย่างไร?", "How is payroll and employee data handled?"],
+    ["ทีมงานกำหนดสิทธิ์เข้าถึงข้อมูลตามหน้าที่ ตรวจสอบข้อมูลก่อนส่งมอบ และตกลงช่องทางรับส่งข้อมูลที่เหมาะสมกับองค์กรก่อนเริ่มบริการ", "Access is limited by role, information is checked before delivery, and secure transfer methods are agreed with your organization before service begins."],
+    ["เลือกใช้เฉพาะบางบริการได้หรือไม่?", "Can we select only certain services?"],
+    ["ได้ องค์กรสามารถเริ่มจาก Payroll, Recruitment, Visa & Work Permit หรือบริการอื่นเพียงรายการเดียว และเพิ่มบริการภายหลังได้ตามความต้องการ", "Yes. You can start with Payroll, Recruitment, Visa & Work Permit, or another individual service, then add more support as your needs evolve."],
+    ["ติดต่อเรา", "Contact us"],
+    ["ติดต่อเพื่อขอรับบริการประเมินความสอดคล้องระบบ HR และเอกสารวิเคราะห์เบื้องต้นฟรีไม่มีค่าใช้จ่าย", "Contact us for an initial HR process assessment and recommendations for your organization."],
+    ["ประเมินค่าบริการ Payroll ด้วยตัวเอง →", "Estimate payroll pricing →"],
+    ["เริ่มต้นวางระบบ HR", "Build an HR operating model"],
+    ["ที่เหมาะกับธุรกิจคุณ", "that fits your business"],
+    ["ส่งข้อมูลจำนวนพนักงานและบริการที่สนใจ ทีมงานจะช่วยประเมินแนวทางเบื้องต้นให้", "Share your employee count and services of interest, and our team will recommend an initial approach."],
+    ["ประเมินความต้องการโดยผู้เชี่ยวชาญ", "Initial needs assessment"],
+    ["แนะนำแพ็กเกจตามขนาดองค์กร", "Service recommendations for your organization"],
+    ["ไม่มีค่าใช้จ่ายในการปรึกษาครั้งแรก", "Complimentary initial consultation"],
+    ["คุยกับเราทาง LINE →", "Chat with us on LINE →"],
+    ["คำนวณราคา Payroll รายเดือน | One Stop HR", "Monthly Payroll Pricing Calculator | One Stop HR"],
+    ["รู้ค่าบริการ Payroll", "Estimate your payroll fee"],
+    ["ได้ทันทีในไม่กี่วินาที", "in just a few seconds"],
+    ["กรอกจำนวนพนักงานเพียงครั้งเดียว ระบบจะคำนวณราคาและเปรียบเทียบทุกแพ็กเกจให้อัตโนมัติ", "Enter your employee count to calculate estimated monthly pricing and compare all packages."],
+    ["กรอกจำนวนพนักงาน", "Enter employee count"],
+    ["ระบุจำนวนปัจจุบันของบริษัท", "Use your current workforce size"],
+    ["เปรียบเทียบ 3 แพ็กเกจ", "Compare 3 packages"],
+    ["ดูยอดรวมและค่าเฉลี่ยต่อคน", "Review total and per-employee cost"],
+    ["เลือกบริการที่เหมาะสม", "Choose the right package"],
+    ["ตรวจสอบฟังก์ชันก่อนติดต่อทีมงาน", "Review included services before contacting us"],
+    ["คำนวณค่าบริการรายเดือน", "Calculate monthly service fees"],
+    ["จำนวนพนักงานปัจจุบัน", "Current employee count"],
+    ["ระบุจำนวนพนักงาน", "Number of employees"],
+    ["คน", "employees"],
+    ["ช่วงอัตรา:", "Pricing tier:"],
+    ["วิธีคิดค่าบริการ", "How pricing works"],
+    ["30 คนแรกเป็นราคาเหมารายเดือน ส่วนจำนวนที่เกินจะคิดเพิ่มตามช่วงจำนวนพนักงานขององค์กร", "The first 30 employees use a flat monthly fee. Additional employees are charged according to your organization's volume tier."],
+    ["จำนวนพนักงาน (คน)", "Employee count"],
+    ["Lite (บาท)", "Lite (THB)"],
+    ["Pro (บาท)", "Pro (THB)"],
+    ["Premium (บาท)", "Premium (THB)"],
+    ["ราคานี้ใช้สำหรับการประเมินเบื้องต้น ขอบเขตงานจริงอาจปรับตามรอบจ่าย รูปแบบข้อมูล ระบบเดิม และบริการเพิ่มเติมที่องค์กรเลือกใช้", "These prices are initial estimates. Final scope may vary based on payroll cycles, data format, existing systems, and any additional services selected."],
+    ["ตารางเปรียบเทียบฟังก์ชันโดยละเอียด", "Detailed package comparison"],
+    ["เปรียบเทียบความแตกต่างด้านการบริการของแต่ละแพ็กเกจอย่างละเอียด", "Compare the services included in Lite, Pro, and Premium."],
+    ["บริการและโซลูชันที่ครอบคลุม", "Included services and solutions"],
+    ["ต้องการภาพรวมบริการทั้งหมดขององค์กร ดูได้ที่", "Looking for other HR services? Visit our"],
+    ["หน้าโปรไฟล์บริษัท", "company profile"],
+    ["พร้อมรับใบเสนอราคาที่เหมาะกับองค์กร?", "Ready for a quote tailored to your organization?"],
+    ["ส่งจำนวนพนักงาน รอบการจ่าย และบริการที่สนใจให้ทีมงานตรวจสอบ เพื่อยืนยันขอบเขตและราคาอย่างเป็นทางการ", "Share your employee count, payroll cycle, and required services so our team can confirm the final scope and official pricing."],
+    ["ประเมินความต้องการเบื้องต้น", "Review your initial requirements"],
+    ["สรุปขอบเขตและแผนเริ่มงาน", "Confirm scope and implementation plan"],
+    ["จัดทำใบเสนอราคาสำหรับองค์กร", "Prepare an organization-specific quote"],
+    ["ติดต่อทีมงานทาง LINE →", "Contact our team on LINE →"],
+    ["© One Stop HR Co., Ltd. — ราคาที่แสดงเป็นการประเมินเบื้องต้น โปรดติดต่อทีมงานเพื่อรับใบเสนอราคาอย่างเป็นทางการ", "© One Stop HR Co., Ltd. — Displayed prices are estimates. Contact our team for an official quotation."],
+    ["กลับหน้าโปรไฟล์บริษัท", "Back to company profile"],
+    ["0 - 30 คน (ราคาเหมา)", "0 - 30 employees (flat fee)"],
+    ["31 - 200 คน (เพิ่มต่อคน)*", "31 - 200 employees (per additional employee)*"],
+    ["201 - 500 คน (เพิ่มต่อคน)", "201 - 500 employees (per additional employee)"],
+    [">= 501 คนขึ้นไป (เพิ่มต่อคน)", "501+ employees (per additional employee)"],
+    ["0 - 30 คน", "0 - 30 employees"],
+    ["31 - 200 คน", "31 - 200 employees"],
+    ["201 - 500 คน", "201 - 500 employees"],
+    [">= 501 คนขึ้นไป", "501+ employees"],
+    ["คำนวณเงินเดือน & นำส่งภาษีพื้นฐาน เหมาะสำหรับธุรกิจขนาดเล็ก", "Core payroll calculation and basic tax submissions for smaller businesses."],
+    ["สตาร์ทอัพ หรือธุรกิจพนักงาน 1-30 คน ที่ต้องการความถูกต้องและประหยัดงบ", "Startups and businesses with 1-30 employees seeking a cost-effective payroll service."],
+    ["จัดการประวัติพนักงาน สลิปออนไลน์ และรายงานราชการสิ้นปีครบถ้วน", "Employee records, online payslips, and year-end statutory reports."],
+    ["SME หรือบริษัทที่ต้องการลดงานเอกสารบุคคลและเปลี่ยนมาใช้สลิปออนไลน์", "SMEs that want to reduce HR paperwork and move to online payslips."],
+    ["ดูแลเต็มรูปแบบ ครอบคลุมตรวจเวลาทำงาน สลิปเข้ารหัส และกองทุนสำรองฯ", "Full-service support including attendance review, password-protected payslips, and provident fund processing."],
+    ["บริษัทขนาดกลาง-ใหญ่ ที่ต้องการเอาท์ซอร์สงานระบบบุคคลและการตอกบัตรเต็มรูปแบบ", "Mid-sized and larger organizations outsourcing payroll administration and attendance processing."],
+    ["1. บริการคำนวณ เงินเดือน-ค่าแรง ค่าล่วงเวลา ตามระเบียบข้อบังคับ", "1. Salary, wages, and overtime calculations based on company rules"],
+    ["2. บริการคำนวณเงินประกันสังคม กองทุนสำรองเลี้ยงชีพ และภาษีหัก ณ ที่จ่าย", "2. Social security, provident fund, and withholding-tax calculations"],
+    ["3. บริการจัดทำรายงานเงินเดือนประจำงวด และรายงานสรุปค่าใช้จ่ายส่งธนาคาร", "3. Payroll-cycle reports and bank transfer summaries"],
+    ["4. บริการจัดทำรายงานการหักภาษี ณ ที่จ่ายรายเดือน (ภ.ง.ด. 1)", "4. Monthly withholding-tax report (PND 1)"],
+    ["5. บริการจัดทำแบบนำส่งเงินประกันสังคม (สปส.1-01)", "5. Social security submission form (SPS 1-01)"],
+    ["6. บริการนำส่งภาษีและประกันสังคมรายเดือน", "6. Monthly tax and social security submissions"],
+    ["7. บริการสลิปเงินเดือนสำหรับพนักงาน (Payslip)", "7. Employee payslips"],
+    ["สลิปเงินเดือนทั่วไป", "Standard payslip"],
+    ["8. บริการจัดทำทะเบียนประวัติพนักงาน (Employee Database)", "8. Employee database administration"],
+    ["9. บริการแจ้งเข้า-ออกพนักงาน ประกันสังคม", "9. Social security employee registration and termination"],
+    ["10. บริการแจ้งเข้า-ออกพนักงาน กองทุนสำรองเลี้ยงชีพ", "10. Provident fund employee registration and termination"],
+    ["11. บริการออกหนังสือรับรองหักภาษี ณ ที่จ่าย (50 ทวิ) และรายงานสิ้นปี (ภ.ง.ด.1ก, ภ.ง.ด.91, กท.20ก)", "11. Withholding-tax certificates (50 Tawi) and year-end reports"],
+    ["12. บริการออกหนังสือรับรองเงินเดือน และหนังสือรับรองการทำงาน", "12. Salary and employment certificates"],
+    ["13. บริการรวมรวมและตรวจสอบบัตรตอกพนักงาน (Time Attendance)", "13. Time-attendance data collection and review"],
+    ["14. บริการรายงานสรุปเวลาการปฏิบัติงาน (Attendance Summary Report)", "14. Attendance summary report"]
+  ]);
+
+  const normalize = value => value.replace(/\s+/g, " ").trim();
+
+  function translateTextNode(node) {
+    const value = node.nodeValue;
+    const key = normalize(value);
+    const translated = translations.get(key);
+    if (!translated) return;
+    const leading = value.match(/^\s*/)[0];
+    const trailing = value.match(/\s*$/)[0];
+    node.nodeValue = leading + translated + trailing;
+  }
+
+  function translateTree(root) {
+    if (root.nodeType === Node.TEXT_NODE) {
+      translateTextNode(root);
+      return;
+    }
+    if (root.nodeType !== Node.ELEMENT_NODE && root.nodeType !== Node.DOCUMENT_FRAGMENT_NODE) return;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    let node;
+    while ((node = walker.nextNode())) translateTextNode(node);
+  }
+
+  function rewriteEnglishLinks() {
+    document.querySelectorAll('a[href]:not([data-lang])').forEach(link => {
+      const href = link.getAttribute("href");
+      if (href === "index.html") link.setAttribute("href", "index.html?lang=en");
+      else if (href && href.startsWith("index.html#")) link.setAttribute("href", href.replace("index.html#", "index.html?lang=en#"));
+      else if (href === "pricing.html") link.setAttribute("href", "pricing.html?lang=en");
+    });
+  }
+
+  function languageTarget(lang) {
+    const page = document.body?.dataset.page;
+    const file = page === "pricing" ? "pricing.html" : "index.html";
+    return `${file}?lang=${lang}`;
+  }
+
+  function updateEnglishMetadata() {
+    const page = document.body?.dataset.page;
+    const home = page === "home";
+    const title = home
+      ? "Payroll Outsourcing & Complete HR Services | One Stop HR"
+      : "Monthly Payroll Pricing Calculator | One Stop HR";
+    const description = home
+      ? "One Stop HR Solutions provides payroll outsourcing, recruitment, work permit, migrant-worker, corporate event, and HR consulting services in Thailand."
+      : "Estimate monthly payroll outsourcing fees by employee count and compare Lite, Pro, and Premium packages.";
+    document.title = title;
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.href = `${location.origin}${location.pathname}?lang=en`;
+    document.querySelectorAll('meta[name="description"],meta[property="og:description"],meta[name="twitter:description"]').forEach(meta => meta.content = description);
+    document.querySelectorAll('meta[property="og:title"],meta[name="twitter:title"]').forEach(meta => meta.content = title);
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.content = `${location.origin}${location.pathname}?lang=en`;
+    const locale = document.querySelector('meta[property="og:locale"]');
+    if (locale) locale.content = "en_US";
+    document.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+      try {
+        const data = JSON.parse(script.textContent);
+        if (data["@type"] === "ProfessionalService") {
+          data.url = `${location.origin}${location.pathname}?lang=en`;
+          data.description = "Payroll outsourcing and complete HR services for organizations in Thailand.";
+        } else if (data["@type"] === "WebApplication") {
+          data.url = `${location.origin}${location.pathname}?lang=en`;
+          data.description = "Monthly payroll pricing calculator based on employee count.";
+        } else if (data["@type"] === "FAQPage") {
+          data.mainEntity = [
+            {"@type":"Question","name":"How is payroll pricing calculated?","acceptedAnswer":{"@type":"Answer","text":"Pricing is based on employee count and the selected package. The first 30 employees use a flat monthly fee, with additional employees charged at the applicable volume tier."}},
+            {"@type":"Question","name":"What information is needed for an initial assessment?","acceptedAnswer":{"@type":"Answer","text":"Prepare your employee count, payroll cycle, current systems, and required service scope so the team can recommend a suitable approach."}},
+            {"@type":"Question","name":"Can we select only certain services?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can start with Payroll, Recruitment, Visa and Work Permit, or another individual service, then add support as your needs evolve."}}
+          ];
+        }
+        script.textContent = JSON.stringify(data);
+      } catch (_) {}
+    });
+    const nav = document.querySelector("nav.menu");
+    const toggle = document.querySelector(".menu-toggle");
+    const switcher = document.querySelector(".lang-switch");
+    if (nav) nav.setAttribute("aria-label", "Main navigation");
+    if (toggle) toggle.setAttribute("aria-label", "Open menu");
+    if (switcher) switcher.setAttribute("aria-label", "Language");
+    document.querySelectorAll("[aria-label]").forEach(element => {
+      const label = element.getAttribute("aria-label");
+      if (label?.startsWith("ดูรายละเอียด ")) element.setAttribute("aria-label", label.replace("ดูรายละเอียด ", "View details: "));
+    });
+    document.querySelectorAll("img[alt]").forEach(image => {
+      if (image.alt === "ทีมผู้เชี่ยวชาญวิเคราะห์และวางระบบทรัพยากรบุคคล") {
+        image.alt = "HR specialists reviewing workforce systems and business processes";
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("[data-lang]").forEach(link => {
+      const active = link.dataset.lang === currentLang;
+      link.classList.toggle("active", active);
+      if (active) link.setAttribute("aria-current", "page");
+      else link.removeAttribute("aria-current");
+      link.addEventListener("click", () => {
+        try { localStorage.setItem("oneStopHrLanguage", link.dataset.lang); } catch (_) {}
+      });
+    });
+
+    let preferred = null;
+    try { preferred = localStorage.getItem("oneStopHrLanguage"); } catch (_) {}
+    if (!requestedLang && preferred && preferred !== currentLang) {
+      location.replace(languageTarget(preferred) + location.hash);
+      return;
+    }
+
+    if (requestedLang === "en" || requestedLang === "th") {
+      try { localStorage.setItem("oneStopHrLanguage", requestedLang); } catch (_) {}
+    }
+
+    if (currentLang !== "en") return;
+    translateTree(document.body);
+    rewriteEnglishLinks();
+    updateEnglishMetadata();
+    const observer = new MutationObserver(records => {
+      records.forEach(record => record.addedNodes.forEach(translateTree));
+    });
+    observer.observe(document.body, {childList:true, subtree:true});
+  });
+})();
