@@ -283,16 +283,17 @@
   function rewriteEnglishLinks() {
     document.querySelectorAll('a[href]:not([data-lang])').forEach(link => {
       const href = link.getAttribute("href");
-      if (href === "index.html") link.setAttribute("href", "index.html?lang=en");
-      else if (href && href.startsWith("index.html#")) link.setAttribute("href", href.replace("index.html#", "index.html?lang=en#"));
+      if (href === "index.html") link.setAttribute("href", "./?lang=en");
+      else if (href && href.startsWith("index.html#")) link.setAttribute("href", href.replace("index.html#", "./?lang=en#"));
       else if (href === "pricing.html") link.setAttribute("href", "pricing.html?lang=en");
     });
   }
 
   function languageTarget(lang) {
     const page = document.body?.dataset.page;
-    const file = page === "pricing" ? "pricing.html" : "index.html";
-    return `${file}?lang=${lang}`;
+    if (page === "pricing") return `pricing.html?lang=${lang}`;
+    const homePath = location.pathname.replace(/index\.html$/, "");
+    return `${homePath}?lang=${lang}`;
   }
 
   function updateEnglishMetadata() {
@@ -305,22 +306,24 @@
       ? "One Stop HR Solutions provides payroll outsourcing, recruitment, work permit, migrant-worker, corporate event, and HR consulting services in Thailand."
       : "Estimate monthly payroll outsourcing fees by employee count and compare Lite, Pro, and Premium packages.";
     document.title = title;
+    const pagePath = home ? location.pathname.replace(/index\.html$/, "") : location.pathname;
+    const englishUrl = `${location.origin}${pagePath}?lang=en`;
     const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) canonical.href = `${location.origin}${location.pathname}?lang=en`;
+    if (canonical) canonical.href = englishUrl;
     document.querySelectorAll('meta[name="description"],meta[property="og:description"],meta[name="twitter:description"]').forEach(meta => meta.content = description);
     document.querySelectorAll('meta[property="og:title"],meta[name="twitter:title"]').forEach(meta => meta.content = title);
     const ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogUrl) ogUrl.content = `${location.origin}${location.pathname}?lang=en`;
+    if (ogUrl) ogUrl.content = englishUrl;
     const locale = document.querySelector('meta[property="og:locale"]');
     if (locale) locale.content = "en_US";
     document.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
       try {
         const data = JSON.parse(script.textContent);
         if (data["@type"] === "ProfessionalService") {
-          data.url = `${location.origin}${location.pathname}?lang=en`;
+          data.url = englishUrl;
           data.description = "Payroll outsourcing and complete HR services for organizations in Thailand.";
         } else if (data["@type"] === "WebApplication") {
-          data.url = `${location.origin}${location.pathname}?lang=en`;
+          data.url = englishUrl;
           data.description = "Monthly payroll pricing calculator based on employee count.";
         } else if (data["@type"] === "FAQPage") {
           data.mainEntity = [
