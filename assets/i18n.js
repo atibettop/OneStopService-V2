@@ -9,6 +9,8 @@
     ["สแกนเพื่อคุยกับทีมงานทาง LINE", "Scan to chat with our team on LINE"],
     ["เปิดกล้องมือถือสแกน หรือถ้าดูจากมือถืออยู่แล้ว", "Scan with your phone camera, or if you are already on mobile"],
     ["กดเพิ่มเพื่อนได้เลย", "tap to add us"],
+    ["หรือค้นหาไอดี", "or search for the ID"],
+    ["ในแอป LINE", "in the LINE app"],
     ["ติดต่อเรา", "Contact"],
     ["เตรียมข้อมูลและติดต่อทีมงาน", "Get ready and contact us"],
     ["ส่งข้อมูลมาให้ทีมงาน", "Send us your details"],

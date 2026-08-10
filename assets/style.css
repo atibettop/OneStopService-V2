@@ -225,6 +225,7 @@ tbody tr:hover td{background:rgba(125,160,200,.07)}
 .line-qr b{display:block;margin-bottom:4px}
 .line-qr span{color:var(--muted);font-size:.86rem}
 .line-qr a{color:#06C755;font-weight:700}
+.line-qr .line-id{display:inline;color:var(--ink);font-weight:800;letter-spacing:.02em}
 @media(max-width:520px){ .line-qr{flex-direction:column;text-align:center} }
 
 /* ลิงก์ข้ามไปเนื้อหาหลักสำหรับผู้ใช้คีย์บอร์ด */
