@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>One Stop HR Solutions – โปรไฟล์บริษัท</title>
 <meta name="description" content="ผู้ให้บริการด้านทรัพยากรบุคคลแบบครบวงจร Payroll, Recruitment, Visa &amp; Work Permit, แรงงานต่างด้าว, Event และ HR Consulting">
-<link rel="stylesheet" href="assets/style.css?v=b893c3b">
+<link rel="stylesheet" href="assets/style.css?v=20260810-2">
 </head>
 <body>
 
@@ -227,11 +227,13 @@
       <summary><span class="badge">3</span><span><b>Event Management</b><small>กิจกรรมองค์กร สัมมนา และงานเลี้ยงประจำปี</small></span><i>ดูรายละเอียด</i></summary>
       <p class="desc">การจัดงานกิจกรรมองค์กรครบวงจร — สร้างวัฒนธรรมที่แข็งแกร่งด้วยการจัดกิจกรรมทีมบิวดิ้ง
         งานสัมมนา หรือเลี้ยงสังสรรค์ประจำปีโดยมืออาชีพที่พร้อมคิดคอนเซปต์และดูแลทุกรายละเอียด</p>
+      <h4>บริการที่ครอบคลุม</h4>
       <div class="scopes" style="grid-template-columns:1fr">
         <span>Team Building &amp; Outing</span>
         <span>Corporate Seminar &amp; AGM</span>
         <span>Annual Party &amp; Family Day</span>
       </div>
+      <h4>จุดเด่น</h4>
       <div class="chips"><span>ดีไซน์กิจกรรมตอบโจทย์กลุ่มเป้าหมาย</span><span>อุปกรณ์พร้อมไฟแสงสีเสียงครบครัน</span></div>
     </details>
 
@@ -531,6 +533,15 @@ document.querySelectorAll('.solution-tile a').forEach(link => {
   link.addEventListener('click', () => {
     const detail = document.querySelector(link.getAttribute('href'));
     if (detail) detail.open = true;
+  });
+});
+const serviceDetails = [...document.querySelectorAll('details.svc')];
+serviceDetails.forEach(detail => {
+  detail.addEventListener('toggle', () => {
+    if (!detail.open) return;
+    serviceDetails.forEach(other => {
+      if (other !== detail) other.open = false;
+    });
   });
 });
 </script>
