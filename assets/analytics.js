@@ -12,7 +12,7 @@
  *    รูปแบบ "G-XXXXXXXXXX" แต่ใช้คุกกี้ ต้องมีแบนเนอร์ขอความยินยอมตาม PDPA
  */
 (() => {
-  const CLOUDFLARE_TOKEN = "";
+  const CLOUDFLARE_TOKEN = "8948f45da12247bab3e0ec03651b7ff6";
   const GA4_MEASUREMENT_ID = "";
 
   // ไม่เก็บสถิติตอนเปิดไฟล์ทดสอบในเครื่อง เพื่อไม่ให้ตัวเลขเพี้ยน
@@ -22,7 +22,7 @@
 
   if (CLOUDFLARE_TOKEN) {
     const beacon = document.createElement("script");
-    beacon.defer = true;
+    beacon.type = "module";
     beacon.src = "https://static.cloudflareinsights.com/beacon.min.js";
     beacon.setAttribute("data-cf-beacon", JSON.stringify({ token: CLOUDFLARE_TOKEN }));
     document.head.appendChild(beacon);
