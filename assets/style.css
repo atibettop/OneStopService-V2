@@ -222,6 +222,10 @@ tbody tr:hover td{background:rgba(125,160,200,.07)}
 .contact-cta .channels .cic svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 .contact-cta .channels small{display:block;color:rgba(255,255,255,.62);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
 .contact-cta .channels b{font-size:.93rem;word-break:break-word}
+@media(max-width:520px){
+  .contact-cta{padding:28px 22px}
+  .contact-cta .channels a[href^="mailto:"] b{font-size:.84rem;letter-spacing:-.01em;word-break:normal}
+}
 
 /* ฟอร์มส่งรายละเอียด */
 .lead-form{margin-top:22px;padding:24px;background:var(--surface);border:1px solid var(--line);
