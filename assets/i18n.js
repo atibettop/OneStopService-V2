@@ -4,6 +4,12 @@
   const currentLang = requestedLang === "en" ? "en" : "th";
   html.lang = currentLang;
   const translations = new Map([
+    ["ข้ามไปเนื้อหาหลัก", "Skip to main content"],
+    ["ติดต่อเรา", "Contact"],
+    ["เตรียมข้อมูลและติดต่อทีมงาน", "Get ready and contact us"],
+    ["ส่งข้อมูลมาให้ทีมงาน", "Send us your details"],
+    ["ช่วยประเมินได้เลย", "and we will take it from there"],
+    ["ส่งรายละเอียดตามรายการด้านซ้ายมาทางอีเมล หรือโทรสอบถามโดยตรงในเวลาทำการ", "Email us the details listed on the left, or call during business hours."],
     ["เกี่ยวกับเรา", "About us"],
     ["บริการ", "Services"],
     ["ขั้นตอน", "Process"],
