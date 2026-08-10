@@ -5,7 +5,10 @@
   html.lang = currentLang;
   const translations = new Map([
     ["ข้ามไปเนื้อหาหลัก", "Skip to main content"],
-    ["ค้นหาด้วยเบอร์ 098-1465449", "Search by phone: 098-1465449"],
+    ["เพิ่มเพื่อนทาง LINE", "Add us on LINE"],
+    ["สแกนเพื่อคุยกับทีมงานทาง LINE", "Scan to chat with our team on LINE"],
+    ["เปิดกล้องมือถือสแกน หรือถ้าดูจากมือถืออยู่แล้ว", "Scan with your phone camera, or if you are already on mobile"],
+    ["กดเพิ่มเพื่อนได้เลย", "tap to add us"],
     ["ติดต่อเรา", "Contact"],
     ["เตรียมข้อมูลและติดต่อทีมงาน", "Get ready and contact us"],
     ["ส่งข้อมูลมาให้ทีมงาน", "Send us your details"],
@@ -355,6 +358,9 @@
     document.querySelectorAll("img[alt]").forEach(image => {
       if (image.alt === "ทีมผู้เชี่ยวชาญวิเคราะห์และวางระบบทรัพยากรบุคคล") {
         image.alt = "HR specialists reviewing workforce systems and business processes";
+      }
+      if (image.alt === "คิวอาร์โค้ดสำหรับเพิ่มเพื่อนทาง LINE") {
+        image.alt = "QR code to add One Stop HR on LINE";
       }
     });
   }
