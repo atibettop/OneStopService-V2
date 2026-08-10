@@ -1,0 +1,11 @@
+# OS / editor
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# ไฟล์ต้นฉบับที่ไม่ต้องขึ้นเว็บ (ถ้าเอามาวางในโฟลเดอร์นี้)
+*.xlsx
+*.pdf
+*.pptx

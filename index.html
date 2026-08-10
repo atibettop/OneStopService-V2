@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One Stop HR Solutions – โปรไฟล์บริษัท</title>
+<meta name="description" content="ผู้ให้บริการด้านทรัพยากรบุคคลแบบครบวงจร Payroll, Recruitment, Visa &amp; Work Permit, แรงงานต่างด้าว, Event และ HR Consulting">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- ============ ICON SPRITE ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-calc" viewBox="0 0 24 24"><rect x="4" y="2.5" width="16" height="19" rx="2.5"/><rect x="7" y="5.5" width="10" height="3.5" rx="1"/><circle cx="8.5" cy="13" r=".9"/><circle cx="12" cy="13" r=".9"/><circle cx="15.5" cy="13" r=".9"/><circle cx="8.5" cy="17.5" r=".9"/><circle cx="12" cy="17.5" r=".9"/><circle cx="15.5" cy="17.5" r=".9"/></symbol>
+  <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.4"/><path d="M2.8 20c0-3.4 2.8-5.6 6.2-5.6s6.2 2.2 6.2 5.6"/><path d="M16.4 5.2a3.2 3.2 0 0 1 0 6.1"/><path d="M17.6 14.9c2.2.6 3.6 2.4 3.6 5.1"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3.5v17"/><path d="M6 20.5h12"/><path d="M4 7h16"/><path d="M4 7l-2.4 5.4h4.8L4 7z"/><path d="M20 7l-2.4 5.4h4.8L20 7z"/><circle cx="12" cy="4.6" r="1.4"/></symbol>
+  <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M5 2.5h14v19l-2.3-1.6-2.4 1.6-2.3-1.6-2.4 1.6L7.3 20.5 5 21.5z"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.4 15.4L21 21"/></symbol>
+  <symbol id="i-event" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4"/><circle cx="9" cy="14.5" r="1.1"/><circle cx="14.5" cy="14.5" r="1.1"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><ellipse cx="12" cy="12" rx="4" ry="9"/></symbol>
+  <symbol id="i-id" viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><circle cx="8.5" cy="11" r="2.4"/><path d="M4.8 16.6c.6-1.7 2-2.6 3.7-2.6s3.1.9 3.7 2.6"/><path d="M15.5 10h4M15.5 13.5h4"/></symbol>
+  <symbol id="i-brief" viewBox="0 0 24 24"><rect x="2.5" y="7" width="19" height="13.5" rx="2.5"/><path d="M8.5 7V5.2A1.7 1.7 0 0 1 10.2 3.5h3.6A1.7 1.7 0 0 1 15.5 5.2V7"/><path d="M2.5 12.5h19"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M1.8 12S5.4 5.5 12 5.5 22.2 12 22.2 12 18.6 18.5 12 18.5 1.8 12 1.8 12z"/><circle cx="12" cy="12" r="3.2"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.2"/><circle cx="12" cy="12" r="1.6"/></symbol>
+  <symbol id="i-hands" viewBox="0 0 24 24"><path d="M2.5 9.5l4-3.5 4 3 3-1.5 4 2.5"/><path d="M2.5 9.5v5l4.5 4 2-1.8 2 1.6 2-1.6 2.5 1.8 4-4v-5"/><path d="M10.5 9l3 2.6"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="5.5"/><path d="M8.4 13.2L7 21.5l5-2.6 5 2.6-1.4-8.3"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10" width="15" height="10.5" rx="2.5"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10"/><circle cx="12" cy="15.2" r="1.3"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13.5 2.5L5 13.5h6l-.5 8L19 10.5h-6z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6.8V12l3.6 2.2"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 2.5h8l5 5v14H6z"/><path d="M14 2.5v5h5"/><path d="M9 13h6M9 17h6"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3.5 20.5h17"/><rect x="5.5" y="12" width="3.6" height="6"/><rect x="10.5" y="8" width="3.6" height="10"/><rect x="15.5" y="4.5" width="3.6" height="13.5"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 3h3l1.6 4-2 1.5a12 12 0 0 0 6.4 6.4l1.5-2 4 1.6v3a2 2 0 0 1-2.2 2A17.5 17.5 0 0 1 4.5 5.2 2 2 0 0 1 6.5 3z"/></symbol>
+  <symbol id="i-build" viewBox="0 0 24 24"><rect x="4" y="2.5" width="16" height="19" rx="2"/><path d="M8 6.5h2M14 6.5h2M8 10.5h2M14 10.5h2M8 14.5h2M14 14.5h2"/><path d="M10 21.5v-3h4v3"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M2.5 6.5a2 2 0 0 1 2-2h4l2 2.5h9a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-15a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5l8 3v6c0 5-3.4 9.2-8 10.5-4.6-1.3-8-5.5-8-10.5v-6z"/><path d="M8.8 12l2.3 2.3 4.2-4.4"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v2.8M12 18.7v2.8M2.5 12h2.8M18.7 12h2.8M5.2 5.2l2 2M16.8 16.8l2 2M18.8 5.2l-2 2M7.2 16.8l-2 2"/></symbol>
+</svg>
+
+<!-- ============ NAV ============ -->
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="dot"></span>
+      <span>ONE STOP HR SOLUTIONS
+        <small>PROFESSIONAL HR &amp; BUSINESS SUPPORT</small>
+      </span>
+    </a>
+    <nav class="menu">
+      <a href="#about" class="active">เกี่ยวกับเรา</a>
+      <a href="#solutions">บริการ</a>
+      <a href="#workflow">ขั้นตอน</a>
+      <a href="#packages">แพ็กเกจ</a>
+      <a href="#contact">ติดต่อ</a>
+      <a href="pricing.html" class="cta">คำนวณราคา</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="wrap">
+    <h1>ONE STOP<br>HR SOLUTIONS</h1>
+    <div class="rule"></div>
+    <p>Professional HR &amp; Business Support Services<br>
+       Your Trusted Partner for Complete HR Solutions</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="pricing.html">คำนวณค่าบริการ Payroll →</a>
+      <a class="btn btn-ghost" href="#solutions">ดูบริการทั้งหมด</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section class="block" id="about">
+  <div class="wrap">
+    <p class="eyebrow">ABOUT US</p>
+    <h2 class="sec">เกี่ยวกับเรา</h2>
+    <p class="lead">พันธมิตรผู้ดูแลทุกความต้องการด้านทรัพยากรบุคคล</p>
+
+    <div class="grid g2" style="align-items:start">
+      <div class="card accent">
+        <p style="color:var(--ink); margin-bottom:16px">
+          เราเป็นผู้ให้บริการด้านทรัพยากรบุคคลแบบครบวงจร (One Stop Service)
+          ที่มุ่งมั่นช่วยให้องค์กรธุรกิจลดภาระงานบริหารจัดการระบบภายใน
+          เพื่อมุ่งเน้นการเติบโตเชิงกลยุทธ์ได้อย่างเต็มที่
+        </p>
+        <ul class="checks">
+          <li><span><b>ลดภาระงานบริหาร:</b> จัดการเรื่องสิทธิ กฎหมาย และงานธุรการทั้งหมด</span></li>
+          <li><span><b>เพิ่มประสิทธิภาพ:</b> ดึงเทคโนโลยีและผู้เชี่ยวชาญมาเพิ่มความเร็วและถูกต้อง</span></li>
+          <li><span><b>ดำเนินงานถูกต้องตามกฎหมาย:</b> ป้องกันความเสี่ยงทางข้อบังคับแรงงาน 100%</span></li>
+        </ul>
+      </div>
+
+      <div class="grid" style="gap:18px">
+        <div class="card">
+          <div class="ico"><svg><use href="#i-eye"/></svg></div>
+          <h3>VISION — วิสัยทัศน์</h3>
+          <p>เป็นผู้นำด้านการให้บริการทรัพยากรบุคคลครบวงจรอันดับหนึ่งในประเทศไทย
+             ที่องค์กรระดับสากลไว้วางใจสูงสุด เพื่อขับเคลื่อนธุรกิจให้เติบโตอย่างมั่นคง</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg><use href="#i-target"/></svg></div>
+          <h3>MISSION — พันธกิจ</h3>
+          <p>ส่งมอบการบริการด้าน HR ที่ถูกต้อง รวดเร็ว ปลอดภัย และสอดคล้องกับข้อกฎหมายแรงงาน
+             เพื่อยกระดับความสุขและประสิทธิภาพของพนักงานในทุกองค์กร</p>
+        </div>
+        <div class="card accent">
+          <div class="ico"><svg><use href="#i-hands"/></svg></div>
+          <h3>CORE VALUES — ค่านิยม</h3>
+          <p>ความโปร่งใสเป็นเลิศ (Integrity) ความเชี่ยวชาญระดับมืออาชีพ (Professionalism)
+             และการขับเคลื่อนด้วยเทคโนโลยีที่ทันสมัย (Innovation)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHALLENGES ============ -->
+<section class="block" id="challenges">
+  <div class="wrap">
+    <p class="eyebrow">BUSINESS CHALLENGES</p>
+    <h2 class="sec">ความท้าทายของธุรกิจ</h2>
+    <p class="lead">อุปสรรคสำคัญที่ทำให้หลายธุรกิจไม่สามารถเติบโตได้อย่างเต็มที่
+      เนื่องจากต้องพะวงกับงานหลังบ้านด้านทรัพยากรบุคคล</p>
+
+    <div class="grid g3">
+      <div class="card">
+        <div class="ico"><svg><use href="#i-calc"/></svg></div>
+        <h3>Payroll ซับซ้อน</h3>
+        <p>ข้อผิดพลาดด้านภาษี ประกันสังคม OT และสิทธิประโยชน์ที่ทำให้เกิดปัญหาภายใน</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg><use href="#i-people"/></svg></div>
+        <h3>หาแรงงานยาก</h3>
+        <p>การขาดแคลนกำลังคนหรือคัดเลือกคนไม่ตรงความต้องการ ส่งผลต่อการดำเนินงานหลัก</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg><use href="#i-scale"/></svg></div>
+        <h3>ข้อกฎหมายเปลี่ยนบ่อย</h3>
+        <p>พระราชบัญญัติคุ้มครองแรงงานและเงื่อนไขวีซ่าแรงงานต่างด้าวที่มีความเข้มงวดและปรับปรุงตลอดเวลา</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOLUTIONS ============ -->
+<section class="block" id="solutions">
+  <div class="wrap">
+    <p class="eyebrow">OUR SOLUTIONS</p>
+    <h2 class="sec">บริการแบบครบวงจร</h2>
+    <p class="lead">6 กลุ่มบริการที่ครอบคลุมงานทรัพยากรบุคคลตั้งแต่ต้นจนจบกระบวนการ</p>
+
+    <div class="grid g3" style="margin-bottom:34px">
+      <div class="card"><div class="ico"><svg><use href="#i-receipt"/></svg></div>
+        <span class="num">01</span><h3>Payroll Outsourcing</h3>
+        <p>คำนวณและทำจ่ายเงินเดือนแบบไร้รอยต่อ ปลอดภัยด้วยมาตรฐานระดับสากล</p></div>
+      <div class="card"><div class="ico"><svg><use href="#i-search"/></svg></div>
+        <span class="num">02</span><h3>Recruitment Services</h3>
+        <p>จัดหาบุคลากรและคัดกรองตั้งแต่พนักงานทั่วไปจนถึงระดับผู้บริหาร</p></div>
+      <div class="card"><div class="ico"><svg><use href="#i-event"/></svg></div>
+        <span class="num">03</span><h3>Event Management</h3>
+        <p>จัดสัมมนา กิจกรรมสานสัมพันธ์ และงานเลี้ยงสังสรรค์ในบริษัท</p></div>
+      <div class="card"><div class="ico"><svg><use href="#i-id"/></svg></div>
+        <span class="num">04</span><h3>Visa &amp; Work Permit</h3>
+        <p>บริหารเอกสาร วีซ่า และใบอนุญาตทำงานสำหรับชาวต่างชาติอย่างรวดเร็ว</p></div>
+      <div class="card"><div class="ico"><svg><use href="#i-globe"/></svg></div>
+        <span class="num">05</span><h3>Foreign Worker Services</h3>
+        <p>นำเข้าและดูแลแรงงานต่างด้าว 3 สัญชาติอย่างถูกกฎหมายครบกระบวนการ</p></div>
+      <div class="card accent"><div class="ico"><svg><use href="#i-brief"/></svg></div>
+        <span class="num">06</span><h3>HR Consulting</h3>
+        <p>ให้คำปรึกษา ออกแบบโครงสร้างเงินเดือน โครงสร้างองค์กร และประเมินผล KPI</p></div>
+    </div>
+
+    <!-- ---- detail 1 ---- -->
+    <div class="svc">
+      <h3><span class="badge">1</span> Payroll Outsourcing</h3>
+      <p class="desc">ระบบบริหารจัดการจ่ายเงินเดือนอย่างมืออาชีพ ป้องกันความผิดพลาด รักษาความลับข้อมูลขั้นสูงสุด</p>
+      <h4>Scope of Services</h4>
+      <div class="scopes">
+        <span>Payroll &amp; OT Calculation</span>
+        <span>Tax &amp; Social Security</span>
+        <span>Payslip (E-Payslip / Slip)</span>
+        <span>Bank Transfer File</span>
+      </div>
+      <h4>Key Benefits</h4>
+      <div class="chips"><span>ลดต้นทุนซอฟต์แวร์</span><span>รักษาข้อมูลเป็นความลับ</span><span>ถูกต้องและตรงต่อเวลา</span></div>
+      <div class="callout"><b>ความถูกต้อง 100%</b>
+        <span>ดำเนินการและตรวจทานข้อมูลซ้ำเพื่อป้องกันข้อผิดพลาดทางด้านกฎหมายภาษีและสวัสดิการ</span></div>
+    </div>
+
+    <!-- ---- detail 2 ---- -->
+    <div class="svc">
+      <h3><span class="badge">2</span> Recruitment Services</h3>
+      <p class="desc">จัดหาพนักงานที่ “ใช่” ในเวลาที่ทันท่วงที ครอบคลุมทุกความต้องการตั้งแต่อุดหนุนฝ่ายปฏิบัติการจนถึงผู้บริหารระดับสูง</p>
+      <h4>Scope of Services</h4>
+      <div class="scopes">
+        <span>Job Profile Analysis</span>
+        <span>Candidate Sourcing</span>
+        <span>Structural Screening</span>
+        <span>Interview Coordination</span>
+      </div>
+      <h4>Key Benefits</h4>
+      <div class="chips"><span>ลดเวลาจัดหาคน</span><span>การรับประกันการเปลี่ยนคน</span><span>ฐานข้อมูลผู้สมัครขนาดใหญ่</span></div>
+      <div class="callout"><b>ลดระยะเวลาในการจ้างงานลง 45%</b>
+        <span>กระบวนการคัดกรองเบื้องต้นทำให้บริษัทได้รับแคนดิเดตที่พร้อมสัมภาษณ์ทันที</span></div>
+    </div>
+
+    <!-- ---- detail 3 ---- -->
+    <div class="svc">
+      <h3><span class="badge">3</span> Event Management</h3>
+      <p class="desc">การจัดงานกิจกรรมองค์กรครบวงจร — สร้างวัฒนธรรมที่แข็งแกร่งด้วยการจัดกิจกรรมทีมบิวดิ้ง
+        งานสัมมนา หรือเลี้ยงสังสรรค์ประจำปีโดยมืออาชีพที่พร้อมคิดคอนเซปต์และดูแลทุกรายละเอียด</p>
+      <div class="scopes" style="grid-template-columns:1fr">
+        <span>Team Building &amp; Outing</span>
+        <span>Corporate Seminar &amp; AGM</span>
+        <span>Annual Party &amp; Family Day</span>
+      </div>
+      <div class="chips"><span>ดีไซน์กิจกรรมตอบโจทย์กลุ่มเป้าหมาย</span><span>อุปกรณ์พร้อมไฟแสงสีเสียงครบครัน</span></div>
+    </div>
+
+    <!-- ---- detail 4 ---- -->
+    <div class="svc">
+      <h3><span class="badge">4</span> Foreign Worker Services</h3>
+      <p class="desc">การบริหารจัดการนำเข้าและจัดหาแรงงานต่างด้าวอย่างถูกกฎหมาย — เราเป็นตัวแทนบริการจัดเตรียมเอกสาร
+        ประสานงาน และนำเข้าแรงงานต่างด้าว 3 สัญชาติ (เมียนมา, ลาว, กัมพูชา) อย่างมีจริยธรรม
+        ถูกต้องตามมาตรฐานของกระทรวงแรงงาน</p>
+      <div class="grid g2" style="margin-top:14px">
+        <div class="callout" style="margin:0"><b>นำเข้าและรายงานตัวครบวงจร</b>
+          <span>จัดการเอกสาร MOU ข้ามแดนอย่างราบรื่น ย้ายนายจ้าง และประสานงานส่งคนถึงโรงงาน</span></div>
+        <div class="callout" style="margin:0; border-left-color:var(--navy)"><b>Compliance Support</b>
+          <span>รายงานที่พักอาศัย การตรวจสุขภาพประจำปี และประสานงานเรื่องใบอนุญาตหมดอายุล่วงหน้า</span></div>
+      </div>
+      <div class="callout"><b>การดำเนินการรวดเร็วและถูกต้อง 100%</b>
+        <span>หมดกังวลเรื่องคดีความทางกฎหมายแรงงานและบทลงโทษจากทางภาครัฐ</span></div>
+    </div>
+
+    <!-- ---- detail 5 ---- -->
+    <div class="svc">
+      <h3><span class="badge">5</span> Visa &amp; Work Permit Services</h3>
+      <p class="desc">อำนวยความสะดวกบุคลากรระดับผู้บริหารและพนักงานต่างชาติ — เราช่วยลดความยุ่งยากของงานวีซ่าและเวิร์คเพอร์มิต
+        มอบประสบการณ์การย้ายถิ่นฐานทำงานในไทยอย่างไร้กังวลให้กับกลุ่มนักลงทุนและผู้เชี่ยวชาญต่างชาติ</p>
+      <div class="grid g2" style="margin-top:14px">
+        <div class="callout" style="margin:0; border-left-color:var(--navy)"><b>Non-Immigrant Visa &amp; BOI</b>
+          <span>ยื่นเอกสารอนุมัติจ้างงานชาวต่างชาติตามมาตรฐานบีโอไอ (BOI) และวีซ่าทำงานทุกประเภท</span></div>
+        <div class="callout" style="margin:0"><b>Work Permit Renewal &amp; 90 Days</b>
+          <span>แจ้งรายงานตัว 90 วันและดำเนินต่ออายุใบอนุญาตทำงานแบบไร้รอยต่อโดยเจ้าหน้าที่ดูแลส่วนตัว</span></div>
+      </div>
+      <h4>จุดเด่น</h4>
+      <ul class="checks">
+        <li><span>ติดต่อประสานงานสำนักงานตรวจคนเข้าเมืองอย่างใกล้ชิด</span></li>
+        <li><span>เจ้าหน้าที่ส่งเอกสารและรับ-ส่งเอกสารด่วนตรงถึงบริษัท</span></li>
+      </ul>
+    </div>
+
+    <!-- ---- detail 6 ---- -->
+    <div class="svc">
+      <h3><span class="badge">6</span> HR Consulting</h3>
+      <p class="desc">วางรากฐานและพัฒนาระบบบริหารจัดการทรัพยากรมนุษย์เพื่อทรานส์ฟอร์มธุรกิจให้พร้อมรับมือการเติบโตและการแข่งขัน</p>
+      <h4>Strategic Solutions</h4>
+      <div class="scopes">
+        <span>HR Strategy Plan</span>
+        <span>Organization Design</span>
+        <span>Salary Structure</span>
+        <span>Key Metrics &amp; KPI</span>
+      </div>
+      <div class="callout"><b>ขับเคลื่อนด้วยข้อมูลวิเคราะห์จริง</b>
+        <span>ปรับปรุงความสอดคล้องตามกฎหมายแรงงาน พร้อมส่งมอบคุณค่าการเป็นองค์กรต้นแบบที่น่าทำงานด้วย</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORKFLOW ============ -->
+<section class="block" id="workflow">
+  <div class="wrap">
+    <p class="eyebrow">OUR WORKFLOW</p>
+    <h2 class="sec">ขั้นตอนการให้บริการ</h2>
+    <p class="lead">7 ขั้นตอนมาตรฐานตั้งแต่ติดต่อครั้งแรกจนถึงการดูแลต่อเนื่องรายเดือน</p>
+
+    <div class="steps">
+      <div class="step"><div class="bub">1</div><b>Inquiry</b><small>ติดต่อแจ้งความต้องการเบื้องต้น</small></div>
+      <div class="step"><div class="bub">2</div><b>Consult</b><small>พูดคุยวิเคราะห์ความท้าทายจริง</small></div>
+      <div class="step"><div class="bub">3</div><b>Proposal</b><small>นำเสนอรูปแบบการบริการและราคา</small></div>
+      <div class="step"><div class="bub">4</div><b>Agreement</b><small>ลงนามตกลงเงื่อนไขสัญญา</small></div>
+      <div class="step"><div class="bub">5</div><b>Setup</b><small>ดำเนินการตั้งค่าระบบร่วมกัน</small></div>
+      <div class="step"><div class="bub">6</div><b>Go Live</b><small>เริ่มต้นกระบวนการส่งมอบบริการ</small></div>
+      <div class="step"><div class="bub">7</div><b>Support</b><small>ดูแลรักษาข้อมูลรายเดือนต่อเนื่อง</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CUSTOMER JOURNEY ============ -->
+<section class="block" id="journey">
+  <div class="wrap">
+    <p class="eyebrow">CUSTOMER JOURNEY</p>
+    <h2 class="sec">เส้นทางความร่วมมือ</h2>
+    <p class="lead">มุมมองฝั่งลูกค้า ตั้งแต่ติดต่อครั้งแรกจนระบบเริ่มทำงานเต็มรูปแบบ</p>
+
+    <div class="steps">
+      <div class="step"><div class="bub">A</div><b>Contact</b><small>รับรายละเอียดผ่านช่องทางด่วน</small></div>
+      <div class="step"><div class="bub">B</div><b>Consultation</b><small>ประชุมประเมินระบบที่ใช้อยู่จริง</small></div>
+      <div class="step"><div class="bub">C</div><b>Proposal</b><small>ปรับแผนที่เหมาะสมตามงบประมาณ</small></div>
+      <div class="step"><div class="bub">D</div><b>Agreement</b><small>ความสอดคล้องความร่วมมือทางกฎหมาย</small></div>
+      <div class="step"><div class="bub">E</div><b>Onboarding</b><small>ถ่ายโอนฐานข้อมูลขององค์กรตั้งเดิม</small></div>
+      <div class="step last"><div class="bub">F</div><b>Go Live</b><small>พร้อมบริการและช่วยประหยัดเวลาเต็มพิกัด</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY US ============ -->
+<section class="block" id="why">
+  <div class="wrap">
+    <p class="eyebrow">WHY CHOOSE US</p>
+    <h2 class="sec">ทำไมต้องเลือกเรา</h2>
+    <p class="lead">จุดแข็งที่ทำให้องค์กรชั้นนำไว้วางใจให้เราดูแลงานทรัพยากรบุคคล</p>
+
+    <div class="grid g4">
+      <div class="card"><div class="ico"><svg><use href="#i-award"/></svg></div>
+        <h3>Experienced Team</h3>
+        <p>ทีมงานที่ปรึกษา HR ระดับมืออาชีพที่มีประสบการณ์การทำงานในองค์กรสากลมามากกว่า 15 ปี</p></div>
+      <div class="card"><div class="ico"><svg><use href="#i-lock"/></svg></div>
+        <h3>Confidentiality</h3>
+        <p>รักษาข้อมูลพนักงานและฐานเงินเดือนอย่างเป็นความลับขั้นสูงสุดด้วยมาตรฐานไอทีระดับสากล</p></div>
+      <div class="card"><div class="ico"><svg><use href="#i-bolt"/></svg></div>
+        <h3>Fast Response</h3>
+        <p>ตอบกลับไว แก้ไขปัญหาได้อย่างรวดเร็วทันใจ มีเจ้าหน้าที่ดูแลส่วนตัวประจำเป็นรายบริษัท</p></div>
+      <div class="card accent"><div class="ico"><svg><use href="#i-globe"/></svg></div>
+        <h3>Compliance Focus</h3>
+        <p>การดำเนินการทุกขั้นตอนตรวจสอบซ้ำกับข้อบังคับแรงงานฉบับปัจจุบันอย่างสม่ำเสมอ</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DELIVERABLES ============ -->
+<section class="block" id="deliverables">
+  <div class="wrap">
+    <p class="eyebrow">DELIVERABLES</p>
+    <h2 class="sec">เอกสารรายงานที่ส่งมอบ</h2>
+    <p class="lead">รายงานที่เป็นระบบ ตรวจสอบได้ง่ายผ่าน Dashboard</p>
+
+    <div class="grid g2" style="align-items:start">
+      <div class="card accent">
+        <p style="color:var(--ink); margin-bottom:14px">
+          เราส่งมอบข้อมูลที่มีโครงสร้างสมบูรณ์ ถูกต้อง และจัดส่งไฟล์ในรูปแบบดิจิทัลที่สามารถนำไปใช้วิเคราะห์ประสิทธิภาพองค์กรต่อได้อย่างรวดเร็ว
+        </p>
+        <ul class="checks">
+          <li><span>รายงานตรงเวลาทุกรอบสิ้นเดือน ไม่มีความดีเลย์</span></li>
+          <li><span>พร้อมช่วยส่งชุดยื่นกรมสรรพากรและประกันสังคม</span></li>
+        </ul>
+      </div>
+      <div class="grid g3" style="align-content:start">
+        <div class="card" style="text-align:center"><div class="ico" style="margin:0 auto 12px"><svg><use href="#i-mail"/></svg></div><h3 style="font-size:.95rem">Payslip</h3></div>
+        <div class="card accent" style="text-align:center"><div class="ico" style="margin:0 auto 12px"><svg><use href="#i-doc"/></svg></div><h3 style="font-size:.95rem">Bank File</h3></div>
+        <div class="card" style="text-align:center"><div class="ico" style="margin:0 auto 12px"><svg><use href="#i-chart"/></svg></div><h3 style="font-size:.95rem">HR Reports</h3></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PACKAGES ============ -->
+<section class="block" id="packages">
+  <div class="wrap">
+    <p class="eyebrow">SERVICE PACKAGES</p>
+    <h2 class="sec">แพ็กเกจบริการ</h2>
+    <p class="lead">เปรียบเทียบขอบเขตบริการของแต่ละระดับแพ็กเกจ</p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>คุณสมบัติบริการ / Feature</th>
+            <th>Basic</th><th>Standard</th><th>Premium</th><th>Professional</th><th>Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>บริการ Payroll และภาษีรายเดือน</td>
+            <td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td>ทีมจัดหาแรงงาน Recruiter เฉพาะเจาะจง</td>
+            <td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td>ทีมประสานงาน Visa / Work Permit รายคน</td>
+            <td class="no">–</td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td>ที่ปรึกษากฎหมายแรงงานรายเดือน</td>
+            <td class="no">–</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td>Dashboard วิเคราะห์และเจ้าหน้าที่ดูแลตลอด 24 ชั่วโมง</td>
+            <td class="no">–</td><td class="no">–</td><td class="no">–</td><td class="no">–</td><td class="yes">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">แพ็กเกจชุดนี้มาจากเอกสารนำเสนอองค์กร (Basic – Enterprise) ซึ่งเป็นคนละชุดกับแพ็กเกจ Payroll
+      <b>Lite / Pro / Premium</b> ในหน้า <a href="pricing.html">คำนวณราคา</a> ที่อ้างอิงตารางอัตราค่าบริการรายเดือน</p>
+  </div>
+</section>
+
+<!-- ============ SLA ============ -->
+<section class="block" id="sla">
+  <div class="wrap">
+    <p class="eyebrow">SERVICE LEVEL AGREEMENT</p>
+    <h2 class="sec">มาตรฐานการให้บริการ (SLA)</h2>
+    <p class="lead">เรากำหนด SLA ชัดเจนในสัญญาเพื่อรักษาความพึงพอใจและประสิทธิภาพการทำงานสูงสุดแก่พนักงานและบริษัทคู่ค้าของคุณ</p>
+
+    <div class="stat-row">
+      <div class="stat" style="text-align:center">
+        <div class="big">99.9%</div>
+        <div class="cap">Payroll Accuracy Rate</div>
+      </div>
+      <div class="grid g2">
+        <div class="card" style="border-top-color:var(--orange)">
+          <div class="ico"><svg><use href="#i-clock"/></svg></div>
+          <h3 style="font-size:.98rem">Response Time Within 2 Hours</h3></div>
+        <div class="card" style="border-top-color:var(--orange)">
+          <div class="ico"><svg><use href="#i-doc"/></svg></div>
+          <h3 style="font-size:.98rem">Report Draft Within 3 Days</h3></div>
+        <div class="card" style="border-top-color:var(--orange)">
+          <div class="ico"><svg><use href="#i-phone"/></svg></div>
+          <h3 style="font-size:.98rem">24/7 Priority Hotline</h3></div>
+        <div class="card" style="border-top-color:var(--orange)">
+          <div class="ico"><svg><use href="#i-shield"/></svg></div>
+          <h3 style="font-size:.98rem">Emergency Support Dispatch</h3></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="block" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">CONTACT US</p>
+    <h2 class="sec">ติดต่อเรา</h2>
+
+    <div class="contact-grid">
+      <div>
+        <h3 style="font-size:1.4rem; margin:6px 0 8px; color:var(--navy)">Let's Build Better HR Together</h3>
+        <p style="color:var(--muted); margin:0">
+          ติดต่อเพื่อขอรับบริการประเมินความสอดคล้องระบบ HR และเอกสารวิเคราะห์เบื้องต้นฟรีไม่มีค่าใช้จ่าย
+        </p>
+        <div class="cinfo">
+          <div>
+            <span class="cic"><svg width="20" height="20"><use href="#i-build"/></svg></span>
+            <span><small>Company</small><b>One Stop HR Co., Ltd.</b></span>
+          </div>
+          <div>
+            <span class="cic"><svg width="20" height="20"><use href="#i-phone"/></svg></span>
+            <span><small>Call Center</small><b><a href="tel:+6621234567">+66 (0) 2-123-4567</a></b></span>
+          </div>
+          <div>
+            <span class="cic"><svg width="20" height="20"><use href="#i-mail"/></svg></span>
+            <span><small>Email Address</small><b><a href="mailto:contact@onestophr-solutions.com">contact@onestophr-solutions.com</a></b></span>
+          </div>
+        </div>
+        <p style="margin-top:24px">
+          <a class="btn btn-primary" href="pricing.html">ประเมินค่าบริการ Payroll ด้วยตัวเอง →</a>
+        </p>
+      </div>
+
+      <div class="qr">
+        <b>สแกนเพื่อรับข้อมูลด่วนทาง LINE</b>
+        <div class="box">QR</div>
+        <p class="line-id" style="margin:0">LINE ID: @onestophr</p>
+        <p class="site" style="margin:4px 0 0">WWW.ONESTOPHR-SOLUTIONS.COM</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© One Stop HR Co., Ltd. — Professional HR &amp; Business Support Services</span>
+    <span><a href="pricing.html">คำนวณราคา Payroll</a></span>
+  </div>
+</footer>
+
+<script>
+/* ไฮไลต์เมนูตามส่วนที่กำลังดูอยู่ */
+const links = [...document.querySelectorAll('nav.menu a[href^="#"]')];
+const targets = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    links.forEach(a => a.classList.toggle('active',
+      a.getAttribute('href') === '#' + e.target.id));
+  });
+}, { rootMargin: '-45% 0px -50% 0px' });
+targets.forEach(t => io.observe(t));
+</script>
+</body>
+</html>

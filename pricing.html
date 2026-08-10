@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One Stop HR Solutions – คำนวณค่าบริการ Payroll</title>
+<meta name="description" content="เครื่องมือคำนวณค่าบริการ Payroll รายเดือนของ One Stop HR Solutions พร้อมตารางเปรียบเทียบแพ็กเกจ Lite / Pro / Premium">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="dot"></span>
+      <span>ONE STOP HR SOLUTIONS
+        <small>PROFESSIONAL HR &amp; BUSINESS SUPPORT</small>
+      </span>
+    </a>
+    <nav class="menu">
+      <a href="index.html#about">เกี่ยวกับเรา</a>
+      <a href="index.html#solutions">บริการ</a>
+      <a href="index.html#workflow">ขั้นตอน</a>
+      <a href="index.html#packages">แพ็กเกจ</a>
+      <a href="index.html#contact">ติดต่อ</a>
+      <a href="pricing.html" class="cta">คำนวณราคา</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero" style="padding:48px 0 42px">
+  <div class="wrap">
+    <h1 style="font-size:clamp(1.5rem,3.6vw,2.3rem)">PAYROLL PRICING CALCULATOR</h1>
+    <div class="rule"></div>
+    <p>เครื่องมือคำนวณราคาค่าบริการรายเดือนและสรุปแพ็กเกจ —
+       ระบุจำนวนพนักงานเพื่อคำนวณราคาของแต่ละแพ็กเกจโดยอัตโนมัติ</p>
+  </div>
+</div>
+
+<!-- ============ CALCULATOR ============ -->
+<section class="block" id="calc">
+  <div class="wrap">
+    <p class="eyebrow">CALCULATOR</p>
+    <h2 class="sec">คำนวณค่าบริการรายเดือน</h2>
+
+    <div class="input-row" style="margin-top:20px">
+      <label for="pax">ระบุจำนวนพนักงาน (คน):</label>
+      <input id="pax" type="number" min="1" step="1" value="120" inputmode="numeric">
+      <span class="tier-badge">ช่วงอัตรา: <b id="tierName">–</b></span>
+    </div>
+
+    <div class="packs" id="packs"></div>
+  </div>
+</section>
+
+<!-- ============ RATE TABLE ============ -->
+<section class="block" id="rates">
+  <div class="wrap">
+    <p class="eyebrow">RATE ASSUMPTIONS</p>
+    <h2 class="sec">ตารางอัตราค่าบริการอ้างอิง</h2>
+    <p class="lead">อัตราต่อคนจะถูกเลือกตามจำนวนพนักงานรวม แล้วคิดเพิ่มจากราคาเหมา 30 คนแรก</p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>จำนวนพนักงาน (คน)</th><th>Lite (บาท)</th><th>Pro (บาท)</th><th>Premium (บาท)</th></tr>
+        </thead>
+        <tbody id="rateBody"></tbody>
+      </table>
+    </div>
+    <p class="note">*หมายเหตุ: อัตราค่าบริการสำหรับช่วงพนักงาน 31 – 50 คน อ้างอิงตามอัตราของช่วง 51 – 200 คน
+      ตามตารางมาตรฐานของ One Stop HR Solutions</p>
+  </div>
+</section>
+
+<!-- ============ FEATURE COMPARISON ============ -->
+<section class="block" id="compare">
+  <div class="wrap">
+    <p class="eyebrow">FEATURE COMPARISON</p>
+    <h2 class="sec">ตารางเปรียบเทียบฟังก์ชันโดยละเอียด</h2>
+    <p class="lead">เปรียบเทียบความแตกต่างด้านการบริการของแต่ละแพ็กเกจอย่างละเอียด</p>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th>บริการและโซลูชันที่ครอบคลุม</th><th>Lite</th><th>Pro</th><th>Premium</th></tr>
+        </thead>
+        <tbody id="cmpBody"></tbody>
+      </table>
+    </div>
+    <p class="note">ต้องการภาพรวมบริการทั้งหมดขององค์กร ดูได้ที่ <a href="index.html#solutions">หน้าโปรไฟล์บริษัท</a></p>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© One Stop HR Co., Ltd. — ราคาเป็นการประเมินเบื้องต้น มิใช่ใบเสนอราคา</span>
+    <span><a href="index.html">กลับหน้าโปรไฟล์บริษัท</a></span>
+  </div>
+</footer>
+
+<script>
+/* ---------- อัตราค่าบริการ (จากชีต 1. Calculator & Summary) ---------- */
+const RATES = [
+  { label: "0 - 30 คน (ราคาเหมา)",        lite: 5000, pro: 10000, premium: 15000 },
+  { label: "31 - 200 คน (เพิ่มต่อคน)*",    lite: 80,   pro: 100,   premium: 120   },
+  { label: "201 - 500 คน (เพิ่มต่อคน)",    lite: 65,   pro: 90,    premium: 100   },
+  { label: ">= 501 คนขึ้นไป (เพิ่มต่อคน)", lite: 50,   pro: 70,    premium: 80    }
+];
+
+const PACKAGES = [
+  { key:"lite", name:"Lite", best:false,
+    hl:"คำนวณเงินเดือน & นำส่งภาษีพื้นฐาน เหมาะสำหรับธุรกิจขนาดเล็ก",
+    for:"สตาร์ทอัพ หรือธุรกิจพนักงาน 1-30 คน ที่ต้องการความถูกต้องและประหยัดงบ" },
+  { key:"pro", name:"Pro", best:true,
+    hl:"จัดการประวัติพนักงาน สลิปออนไลน์ และรายงานราชการสิ้นปีครบถ้วน",
+    for:"SME หรือบริษัทที่ต้องการลดงานเอกสารบุคคลและเปลี่ยนมาใช้สลิปออนไลน์" },
+  { key:"premium", name:"Premium", best:false,
+    hl:"ดูแลเต็มรูปแบบ ครอบคลุมตรวจเวลาทำงาน สลิปเข้ารหัส และกองทุนสำรองฯ",
+    for:"บริษัทขนาดกลาง-ใหญ่ ที่ต้องการเอาท์ซอร์สงานระบบบุคคลและการตอกบัตรเต็มรูปแบบ" }
+];
+
+/* ---------- ตารางเปรียบเทียบ (จากชีต 2. Service Comparison) ---------- */
+const FEATURES = [
+  ["1. บริการคำนวณ เงินเดือน-ค่าแรง ค่าล่วงเวลา ตามระเบียบข้อบังคับ","✓","✓","✓"],
+  ["2. บริการคำนวณเงินประกันสังคม กองทุนสำรองเลี้ยงชีพ และภาษีหัก ณ ที่จ่าย","✓","✓","✓"],
+  ["3. บริการจัดทำรายงานเงินเดือนประจำงวด และรายงานสรุปค่าใช้จ่ายส่งธนาคาร","✓","✓","✓"],
+  ["4. บริการจัดทำรายงานการหักภาษี ณ ที่จ่ายรายเดือน (ภ.ง.ด. 1)","✓","✓","✓"],
+  ["5. บริการจัดทำแบบนำส่งเงินประกันสังคม (สปส.1-01)","✓","✓","✓"],
+  ["6. บริการนำส่งภาษีและประกันสังคมรายเดือน","✓","✓","✓"],
+  ["7. บริการสลิปเงินเดือนสำหรับพนักงาน (Payslip)","สลิปเงินเดือนทั่วไป","Slip Carbon / Slip Online (PDF)","Slip Carbon / Slip Online (PDF Lock Password)"],
+  ["8. บริการจัดทำทะเบียนประวัติพนักงาน (Employee Database)","✗","✓","✓"],
+  ["9. บริการแจ้งเข้า-ออกพนักงาน ประกันสังคม","✗","✓","✓"],
+  ["10. บริการแจ้งเข้า-ออกพนักงาน กองทุนสำรองเลี้ยงชีพ","✗","✗","✓"],
+  ["11. บริการออกหนังสือรับรองหักภาษี ณ ที่จ่าย (50 ทวิ) และรายงานสิ้นปี (ภ.ง.ด.1ก, ภ.ง.ด.91, กท.20ก)","✗","✓","✓"],
+  ["12. บริการออกหนังสือรับรองเงินเดือน และหนังสือรับรองการทำงาน","✗","✗","✓"],
+  ["13. บริการรวมรวมและตรวจสอบบัตรตอกพนักงาน (Time Attendance)","✗","✗","✓"],
+  ["14. บริการรายงานสรุปเวลาการปฏิบัติงาน (Attendance Summary Report)","✗","✗","✓"]
+];
+
+const baht  = n => n.toLocaleString("th-TH", {maximumFractionDigits:0});
+const baht2 = n => n.toLocaleString("th-TH", {minimumFractionDigits:2, maximumFractionDigits:2});
+
+/* สูตรเดียวกับใน Excel:
+   n<=30  -> ราคาเหมา
+   n>30   -> ราคาเหมา + (n-30) × อัตราต่อคนของช่วงที่ n ตกอยู่ */
+function tierIndex(n){
+  if (n <= 30)  return 0;
+  if (n <= 200) return 1;
+  if (n <= 500) return 2;
+  return 3;
+}
+function fee(pkgKey, n){
+  const t = tierIndex(n);
+  const base = RATES[0][pkgKey];
+  return t === 0 ? base : base + (n - 30) * RATES[t][pkgKey];
+}
+
+function buildRateTable(){
+  document.getElementById("rateBody").innerHTML = RATES.map((r,i)=>`
+    <tr data-tier="${i}">
+      <td>${r.label}</td>
+      <td class="rate">${baht(r.lite)}</td>
+      <td class="rate">${baht(r.pro)}</td>
+      <td class="rate">${baht(r.premium)}</td>
+    </tr>`).join("");
+}
+
+function buildCompareTable(){
+  const cell = v =>
+    v === "✓" ? '<td class="yes">✓</td>' :
+    v === "✗" ? '<td class="no">✗</td>'  :
+                `<td class="txt">${v}</td>`;
+  document.getElementById("cmpBody").innerHTML = FEATURES.map(f=>
+    `<tr><td>${f[0]}</td>${cell(f[1])}${cell(f[2])}${cell(f[3])}</tr>`).join("");
+}
+
+function render(){
+  const raw = parseInt(document.getElementById("pax").value, 10);
+  const n = (isNaN(raw) || raw < 1) ? 0 : raw;
+  const t = tierIndex(n || 1);
+
+  document.getElementById("tierName").textContent = n ? RATES[t].label.replace(/\s*\(.*/,"") : "–";
+
+  document.querySelectorAll("#rateBody tr").forEach(tr=>
+    tr.classList.toggle("active-tier", n > 0 && +tr.dataset.tier === t));
+
+  document.getElementById("packs").innerHTML = PACKAGES.map(p=>{
+    const total = n ? fee(p.key, n) : 0;
+    const per   = n ? total / n : 0;
+    return `<div class="pack${p.best ? " best" : ""}">
+      <div class="name">${p.name}</div>
+      <div class="fee">${n ? baht(total) : "–"} <small>บาท/เดือน</small></div>
+      <div class="per">เฉลี่ย ${n ? baht2(per) : "–"} บาท / คน / เดือน</div>
+      <div class="hl">${p.hl}</div>
+      <div class="for"><b>เหมาะสำหรับ:</b> ${p.for}</div>
+    </div>`;
+  }).join("");
+}
+
+buildRateTable();
+buildCompareTable();
+document.getElementById("pax").addEventListener("input", render);
+render();
+</script>
+</body>
+</html>
