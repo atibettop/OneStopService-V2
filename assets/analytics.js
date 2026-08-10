@@ -17,6 +17,12 @@
 
   const CONSENT_KEY = "oneStopHrCookieConsent";
 
+  // อ้างอิงตำแหน่งไฟล์นี้ (…/assets/analytics.js) เพื่อชี้ไปหน้านโยบายได้ถูกต้อง
+  // แม้แต่บนหน้า 404 ที่ถูกเสิร์ฟจาก path ไหนก็ได้
+  const policyUrl = document.currentScript
+    ? new URL("../privacy.html", document.currentScript.src).href
+    : "privacy.html";
+
   // ไม่เก็บสถิติตอนเปิดไฟล์ทดสอบในเครื่อง เพื่อไม่ให้ตัวเลขเพี้ยน
   const local = location.protocol === "file:" ||
     ["localhost", "127.0.0.1", ""].includes(location.hostname);
@@ -71,10 +77,14 @@
     const text = document.createElement("p");
     text.textContent = t(
       "เว็บไซต์นี้ใช้คุกกี้เพื่อวัดสถิติการเข้าชม ช่วยให้เราปรับปรุงเนื้อหาให้ตรงกับผู้ใช้มากขึ้น " +
-      "คุณเลือกได้ว่าจะอนุญาตหรือไม่ และเปลี่ยนใจภายหลังได้ตลอด",
+      "คุณเลือกได้ว่าจะอนุญาตหรือไม่ และเปลี่ยนใจภายหลังได้ตลอด ",
       "This site uses cookies to measure visits so we can improve the content. " +
-      "You choose whether to allow it, and you can change your mind at any time."
+      "You choose whether to allow it, and you can change your mind at any time. "
     );
+    const policy = document.createElement("a");
+    policy.href = policyUrl;
+    policy.textContent = t("อ่านนโยบายความเป็นส่วนตัว", "Read the privacy policy");
+    text.appendChild(policy);
 
     const actions = document.createElement("div");
     actions.className = "cookie-bar-actions";

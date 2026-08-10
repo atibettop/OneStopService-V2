@@ -28,7 +28,28 @@
 <meta name="twitter:image" content="https://atibettop.github.io/OneStopService/assets/og-cover.jpg">
 <link rel="preload" as="image" href="assets/hr-team-hero.webp" type="image/webp">
 <link rel="stylesheet" href="assets/style.css?v=20260810-5">
-<script src="assets/i18n.js?v=20260810-4" defer></script>
+<script>
+/* โหลดชุดคำแปลเฉพาะผู้ใช้ที่ต้องการภาษาอังกฤษ — คนไทยจะไม่ต้องดาวน์โหลดไฟล์ 56 KB นี้เลย */
+(function () {
+  var asked = new URLSearchParams(location.search).get("lang");
+  var saved = null;
+  try { saved = localStorage.getItem("oneStopHrLanguage"); } catch (e) {}
+  if (asked === "en" || (!asked && saved === "en")) {
+    var s = document.createElement("script");
+    s.src = "assets/i18n.js?v=20260810-5";
+    s.defer = true;
+    document.head.appendChild(s);
+  } else {
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll("[data-lang]").forEach(function (link) {
+        link.addEventListener("click", function () {
+          try { localStorage.setItem("oneStopHrLanguage", link.dataset.lang); } catch (e) {}
+        });
+      });
+    });
+  }
+})();
+</script>
 <script src="assets/analytics.js?v=20260810-1" defer></script>
 <script type="application/ld+json">
 {
@@ -601,6 +622,30 @@
           <a class="btn btn-primary" href="pricing.html">ประเมินค่าบริการ Payroll ด้วยตัวเอง →</a>
         </p>
 
+        <form class="lead-form" id="leadForm" novalidate>
+          <h3>ส่งรายละเอียดให้ทีมงาน</h3>
+          <p class="lead-form-hint">กรอกสั้น ๆ แล้วกดส่ง ระบบจะรวบรวมข้อมูลให้พร้อมส่งถึงทีมงาน</p>
+          <div class="lead-form-grid">
+            <label>ชื่อบริษัท
+              <input name="company" type="text" autocomplete="organization" required>
+            </label>
+            <label>ชื่อผู้ติดต่อ
+              <input name="name" type="text" autocomplete="name" required>
+            </label>
+            <label>อีเมลหรือเบอร์ติดต่อกลับ
+              <input name="contact" type="text" autocomplete="email" required>
+            </label>
+            <label>จำนวนพนักงาน (คน)
+              <input name="headcount" type="number" min="1" inputmode="numeric">
+            </label>
+          </div>
+          <label>บริการที่สนใจและรายละเอียดเพิ่มเติม
+            <textarea name="message" rows="3"></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit">ส่งรายละเอียด →</button>
+          <p class="lead-form-note" role="status"></p>
+        </form>
+
         <div class="line-qr">
           <img src="assets/line-qr.png" width="150" height="150" loading="lazy"
                alt="คิวอาร์โค้ดสำหรับเพิ่มเพื่อนทาง LINE">
@@ -646,6 +691,7 @@
       <a href="tel:+66981465449">098-1465449</a>
       <a href="https://line.me/ti/p/TIFWPTXz6G" target="_blank" rel="noopener">LINE: koiiikoi</a>
       <a href="pricing.html">คำนวณราคา Payroll</a>
+      <a href="privacy.html">นโยบายความเป็นส่วนตัว</a>
     </span>
   </div>
 </footer>
@@ -674,6 +720,58 @@ menu.addEventListener('click', () => {
   menuToggle.setAttribute('aria-expanded', 'false');
   menuToggle.textContent = '☰';
 });
+/* ฟอร์มติดต่อ
+   FORM_ENDPOINT ว่าง = รวบรวมข้อมูลแล้วเปิดโปรแกรมอีเมลให้ผู้ใช้กดส่ง (ใช้ได้ทันที ไม่ต้องสมัครอะไร)
+   ใส่ endpoint ของ Formspree เมื่อไหร่ ฟอร์มจะส่งเข้าเมลเองโดยผู้ใช้ไม่ต้องออกจากหน้าเว็บ */
+const FORM_ENDPOINT = '';
+const leadForm = document.getElementById('leadForm');
+if (leadForm) {
+  const note = leadForm.querySelector('.lead-form-note');
+  leadForm.addEventListener('submit', async event => {
+    event.preventDefault();
+    const data = new FormData(leadForm);
+    const required = ['company', 'name', 'contact'];
+    const missing = required.filter(k => !String(data.get(k) || '').trim());
+    if (missing.length) {
+      note.textContent = 'กรุณากรอกชื่อบริษัท ชื่อผู้ติดต่อ และช่องทางติดต่อกลับ';
+      note.className = 'lead-form-note warn';
+      leadForm.querySelector(`[name="${missing[0]}"]`).focus();
+      return;
+    }
+
+    const label = { company: 'บริษัท', name: 'ผู้ติดต่อ', contact: 'ติดต่อกลับ',
+                    headcount: 'จำนวนพนักงาน', message: 'รายละเอียด' };
+    const body = [...data.entries()]
+      .filter(([, v]) => String(v).trim())
+      .map(([k, v]) => `${label[k] || k}: ${v}`)
+      .join('\n');
+
+    if (!FORM_ENDPOINT) {
+      location.href = 'mailto:Thanannaphat.m@gmail.com'
+        + '?subject=' + encodeURIComponent('ขอใบเสนอราคา Payroll — ' + data.get('company'))
+        + '&body=' + encodeURIComponent(body);
+      note.textContent = 'เปิดโปรแกรมอีเมลให้แล้ว กดส่งในโปรแกรมอีเมลอีกครั้งเพื่อส่งถึงทีมงาน';
+      note.className = 'lead-form-note ok';
+      return;
+    }
+
+    note.textContent = 'กำลังส่ง...';
+    note.className = 'lead-form-note';
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST', body: data, headers: { Accept: 'application/json' }
+      });
+      if (!res.ok) throw new Error(res.status);
+      leadForm.reset();
+      note.textContent = 'ส่งเรียบร้อย ทีมงานจะติดต่อกลับภายใน 1 วันทำการ';
+      note.className = 'lead-form-note ok';
+    } catch (_) {
+      note.textContent = 'ส่งไม่สำเร็จ รบกวนติดต่อทางอีเมลหรือ LINE ด้านขวาแทนครับ';
+      note.className = 'lead-form-note warn';
+    }
+  });
+}
+
 document.querySelectorAll('.solution-tile a').forEach(link => {
   link.addEventListener('click', () => {
     const detail = document.querySelector(link.getAttribute('href'));

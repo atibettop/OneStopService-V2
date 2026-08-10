@@ -5,7 +5,15 @@
   html.lang = currentLang;
   const translations = new Map([
     ["ข้ามไปเนื้อหาหลัก", "Skip to main content"],
-    ["มาตรฐานการให้บริการ (SLA)", "Service level agreement"],
+    ["ส่งรายละเอียดให้ทีมงาน", "Send us your details"],
+    ["กรอกสั้น ๆ แล้วกดส่ง ระบบจะรวบรวมข้อมูลให้พร้อมส่งถึงทีมงาน", "Fill in the short form and we will collect the details for our team."],
+    ["ชื่อบริษัท", "Company name"],
+    ["ชื่อผู้ติดต่อ", "Contact name"],
+    ["อีเมลหรือเบอร์ติดต่อกลับ", "Email or phone"],
+    ["จำนวนพนักงาน (คน)", "Number of employees"],
+    ["บริการที่สนใจและรายละเอียดเพิ่มเติม", "Services you are interested in"],
+    ["ส่งรายละเอียด →", "Send details →"],
+    ["นโยบายความเป็นส่วนตัว", "Privacy policy"],
     ["ตรวจสอบก่อนส่งมอบทุกงวด", "Reviewed before every delivery"],
     ["ทบทวนข้อมูลนำเข้าและผลคำนวณอีกครั้งก่อนส่งมอบในแต่ละรอบการจ่ายเงินเดือน", "Input data and calculated results are checked again before each payroll cycle is delivered."],
     ["เกณฑ์เวลาที่เรายึดถือในการทำงานทุกงวด และระบุไว้ในสัญญาตามขอบเขตบริการที่องค์กรเลือก", "The turnaround times we work to every cycle, written into the contract for the scope you choose."],
@@ -50,7 +58,6 @@
     ["✓ ทีมงานเชี่ยวชาญด้าน HR", "✓ Experienced HR team"],
     ["✓ ดูแลข้อมูลตามสิทธิ์", "✓ Role-based data handling"],
     ["✓ บริการครบวงจร", "✓ Complete HR services"],
-    ["✓ ดูแลครบวงจร", "✓ End-to-end support"],
     ["พันธมิตรผู้ดูแลทุกความต้องการด้านทรัพยากรบุคคล", "Your partner for every HR requirement"],
     ["เราเป็นผู้ให้บริการด้านทรัพยากรบุคคลแบบครบวงจร (One Stop Service) ที่มุ่งมั่นช่วยให้องค์กรธุรกิจลดภาระงานบริหารจัดการระบบภายใน เพื่อมุ่งเน้นการเติบโตเชิงกลยุทธ์ได้อย่างเต็มที่", "We provide end-to-end human resources services that reduce administrative workload, allowing your team to focus on strategic business growth."],
     ["ลดภาระงานบริหาร", "Reduce administration"],
@@ -169,7 +176,6 @@
     ["เลือกแพ็กเกจ Lite, Pro หรือ Premium", "Choose Lite, Pro, or Premium"],
     ["ดูราคาโดยประมาณตามจำนวนพนักงาน", "Estimate pricing by employee count"],
     ["เปรียบเทียบฟังก์ชันก่อนตัดสินใจ", "Compare included features"],
-    ["คำนวณราคา Payroll →", "Calculate payroll pricing →"],
     ["เลือกใช้เป็นรายบริการ", "Choose individual services"],
     ["บริการ HR เฉพาะด้าน", "Specialist HR services"],
     ["เลือกเฉพาะงานที่องค์กรต้องการผู้เชี่ยวชาญ เช่น สรรหาบุคลากร วีซ่าและใบอนุญาตทำงาน หรือแรงงานต่างด้าว", "Choose the specialist support you need, including recruitment, visas and work permits, or migrant-worker services."],
@@ -185,16 +191,8 @@
     ["จัดทำข้อเสนอให้เหมาะกับองค์กร", "Receive a tailored proposal"],
     ["เตรียมข้อมูลขอข้อเสนอ", "Prepare for a proposal"],
     ["มาตรฐานการให้บริการ (SLA)", "Service standards (SLA)"],
-    ["รายละเอียด SLA เช่น รอบตอบกลับและวันส่งมอบ จะระบุในข้อเสนอและสัญญาตามขอบเขตบริการที่องค์กรเลือก", "Response cycles and delivery dates are defined in the proposal and agreement according to the selected service scope."],
     ["ตรวจสอบก่อนส่งมอบ", "Review before delivery"],
-    ["ทบทวนข้อมูลนำเข้าและผลคำนวณก่อนส่งมอบในแต่ละรอบการจ่ายเงินเดือน", "Input data and calculation results are reviewed before each payroll delivery."],
-    ["กำหนดรอบตอบกลับและส่งมอบ", "Agreed response and delivery cycles"],
-    ["ระบุงานและเอกสารที่ส่งมอบ", "Defined work and deliverables"],
-    ["กำหนดผู้ประสานงานหลัก", "Named primary coordinator"],
-    ["กำหนดแนวทางกรณีเร่งด่วน", "Agreed urgent-case process"],
-    ["✓ กำหนดขอบเขต SLA ในสัญญาชัดเจน", "✓ SLA scope defined in the agreement"],
     ["✓ ตรวจสอบข้อมูลก่อนส่งมอบ", "✓ Data reviewed before delivery"],
-    ["✓ ติดตามและรายงานสถานะอย่างต่อเนื่อง", "✓ Ongoing status tracking and reporting"],
     ["คำถามที่ลูกค้าถามบ่อย", "Frequently asked questions"],
     ["ข้อมูลเบื้องต้นก่อนเริ่มพูดคุยกับทีมงาน เพื่อช่วยให้องค์กรเตรียมรายละเอียดและประเมินขอบเขตบริการได้ง่ายขึ้น", "Helpful information to prepare your requirements and assess the service scope before speaking with the team."],
     ["ดูข้อมูลที่ต้องเตรียม →", "View required information →"],
@@ -208,19 +206,11 @@
     ["ทีมงานกำหนดสิทธิ์เข้าถึงข้อมูลตามหน้าที่ ตรวจสอบข้อมูลก่อนส่งมอบ และตกลงช่องทางรับส่งข้อมูลที่เหมาะสมกับองค์กรก่อนเริ่มบริการ", "Access is limited by role, information is checked before delivery, and secure transfer methods are agreed with your organization before service begins."],
     ["เลือกใช้เฉพาะบางบริการได้หรือไม่?", "Can we select only certain services?"],
     ["ได้ องค์กรสามารถเริ่มจาก Payroll, Recruitment, Visa & Work Permit หรือบริการอื่นเพียงรายการเดียว และเพิ่มบริการภายหลังได้ตามความต้องการ", "Yes. You can start with Payroll, Recruitment, Visa & Work Permit, or another individual service, then add more support as your needs evolve."],
-    ["เตรียมข้อมูลก่อนขอใบเสนอราคา", "Prepare information for a quotation"],
     ["ช่วยให้ทีมงานประเมินได้ตรงกับองค์กร", "Help the team assess your organization accurately"],
     ["เตรียมข้อมูลพื้นฐาน 3 ส่วน เพื่อใช้กำหนดขอบเขต ระยะเวลา และราคาที่เหมาะสม", "Prepare three sets of basic information to define a suitable scope, timeline, and price."],
-    ["จำนวนพนักงานปัจจุบัน", "Current employee count"],
     ["รอบจ่ายและระบบที่ใช้อยู่", "Payroll cycle and current system"],
     ["บริการและผลลัพธ์ที่ต้องการ", "Required services and outcomes"],
     ["ประเมินค่าบริการ Payroll ด้วยตัวเอง →", "Estimate payroll pricing →"],
-    ["เริ่มจากการประเมิน", "Start with an assessment"],
-    ["ความต้องการขององค์กร", "of your organization's needs"],
-    ["เมื่อมีข้อมูลพื้นฐานครบ ทีมงานสามารถจัดทำแนวทางบริการได้ชัดเจนขึ้น", "Complete baseline information helps the team prepare a clearer service approach."],
-    ["สรุปปัญหาและเป้าหมายที่ต้องการแก้ไข", "Summarize the challenges and desired outcomes"],
-    ["ระบุบริการที่สนใจและช่วงเวลาเริ่มงาน", "Specify required services and preferred timing"],
-    ["เตรียมผู้ประสานงานขององค์กร", "Assign your organization's coordinator"],
     ["เริ่มประเมินราคา Payroll →", "Start payroll pricing estimate →"],
     ["ราคาที่แสดงเป็นการประเมินเบื้องต้น", "Displayed prices are preliminary estimates"],
     ["คำนวณราคา Payroll รายเดือน | One Stop HR", "Monthly Payroll Pricing Calculator | One Stop HR"],
@@ -387,7 +377,14 @@
     });
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
+  // ไฟล์นี้ถูก inject แบบ dynamic ได้ ซึ่งอาจโหลดเสร็จหลัง DOMContentLoaded ยิงไปแล้ว
+  // จึงต้องเช็ค readyState ก่อน ไม่งั้นตัวแปลจะไม่ทำงานเลย
+  const onReady = fn => {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn);
+    else fn();
+  };
+
+  onReady(() => {
     document.querySelectorAll("[data-lang]").forEach(link => {
       const active = link.dataset.lang === currentLang;
       link.classList.toggle("active", active);

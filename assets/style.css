@@ -217,6 +217,27 @@ tbody tr:hover td{background:rgba(125,160,200,.07)}
 .contact-cta .channels small{display:block;color:rgba(255,255,255,.62);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
 .contact-cta .channels b{font-size:.93rem;word-break:break-word}
 
+/* ฟอร์มส่งรายละเอียด */
+.lead-form{margin-top:26px;padding:24px;background:var(--surface);border:1px solid var(--line);
+  border-top:4px solid var(--navy);border-radius:var(--radius);box-shadow:var(--shadow)}
+.lead-form h3{margin:0 0 4px;font-size:1.1rem;color:var(--navy);font-weight:800}
+@media (prefers-color-scheme: dark){ .lead-form h3{color:var(--ink)} }
+.lead-form-hint{margin:0 0 16px;color:var(--muted);font-size:.86rem}
+.lead-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){ .lead-form-grid{grid-template-columns:1fr} }
+.lead-form label{display:block;font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:12px}
+.lead-form input,.lead-form textarea{display:block;width:100%;margin-top:5px;padding:10px 12px;
+  font-family:inherit;font-size:.92rem;font-weight:500;color:var(--ink);background:var(--bg);
+  border:1.5px solid var(--line);border-radius:10px}
+.lead-form input:focus,.lead-form textarea:focus{outline:2px solid var(--orange);outline-offset:1px;
+  border-color:var(--orange)}
+.lead-form textarea{resize:vertical}
+.lead-form .btn{border:0;cursor:pointer;font-family:inherit}
+.lead-form-note{margin:12px 0 0;font-size:.84rem;color:var(--muted);min-height:1.2em}
+.lead-form-note.ok{color:var(--ok);font-weight:700}
+.lead-form-note.warn{color:#b45309;font-weight:700}
+@media (prefers-color-scheme: dark){ .lead-form-note.warn{color:#e0a94a} }
+
 /* กล่อง QR ของ LINE */
 .line-qr{display:flex;align-items:center;gap:18px;margin-top:26px;padding:18px;
   background:var(--surface);border:1px solid var(--line);border-left:5px solid #06C755;
@@ -228,6 +249,16 @@ tbody tr:hover td{background:rgba(125,160,200,.07)}
 .line-qr .line-id{display:inline;color:var(--ink);font-weight:800;letter-spacing:.02em}
 @media(max-width:520px){ .line-qr{flex-direction:column;text-align:center} }
 
+/* หน้านโยบายความเป็นส่วนตัว */
+.policy{max-width:820px}
+.policy h1.sec{font-size:clamp(1.4rem,3vw,2rem)}
+.policy h2{margin:34px 0 10px;font-size:1.08rem;color:var(--navy);font-weight:800}
+@media (prefers-color-scheme: dark){ .policy h2{color:var(--ink)} }
+.policy p{margin:0 0 12px;color:var(--muted)}
+.policy p b{color:var(--ink)}
+.policy .checks{margin:12px 0 16px}
+.policy .cinfo .cic{font-size:1.2rem;font-weight:700}
+
 /* แบนเนอร์ขอความยินยอมคุกกี้ (แสดงเฉพาะเมื่อมีเครื่องมือที่ใช้คุกกี้) */
 .cookie-bar{position:fixed;left:16px;right:16px;bottom:16px;z-index:90;
   display:flex;align-items:center;gap:20px;flex-wrap:wrap;
@@ -235,6 +266,8 @@ tbody tr:hover td{background:rgba(125,160,200,.07)}
   border-left:5px solid var(--orange);border-radius:14px;padding:18px 22px;
   box-shadow:0 18px 44px rgba(16,32,56,.22);max-width:960px;margin:0 auto}
 .cookie-bar p{margin:0;flex:1 1 320px;font-size:.88rem;color:var(--muted)}
+.cookie-bar p a{color:var(--navy);font-weight:700}
+@media (prefers-color-scheme: dark){ .cookie-bar p a{color:var(--ink)} }
 .cookie-bar-actions{display:flex;gap:10px;flex-wrap:wrap}
 .cookie-btn{font-family:inherit;font-size:.86rem;font-weight:700;cursor:pointer;
   padding:10px 20px;border-radius:10px;border:1.5px solid transparent}

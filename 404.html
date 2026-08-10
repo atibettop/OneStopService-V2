@@ -41,6 +41,7 @@
       <a href="/OneStopService/#contact">ติดต่อเรา</a>
       <a href="/OneStopService/pricing.html" class="cta">คำนวณราคา</a>
     </nav>
+    <button class="menu-toggle" type="button" aria-label="เปิดเมนู" aria-expanded="false">☰</button>
   </div>
 </header>
 
@@ -65,9 +66,27 @@
 <footer class="site">
   <div class="wrap">
     <span>© One Stop HR Co., Ltd. — Professional HR &amp; Business Support Services</span>
-    <span><a href="/OneStopService/">หน้าโปรไฟล์บริษัท</a></span>
+    <span class="foot-contact">
+      <a href="/OneStopService/">หน้าโปรไฟล์บริษัท</a>
+      <a href="/OneStopService/privacy.html">นโยบายความเป็นส่วนตัว</a>
+    </span>
   </div>
 </footer>
 
+<script>
+/* เมนูมือถือ — จอ ≤900px ซ่อน nav ไว้หลังปุ่ม ☰ */
+const menuToggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('nav.menu');
+menuToggle.addEventListener('click', () => {
+  const open = menu.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', open);
+  menuToggle.textContent = open ? '×' : '☰';
+});
+menu.addEventListener('click', () => {
+  menu.classList.remove('open');
+  menuToggle.setAttribute('aria-expanded', 'false');
+  menuToggle.textContent = '☰';
+});
+</script>
 </body>
 </html>
