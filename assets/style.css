@@ -227,6 +227,18 @@ tbody tr:hover td{background:rgba(125,160,200,.07)}
   .contact-cta .channels a[href^="mailto:"] b{font-size:.84rem;letter-spacing:-.01em;word-break:normal}
 }
 
+/* หน้าค่าบริการสรรหาบุคลากร */
+.sub-head{margin:30px 0 12px;font-size:1.02rem;font-weight:800;color:var(--navy);
+  border-left:4px solid var(--orange);padding-left:12px}
+@media (prefers-color-scheme: dark){ .sub-head{color:var(--ink)} }
+td.rate.promo{color:var(--orange);font-weight:800}
+.svc-link{margin:16px 0 0}
+.svc-link a{color:var(--orange);font-weight:800;text-decoration:none;font-size:.92rem}
+.svc-link a:hover{text-decoration:underline}
+.pack .checks{margin-top:12px;gap:8px}
+.pack .checks li{font-size:.86rem;color:var(--muted)}
+.pack .checks b{color:var(--ink)}
+
 /* ฟอร์มส่งรายละเอียด */
 .lead-form{margin-top:22px;padding:24px;background:var(--surface);border:1px solid var(--line);
   border-top:4px solid var(--navy);border-radius:var(--radius);box-shadow:var(--shadow)}
