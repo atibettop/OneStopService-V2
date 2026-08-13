@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="One Stop HR">
-  <rect width="64" height="64" rx="13" fill="#0D47A1"/>
-  <rect x="9" y="15" width="6" height="34" rx="2" fill="#D4AF37"/>
-  <text x="38" y="43" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif"
-        font-size="30" font-weight="700" fill="#ffffff" letter-spacing="-1">HR</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="เมืองศรีสุข กรุ๊ป">
+  <rect width="64" height="64" rx="13" fill="#0A1F44"/>
+  <rect x="7" y="15" width="4" height="34" rx="2" fill="#D4AF37"/>
+  <text x="39" y="41" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif"
+        font-size="27" font-weight="700" fill="#D4AF37">MS</text>
 </svg>

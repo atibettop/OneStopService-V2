@@ -5,6 +5,11 @@
   html.lang = currentLang;
   const translations = new Map([
     ["ข้ามไปเนื้อหาหลัก", "Skip to main content"],
+    ["เมืองศรีสุข กรุ๊ป", "MUANG SRISUK GROUP"],
+    ["MUANG SRISUK GROUP · BUSINESS • PEOPLE • GROWTH", "BUSINESS • PEOPLE • GROWTH"],
+    ["© บริษัท เมืองศรีสุข กรุ๊ป จำกัด — สร้างคน สร้างธุรกิจ สร้างความมั่งคั่ง", "© Muang Srisuk Group Co., Ltd. — Grow People. Grow Business."],
+    ["© บริษัท เมืองศรีสุข กรุ๊ป จำกัด — ราคาที่แสดงเป็นการประเมินเบื้องต้น โปรดติดต่อทีมงานเพื่อรับใบเสนอราคาอย่างเป็นทางการ", "© Muang Srisuk Group Co., Ltd. — Prices shown are indicative; contact us for a formal quotation."],
+    ["บริษัท เมืองศรีสุข กรุ๊ป จำกัด", "Muang Srisuk Group Co., Ltd."],
     ["สรรหาบุคลากร", "Recruitment"],
     ["เลือก", "Choose"],
     ["ค่าบริการสรรหาบุคลากร", "Recruitment pricing"],
@@ -292,7 +297,7 @@
     ["ประเมินค่าบริการ Payroll ด้วยตัวเอง →", "Estimate payroll pricing →"],
     ["เริ่มประเมินราคา Payroll →", "Start payroll pricing estimate →"],
     ["ราคาที่แสดงเป็นการประเมินเบื้องต้น", "Displayed prices are preliminary estimates"],
-    ["คำนวณราคา Payroll รายเดือน | One Stop HR", "Monthly Payroll Pricing Calculator | One Stop HR"],
+    ["คำนวณราคา Payroll รายเดือน | เมืองศรีสุข กรุ๊ป", "Monthly Payroll Pricing Calculator | Muang Srisuk Group"],
     ["รู้ค่าบริการ Payroll", "Estimate your payroll fee"],
     ["ได้ทันทีในไม่กี่วินาที", "in just a few seconds"],
     ["กรอกจำนวนพนักงานเพียงครั้งเดียว ระบบจะคำนวณราคาและเปรียบเทียบทุกแพ็กเกจให้อัตโนมัติ", "Enter your employee count to calculate estimated monthly pricing and compare all packages."],
@@ -325,7 +330,7 @@
     ["สรุปขอบเขตและแผนเริ่มงาน", "Confirm scope and implementation plan"],
     ["จัดทำใบเสนอราคาสำหรับองค์กร", "Prepare an organization-specific quote"],
     ["ดูข้อมูลที่ต้องเตรียม", "View required information"],
-    ["© One Stop HR Co., Ltd. — ราคาที่แสดงเป็นการประเมินเบื้องต้น โปรดติดต่อทีมงานเพื่อรับใบเสนอราคาอย่างเป็นทางการ", "© One Stop HR Co., Ltd. — Displayed prices are estimates. Contact our team for an official quotation."],
+    ["© บริษัท เมืองศรีสุข กรุ๊ป จำกัด — ราคาที่แสดงเป็นการประเมินเบื้องต้น โปรดติดต่อทีมงานเพื่อรับใบเสนอราคาอย่างเป็นทางการ", "© Muang Srisuk Group Co., Ltd. — Displayed prices are estimates. Contact our team for an official quotation."],
     ["กลับหน้าโปรไฟล์บริษัท", "Back to company profile"],
     ["0 - 30 คน (ราคาเหมา)", "0 - 30 employees (flat fee)"],
     ["31 - 200 คน (เพิ่มต่อคน)*", "31 - 200 employees (per additional employee)*"],
@@ -393,6 +398,7 @@
   function languageTarget(lang) {
     const page = document.body?.dataset.page;
     if (page === "pricing") return `pricing.html?lang=${lang}`;
+    if (page === "recruitment") return `recruitment.html?lang=${lang}`;
     const homePath = location.pathname.replace(/index\.html$/, "");
     return `${homePath}?lang=${lang}`;
   }
@@ -400,12 +406,23 @@
   function updateEnglishMetadata() {
     const page = document.body?.dataset.page;
     const home = page === "home";
-    const title = home
-      ? "Payroll Outsourcing & Complete HR Services | One Stop HR"
-      : "Monthly Payroll Pricing Calculator | One Stop HR";
-    const description = home
-      ? "One Stop HR Solutions provides payroll outsourcing, recruitment, work permit, migrant-worker, corporate event, and HR consulting services in Thailand."
-      : "Estimate monthly payroll outsourcing fees by employee count and compare Lite, Pro, and Premium packages.";
+    const META = {
+      home: {
+        title: "Payroll Outsourcing & Complete HR Services | Muang Srisuk Group",
+        description: "Muang Srisuk Group provides payroll outsourcing, recruitment, work permit, migrant-worker, corporate event, and HR consulting services in Thailand."
+      },
+      recruitment: {
+        title: "Recruitment Pricing | Muang Srisuk Group",
+        description: "Success Fee from THB 4,000 per position, payable once the candidate starts, or a monthly recruitment retainer from THB 9,900."
+      },
+      pricing: {
+        title: "Monthly Payroll Pricing Calculator | Muang Srisuk Group",
+        description: "Estimate monthly payroll outsourcing fees by employee count and compare Lite, Pro, and Premium packages."
+      }
+    };
+    const meta = META[page] || META.pricing;
+    const title = meta.title;
+    const description = meta.description;
     document.title = title;
     const pagePath = home ? location.pathname.replace(/index\.html$/, "") : location.pathname;
     const englishUrl = `${location.origin}${pagePath}?lang=en`;
@@ -451,7 +468,7 @@
         image.alt = "HR specialists reviewing workforce systems and business processes";
       }
       if (image.alt === "คิวอาร์โค้ดสำหรับเพิ่มเพื่อนทาง LINE") {
-        image.alt = "QR code to add One Stop HR on LINE";
+        image.alt = "QR code to add Muang Srisuk Group on LINE";
       }
     });
   }

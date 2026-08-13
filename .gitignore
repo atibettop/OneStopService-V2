@@ -15,3 +15,4 @@ desktop.ini
 # โปรเจกต์และเอกสารภายในที่วางไว้ในโฟลเดอร์เดียวกันต้องไม่ถูก commit
 payroll-app/
 Doc/
+.build-backups/

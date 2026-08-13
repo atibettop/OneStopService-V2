@@ -43,7 +43,11 @@ body{
 @media (prefers-color-scheme: dark){ .topbar{background:#0b1420} }
 .topbar .wrap{display:flex; align-items:center; gap:20px; min-height:64px; flex-wrap:wrap}
 .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.4px;
-  color:#fff; text-decoration:none; font-size:.98rem; white-space:nowrap}
+  color:#fff; text-decoration:none; font-size:.98rem; white-space:nowrap;
+  min-width:0}
+/* ชื่อบริษัทต้องย่อด้วย … แทนที่จะดันไปชนปุ่มภาษาเมื่อจอแคบ */
+.brand > span:last-child{min-width:0; overflow:hidden; text-overflow:ellipsis}
+.brand small{overflow:hidden; text-overflow:ellipsis}
 .brand .dot{width:10px; height:26px; background:var(--orange); border-radius:2px; display:inline-block}
 .brand small{display:block; font-weight:500; font-size:.68rem; opacity:.7; letter-spacing:.6px}
 nav.menu{display:flex; align-items:center; gap:4px; margin-left:auto; flex-wrap:wrap}
