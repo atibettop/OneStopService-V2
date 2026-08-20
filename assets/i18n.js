@@ -168,6 +168,8 @@
     ["พระราชบัญญัติคุ้มครองแรงงานและเงื่อนไขวีซ่าแรงงานต่างด้าวที่มีความเข้มงวดและปรับปรุงตลอดเวลา", "Employment regulations and foreign-worker requirements are complex and continue to evolve."],
     ["บริการแบบครบวงจร", "End-to-end HR services"],
     ["เลือกดูบริการตามปัญหาที่องค์กรกำลังเผชิญ เราดูแลได้ตั้งแต่ต้นจนจบกระบวนการ", "Choose the service that matches your current challenge. Our specialists manage the process from start to finish."],
+    ["สรรหา จัดหา และดูแลบุคลากรให้ถูกต้องตามกฎหมาย", "Sourcing, hiring, and keeping your workforce fully compliant."],
+    ["บริหารจัดการและวางระบบทรัพยากรบุคคล", "Running your people operations and building the HR systems behind them."],
     ["คำนวณเงินเดือน ภาษี ประกันสังคม และจัดทำสลิปอย่างถูกต้องตรงเวลา", "Accurate, on-time payroll, tax, social security, and payslip processing."],
     ["สรรหาและคัดกรองบุคลากรที่เหมาะสม ตั้งแต่ระดับปฏิบัติการถึงผู้บริหาร", "Recruit and screen suitable candidates, from operational roles to executives."],
     ["ออกแบบและดูแลงานสัมมนา กิจกรรมทีม และงานเลี้ยงองค์กรครบวงจร", "Plan and manage corporate seminars, team activities, and company events."],
