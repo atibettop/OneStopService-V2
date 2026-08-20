@@ -122,8 +122,17 @@
     </a>
     <nav class="menu" aria-label="เมนูหลัก">
       <a href="#about" class="active">เกี่ยวกับเรา</a>
-      <a href="#solutions">บริการ</a>
-      <a href="recruitment.html">สรรหาบุคลากร</a>
+      <details class="menu-drop">
+        <summary>บริการ</summary>
+        <div class="menu-panel">
+          <a class="menu-cat" href="#recruitment-staffing"><span class="menu-cat-no">01</span>สรรหาและจัดหาบุคลากร</a>
+          <a class="menu-sub" href="recruitment.html">ค่าบริการสรรหาบุคลากร</a>
+          <a class="menu-cat accent-gold" href="#hr-management"><span class="menu-cat-no">02</span>บริหารจัดการและวางระบบ HR</a>
+          <a class="menu-sub" href="pricing.html">คำนวณราคา Payroll</a>
+          <span class="menu-sep"></span>
+          <a class="menu-extra" href="#extras">บริการเสริมองค์กร</a>
+        </div>
+      </details>
       <a href="#workflow">ขั้นตอน</a>
       <a href="#packages">รูปแบบบริการ</a>
       <a href="#contact">ติดต่อเรา</a>
@@ -741,6 +750,8 @@ const io = new IntersectionObserver(entries => {
     if (!e.isIntersecting) return;
     links.forEach(a => a.classList.toggle('active',
       a.getAttribute('href') === '#' + e.target.id));
+    document.querySelectorAll('details.menu-drop').forEach(d =>
+      d.querySelector('summary').classList.toggle('active', !!d.querySelector('a.active')));
   });
 }, { rootMargin: '-45% 0px -50% 0px' });
 targets.forEach(t => io.observe(t));
@@ -751,10 +762,21 @@ menuToggle.addEventListener('click', () => {
   menuToggle.setAttribute('aria-expanded', open);
   menuToggle.textContent = open ? '×' : '☰';
 });
-menu.addEventListener('click', () => {
+menu.addEventListener('click', e => {
+  if (!e.target.closest('a')) return;   /* เปิดเมนูย่อยไม่ควรปิดเมนูใหญ่ */
   menu.classList.remove('open');
   menuToggle.setAttribute('aria-expanded', 'false');
   menuToggle.textContent = '☰';
+  menu.querySelectorAll('details.menu-drop[open]').forEach(d => { d.open = false; });
+});
+document.addEventListener('click', e => {
+  menu.querySelectorAll('details.menu-drop[open]').forEach(d => {
+    if (!d.contains(e.target)) d.open = false;
+  });
+});
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  menu.querySelectorAll('details.menu-drop[open]').forEach(d => { d.open = false; });
 });
 /* ฟอร์มติดต่อ
    FORM_ENDPOINT ว่าง = รวบรวมข้อมูลแล้วเปิดโปรแกรมอีเมลให้ผู้ใช้กดส่ง (ใช้ได้ทันที ไม่ต้องสมัครอะไร)

@@ -37,7 +37,17 @@
       </span>
     </a>
     <nav class="menu" aria-label="เมนูหลัก">
-      <a href="/OneStopService/#solutions">บริการ</a>
+      <details class="menu-drop">
+        <summary>บริการ</summary>
+        <div class="menu-panel">
+          <a class="menu-cat" href="/OneStopService/#recruitment-staffing"><span class="menu-cat-no">01</span>สรรหาและจัดหาบุคลากร</a>
+          <a class="menu-sub" href="/OneStopService/recruitment.html">ค่าบริการสรรหาบุคลากร</a>
+          <a class="menu-cat accent-gold" href="/OneStopService/#hr-management"><span class="menu-cat-no">02</span>บริหารจัดการและวางระบบ HR</a>
+          <a class="menu-sub" href="/OneStopService/pricing.html">คำนวณราคา Payroll</a>
+          <span class="menu-sep"></span>
+          <a class="menu-extra" href="/OneStopService/#extras">บริการเสริมองค์กร</a>
+        </div>
+      </details>
       <a href="/OneStopService/#contact">ติดต่อเรา</a>
       <a href="/OneStopService/pricing.html" class="cta">คำนวณราคา</a>
     </nav>
@@ -82,10 +92,21 @@ menuToggle.addEventListener('click', () => {
   menuToggle.setAttribute('aria-expanded', open);
   menuToggle.textContent = open ? '×' : '☰';
 });
-menu.addEventListener('click', () => {
+menu.addEventListener('click', e => {
+  if (!e.target.closest('a')) return;   /* เปิดเมนูย่อยไม่ควรปิดเมนูใหญ่ */
   menu.classList.remove('open');
   menuToggle.setAttribute('aria-expanded', 'false');
   menuToggle.textContent = '☰';
+  menu.querySelectorAll('details.menu-drop[open]').forEach(d => { d.open = false; });
+});
+document.addEventListener('click', e => {
+  menu.querySelectorAll('details.menu-drop[open]').forEach(d => {
+    if (!d.contains(e.target)) d.open = false;
+  });
+});
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  menu.querySelectorAll('details.menu-drop[open]').forEach(d => { d.open = false; });
 });
 </script>
 </body>

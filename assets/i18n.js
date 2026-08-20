@@ -130,6 +130,8 @@
     ["ส่งรายละเอียดตามรายการด้านซ้ายมาทางอีเมล หรือโทรสอบถามโดยตรงในเวลาทำการ", "Email us the details listed on the left, or call during business hours."],
     ["เกี่ยวกับเรา", "About us"],
     ["บริการ", "Services"],
+    ["สรรหาและจัดหาบุคลากร", "Recruitment & Staffing"],
+    ["บริหารจัดการและวางระบบ HR", "HR Management & Consulting"],
     ["ขั้นตอน", "Process"],
     ["รูปแบบบริการ", "Service options"],
     ["เตรียมข้อมูล", "Get ready"],

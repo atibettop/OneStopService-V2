@@ -55,8 +55,17 @@
     </a>
     <nav class="menu" aria-label="เมนูหลัก">
       <a href="index.html#about">เกี่ยวกับเรา</a>
-      <a href="index.html#solutions">บริการ</a>
-      <a href="recruitment.html" class="active">สรรหาบุคลากร</a>
+      <details class="menu-drop">
+        <summary class="active">บริการ</summary>
+        <div class="menu-panel">
+          <a class="menu-cat" href="index.html#recruitment-staffing"><span class="menu-cat-no">01</span>สรรหาและจัดหาบุคลากร</a>
+          <a class="menu-sub" href="recruitment.html">ค่าบริการสรรหาบุคลากร</a>
+          <a class="menu-cat accent-gold" href="index.html#hr-management"><span class="menu-cat-no">02</span>บริหารจัดการและวางระบบ HR</a>
+          <a class="menu-sub" href="pricing.html">คำนวณราคา Payroll</a>
+          <span class="menu-sep"></span>
+          <a class="menu-extra" href="index.html#extras">บริการเสริมองค์กร</a>
+        </div>
+      </details>
       <a href="index.html#contact">ติดต่อเรา</a>
       <a href="pricing.html" class="cta">คำนวณราคา</a>
     </nav>
@@ -289,10 +298,21 @@ menuToggle.addEventListener('click', () => {
   menuToggle.setAttribute('aria-expanded', open);
   menuToggle.textContent = open ? '×' : '☰';
 });
-menu.addEventListener('click', () => {
+menu.addEventListener('click', e => {
+  if (!e.target.closest('a')) return;   /* เปิดเมนูย่อยไม่ควรปิดเมนูใหญ่ */
   menu.classList.remove('open');
   menuToggle.setAttribute('aria-expanded', 'false');
   menuToggle.textContent = '☰';
+  menu.querySelectorAll('details.menu-drop[open]').forEach(d => { d.open = false; });
+});
+document.addEventListener('click', e => {
+  menu.querySelectorAll('details.menu-drop[open]').forEach(d => {
+    if (!d.contains(e.target)) d.open = false;
+  });
+});
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  menu.querySelectorAll('details.menu-drop[open]').forEach(d => { d.open = false; });
 });
 </script>
 </body>
