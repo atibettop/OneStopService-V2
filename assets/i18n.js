@@ -167,7 +167,11 @@
     ["ข้อกฎหมายเปลี่ยนบ่อย", "Changing regulations"],
     ["พระราชบัญญัติคุ้มครองแรงงานและเงื่อนไขวีซ่าแรงงานต่างด้าวที่มีความเข้มงวดและปรับปรุงตลอดเวลา", "Employment regulations and foreign-worker requirements are complex and continue to evolve."],
     ["บริการแบบครบวงจร", "End-to-end HR services"],
-    ["เลือกดูบริการตามปัญหาที่องค์กรกำลังเผชิญ เราดูแลได้ตั้งแต่ต้นจนจบกระบวนการ", "Choose the service that matches your current challenge. Our specialists manage the process from start to finish."],
+    ["แบ่งเป็นสองสายงาน — สายสรรหาและจัดหาบุคลากร กับสายบริหารจัดการและวางระบบ HR เลือกใช้สายเดียวหรือทั้งสองสายร่วมกันก็ได้", "Two families of work: finding and onboarding people, and running the people you already have. Use one, or both together."],
+    ["ดูบริการเสริมองค์กร →", "See corporate add-on services →"],
+    ["บริการเสริมองค์กร", "Corporate add-on services"],
+    ["บริการที่สั่งแยกได้ ไม่ต้องใช้บริการ HR อื่นของเราก่อน", "Available on their own — no other service of ours is required first."],
+    ["สอบถามรายละเอียดงานอีเวนต์ →", "Ask about corporate events →"],
     ["สรรหา จัดหา และดูแลบุคลากรให้ถูกต้องตามกฎหมาย", "Sourcing, hiring, and keeping your workforce fully compliant."],
     ["บริหารจัดการและวางระบบทรัพยากรบุคคล", "Running your people operations and building the HR systems behind them."],
     ["คำนวณเงินเดือน ภาษี ประกันสังคม และจัดทำสลิปอย่างถูกต้องตรงเวลา", "Accurate, on-time payroll, tax, social security, and payslip processing."],
@@ -264,7 +268,7 @@
     ["เปรียบเทียบฟังก์ชันก่อนตัดสินใจ", "Compare included features"],
     ["เลือกใช้เป็นรายบริการ", "Choose individual services"],
     ["บริการ HR เฉพาะด้าน", "Specialist HR services"],
-    ["เลือกเฉพาะงานที่องค์กรต้องการผู้เชี่ยวชาญ เช่น สรรหาบุคลากร วีซ่าและใบอนุญาตทำงาน หรือแรงงานต่างด้าว", "Choose the specialist support you need, including recruitment, visas and work permits, or migrant-worker services."],
+    ["เลือกเฉพาะงานในสายสรรหาและจัดหาบุคลากร เช่น สรรหาบุคลากร แรงงานต่างด้าว วีซ่าและใบอนุญาตทำงาน", "Pick individual services from the recruitment and staffing family: hiring, migrant workers, visas, and work permits."],
     ["กำหนดขอบเขตงานตามความต้องการ", "Define a scope around your needs"],
     ["มีผู้ประสานงานดูแลแต่ละโครงการ", "Work with a dedicated coordinator"],
     ["เริ่มจากบริการเดียวและขยายภายหลังได้", "Start with one service and expand later"],
@@ -411,7 +415,7 @@
     const META = {
       home: {
         title: "Payroll Outsourcing & Complete HR Services | Muang Srisuk Group",
-        description: "Muang Srisuk Group provides payroll outsourcing, recruitment, work permit, migrant-worker, corporate event, and HR consulting services in Thailand."
+        description: "Muang Srisuk Group runs two families of HR work in Thailand: recruitment, migrant workers, visas and work permits; and payroll, HR consulting, and corporate events."
       },
       recruitment: {
         title: "Recruitment Pricing | Muang Srisuk Group",
