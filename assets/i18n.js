@@ -132,6 +132,7 @@
     ["บริการ", "Services"],
     ["สรรหาและจัดหาบุคลากร", "Recruitment & Staffing"],
     ["บริหารจัดการและวางระบบ HR", "HR Management & Consulting"],
+    ["บริการเสริมองค์กร · Event Management", "Corporate add-ons · Event Management"],
     ["ขั้นตอน", "Process"],
     ["รูปแบบบริการ", "Service options"],
     ["เตรียมข้อมูล", "Get ready"],

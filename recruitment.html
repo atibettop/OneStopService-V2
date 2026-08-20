@@ -17,7 +17,7 @@
 <meta property="og:description" content="Success Fee จ่ายเมื่อผู้สมัครเริ่มงาน หรือเหมารายเดือนแบบมีทีม Recruitment ดูแล">
 <meta property="og:image" content="https://atibettop.github.io/OneStopService/assets/og-cover.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="assets/style.css?v=20260810-7">
+<link rel="stylesheet" href="assets/style.css?v=20260820-1">
 <script>
 /* โหลดชุดคำแปลเฉพาะผู้ใช้ที่ต้องการภาษาอังกฤษ */
 (function () {
@@ -26,7 +26,7 @@
   try { saved = localStorage.getItem("oneStopHrLanguage"); } catch (e) {}
   if (asked === "en" || (!asked && saved === "en")) {
     var s = document.createElement("script");
-    s.src = "assets/i18n.js?v=20260810-6";
+    s.src = "assets/i18n.js?v=20260820-1";
     s.defer = true;
     document.head.appendChild(s);
   } else {
@@ -58,12 +58,22 @@
       <details class="menu-drop">
         <summary class="active">บริการ</summary>
         <div class="menu-panel">
-          <a class="menu-cat" href="index.html#recruitment-staffing"><span class="menu-cat-no">01</span>สรรหาและจัดหาบุคลากร</a>
-          <a class="menu-sub" href="recruitment.html">ค่าบริการสรรหาบุคลากร</a>
-          <a class="menu-cat accent-gold" href="index.html#hr-management"><span class="menu-cat-no">02</span>บริหารจัดการและวางระบบ HR</a>
-          <a class="menu-sub" href="pricing.html">คำนวณราคา Payroll</a>
-          <span class="menu-sep"></span>
-          <a class="menu-extra" href="index.html#extras">บริการเสริมองค์กร</a>
+          <div class="menu-col">
+            <a class="menu-cat" href="index.html#recruitment-staffing"><span class="menu-cat-no">01</span>สรรหาและจัดหาบุคลากร</a>
+            <a class="menu-item" href="index.html#service-recruitment">Recruitment Services</a>
+            <a class="menu-item" href="index.html#service-worker">Foreign Worker Services</a>
+            <a class="menu-item" href="index.html#service-visa">Visa &amp; Work Permit</a>
+            <a class="menu-sub" href="recruitment.html">ค่าบริการสรรหาบุคลากร</a>
+          </div>
+          <div class="menu-col">
+            <a class="menu-cat accent-gold" href="index.html#hr-management"><span class="menu-cat-no">02</span>บริหารจัดการและวางระบบ HR</a>
+            <a class="menu-item" href="index.html#service-payroll">Payroll Outsourcing</a>
+            <a class="menu-item" href="index.html#service-consulting">HR Consulting</a>
+            <a class="menu-sub" href="pricing.html">คำนวณราคา Payroll</a>
+          </div>
+          <div class="menu-foot">
+            <a class="menu-extra" href="index.html#extras"><span class="menu-cat-no plus">+</span>บริการเสริมองค์กร · Event Management</a>
+          </div>
         </div>
       </details>
       <a href="index.html#contact">ติดต่อเรา</a>

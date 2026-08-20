@@ -27,7 +27,7 @@
 <meta name="twitter:description" content="สองสายงานที่ครบวงจร — สรรหาและจัดหาบุคลากร กับบริหารจัดการและวางระบบ HR">
 <meta name="twitter:image" content="https://atibettop.github.io/OneStopService/assets/og-cover.jpg">
 <link rel="preload" as="image" href="assets/hr-team-hero.webp" type="image/webp">
-<link rel="stylesheet" href="assets/style.css?v=20260810-8">
+<link rel="stylesheet" href="assets/style.css?v=20260820-1">
 <script>
 /* โหลดชุดคำแปลเฉพาะผู้ใช้ที่ต้องการภาษาอังกฤษ — คนไทยจะไม่ต้องดาวน์โหลดไฟล์ 56 KB นี้เลย */
 (function () {
@@ -36,7 +36,7 @@
   try { saved = localStorage.getItem("oneStopHrLanguage"); } catch (e) {}
   if (asked === "en" || (!asked && saved === "en")) {
     var s = document.createElement("script");
-    s.src = "assets/i18n.js?v=20260810-5";
+    s.src = "assets/i18n.js?v=20260820-1";
     s.defer = true;
     document.head.appendChild(s);
   } else {
@@ -125,12 +125,22 @@
       <details class="menu-drop">
         <summary>บริการ</summary>
         <div class="menu-panel">
-          <a class="menu-cat" href="#recruitment-staffing"><span class="menu-cat-no">01</span>สรรหาและจัดหาบุคลากร</a>
-          <a class="menu-sub" href="recruitment.html">ค่าบริการสรรหาบุคลากร</a>
-          <a class="menu-cat accent-gold" href="#hr-management"><span class="menu-cat-no">02</span>บริหารจัดการและวางระบบ HR</a>
-          <a class="menu-sub" href="pricing.html">คำนวณราคา Payroll</a>
-          <span class="menu-sep"></span>
-          <a class="menu-extra" href="#extras">บริการเสริมองค์กร</a>
+          <div class="menu-col">
+            <a class="menu-cat" href="#recruitment-staffing"><span class="menu-cat-no">01</span>สรรหาและจัดหาบุคลากร</a>
+            <a class="menu-item" href="#service-recruitment">Recruitment Services</a>
+            <a class="menu-item" href="#service-worker">Foreign Worker Services</a>
+            <a class="menu-item" href="#service-visa">Visa &amp; Work Permit</a>
+            <a class="menu-sub" href="recruitment.html">ค่าบริการสรรหาบุคลากร</a>
+          </div>
+          <div class="menu-col">
+            <a class="menu-cat accent-gold" href="#hr-management"><span class="menu-cat-no">02</span>บริหารจัดการและวางระบบ HR</a>
+            <a class="menu-item" href="#service-payroll">Payroll Outsourcing</a>
+            <a class="menu-item" href="#service-consulting">HR Consulting</a>
+            <a class="menu-sub" href="pricing.html">คำนวณราคา Payroll</a>
+          </div>
+          <div class="menu-foot">
+            <a class="menu-extra" href="#extras"><span class="menu-cat-no plus">+</span>บริการเสริมองค์กร · Event Management</a>
+          </div>
         </div>
       </details>
       <a href="#workflow">ขั้นตอน</a>
@@ -294,6 +304,9 @@
       </section>
     </div>
 
+    <div class="svc-family accent-navy">
+      <p class="svc-family-head"><span class="svc-family-no">01</span>RECRUITMENT &amp; STAFFING</p>
+
     <!-- ---- detail 1 ---- -->
     <details class="svc" id="service-recruitment">
       <summary><span class="badge">1</span><span><b>Recruitment Services</b><small>สรรหา คัดกรอง และประสานงานสัมภาษณ์</small></span><i>ดูรายละเอียด</i></summary>
@@ -346,6 +359,11 @@
       </ul>
     </details>
 
+    </div>
+
+    <div class="svc-family accent-gold">
+      <p class="svc-family-head"><span class="svc-family-no">02</span>HR MANAGEMENT &amp; CONSULTING</p>
+
     <!-- ---- detail 4 ---- -->
     <details class="svc" id="service-payroll">
       <summary><span class="badge">4</span><span><b>Payroll Outsourcing</b><small>เงินเดือน ภาษี ประกันสังคม และรายงานประจำเดือน</small></span><i>ดูรายละเอียด</i></summary>
@@ -377,6 +395,8 @@
       <div class="callout"><b>ขับเคลื่อนด้วยข้อมูลวิเคราะห์จริง</b>
         <span>ปรับปรุงความสอดคล้องตามกฎหมายแรงงาน พร้อมส่งมอบคุณค่าการเป็นองค์กรต้นแบบที่น่าทำงานด้วย</span></div>
     </details>
+
+    </div>
 
     <p class="svc-link"><a href="#extras">ดูบริการเสริมองค์กร →</a></p>
   </div>
@@ -755,6 +775,20 @@ const io = new IntersectionObserver(entries => {
   });
 }, { rootMargin: '-45% 0px -50% 0px' });
 targets.forEach(t => io.observe(t));
+/* คลิกบริการจากการ์ดหรือจากเมนู แล้วให้หัวข้อนั้นกางเอง ไม่ใช่พาไปที่แถบที่ยังปิดอยู่ */
+function openTargetDetails() {
+  const id = decodeURIComponent(location.hash.slice(1));
+  if (!id) return;
+  const el = document.getElementById(id);
+  const det = el && el.closest('details');
+  if (det) det.open = true;
+}
+window.addEventListener('hashchange', openTargetDetails);
+openTargetDetails();
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="#service-"], a[href="#extras"]');
+  if (a) setTimeout(openTargetDetails, 0);
+});
 const menuToggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('nav.menu');
 menuToggle.addEventListener('click', () => {

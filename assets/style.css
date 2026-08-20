@@ -71,22 +71,28 @@ nav.menu .menu-drop>summary:focus-visible{outline:2px solid var(--orange);outlin
 nav.menu .menu-drop>summary.active{color:#fff;background:rgba(255,255,255,.14);font-weight:700}
 nav.menu .menu-drop[open]>summary{background:rgba(255,255,255,.14);color:#fff}
 nav.menu .menu-drop[open]>summary::after{transform:rotate(180deg)}
-nav.menu .menu-panel{position:absolute;top:calc(100% + 12px);left:0;z-index:60;min-width:296px;
-  display:grid;gap:2px;padding:10px;background:var(--surface);border:1px solid var(--line);
-  border-radius:16px;box-shadow:0 22px 48px rgba(8,24,45,.3)}
+nav.menu .menu-panel{position:absolute;top:calc(100% + 12px);left:0;z-index:60;width:max-content;max-width:min(92vw,620px);
+  display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;padding:12px;background:var(--surface);
+  border:1px solid var(--line);border-radius:16px;box-shadow:0 22px 48px rgba(8,24,45,.3)}
+nav.menu .menu-col{display:grid;gap:1px;align-content:start;min-width:0}
+nav.menu .menu-foot{grid-column:1/-1;margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
 nav.menu .menu-panel a{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:11px;
   color:var(--ink);background:none;text-decoration:none;font-size:.9rem;font-weight:700;white-space:nowrap}
 nav.menu .menu-panel a:hover{background:var(--bg);color:var(--navy)}
 nav.menu .menu-cat-no{flex:0 0 auto;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
   font-size:.75rem;font-weight:900;background:var(--navy-soft);color:var(--navy)}
 nav.menu .menu-cat.accent-gold .menu-cat-no{background:var(--orange-soft);color:var(--gold-ink)}
-nav.menu .menu-panel a.menu-sub{padding:8px 12px 8px 54px;font-size:.83rem;font-weight:600;color:var(--muted)}
+nav.menu .menu-panel a.menu-cat{margin-bottom:2px}
+nav.menu .menu-panel a.menu-item{padding:7px 12px 7px 54px;font-size:.86rem;font-weight:600;color:var(--ink)}
+nav.menu .menu-panel a.menu-item::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--orange);margin-left:-16px;margin-right:11px;flex:0 0 auto}
+nav.menu .menu-panel a.menu-sub{margin-top:2px;padding:7px 12px 7px 54px;font-size:.81rem;font-weight:700;color:var(--gold-ink)}
 nav.menu .menu-panel a.menu-sub:hover{color:var(--navy)}
 nav.menu .menu-sep{height:1px;background:var(--line);margin:6px 4px}
 nav.menu .menu-panel a.menu-extra{font-size:.87rem;font-weight:700}
 @media(max-width:900px){
   nav.menu .menu-drop>summary{padding:12px 14px;justify-content:space-between}
-  nav.menu .menu-panel{position:static;min-width:0;margin:4px 0 8px;box-shadow:none;border-radius:12px}
+  nav.menu .menu-panel{position:static;width:auto;max-width:none;grid-template-columns:1fr;gap:2px;margin:4px 0 8px;box-shadow:none;border-radius:12px}
+  nav.menu .menu-col+.menu-col{margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
   nav.menu .menu-panel a{white-space:normal}
 }
 
@@ -464,6 +470,17 @@ section.block{padding:78px 0}section.block.alt{background:var(--alt-bg)}
 .solution-group .solution-tile:hover{transform:none;box-shadow:none;background:var(--bg)}
 .solution-group .solution-tile .ico{width:42px;height:42px}
 .solution-group .solution-tile h4{font-size:.98rem}
+.solution-group .solution-tile{cursor:pointer}
+.solution-group .solution-tile>a::after{content:"";position:absolute;inset:0;border-radius:12px}
+.solution-group .solution-tile:focus-within{background:var(--bg)}
+.solution-group .solution-tile>a:focus-visible::after{outline:3px solid rgba(212,175,55,.5);outline-offset:-3px}
+.svc-family{margin-top:32px}
+.svc-family+.svc-family{margin-top:36px}
+.svc-family-head{display:flex;align-items:center;gap:12px;margin:0 0 16px;color:var(--navy);font-size:.88rem;font-weight:900;letter-spacing:.07em}
+.svc-family-head::after{content:"";flex:1 1 auto;height:2px;border-radius:2px;background:var(--navy-soft)}
+.svc-family.accent-gold .svc-family-head::after{background:var(--orange-soft)}
+.svc-family-no{flex:0 0 auto;width:32px;height:32px;border-radius:10px;display:grid;place-items:center;font-size:.75rem;font-weight:900;background:var(--navy-soft);color:var(--navy)}
+.svc-family.accent-gold .svc-family-no{background:var(--orange-soft);color:var(--gold-ink)}
 .extras-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px 30px;box-shadow:0 10px 30px rgba(20,50,82,.07);scroll-margin-top:96px}
 .extras-head{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:16px}
 .extras-head .ico{margin:0;width:52px;height:52px}
