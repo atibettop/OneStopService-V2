@@ -279,6 +279,28 @@ td.rate.promo{color:var(--orange);font-weight:800}
 .pack .checks li{font-size:.86rem;color:var(--muted)}
 .pack .checks b{color:var(--ink)}
 
+/* ---------- recruitment page: retainer extras ---------- */
+.pack .per b{color:var(--ink)}
+.pack .per s{opacity:.7}
+.pack-for{margin:16px 0 0;padding-top:14px;border-top:1px dashed var(--line);color:var(--muted);font-size:.82rem;line-height:1.6}
+.card h3 small{font-size:.72rem;font-weight:600;color:var(--muted)}
+.terms-list{display:grid;gap:12px;margin-top:6px;max-width:840px}
+.terms-list li{font-size:.9rem}
+/* comparison: highlight the recommended column */
+table.compare td.rec{background:var(--orange-soft)}
+table.compare th.rec{background:var(--navy)}
+table.compare tbody tr:hover td.rec{background:var(--orange-soft)}
+/* recruitment process: 8 clean numbered steps, no fragile connector */
+.rsteps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.rstep{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:9px}
+.rstep b{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:var(--navy-soft);color:var(--navy);font-weight:900;font-size:.82rem;letter-spacing:.04em}
+.rstep.final b{background:var(--navy);color:#fff}
+.rstep strong{color:var(--navy);font-size:.96rem;line-height:1.35}
+.rstep small{color:var(--muted);font-size:.8rem;line-height:1.5}
+@media (prefers-color-scheme: dark){ .rstep strong{color:var(--ink)} }
+@media(max-width:900px){ .rsteps{grid-template-columns:repeat(2,1fr)} }
+@media(max-width:560px){ .rsteps{grid-template-columns:1fr} }
+
 /* ฟอร์มส่งรายละเอียด */
 .lead-form{margin-top:22px;padding:24px;background:var(--surface);border:1px solid var(--line);
   border-top:4px solid var(--navy);border-radius:var(--radius);box-shadow:var(--shadow)}
