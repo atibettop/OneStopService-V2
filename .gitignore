@@ -16,3 +16,8 @@ desktop.ini
 payroll-app/
 Doc/
 .build-backups/
+
+# Local preview and visual QA
+*.log
+preview-*.png
+preview-*.jpg

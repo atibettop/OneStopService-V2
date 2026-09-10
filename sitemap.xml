@@ -1,40 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://atibettop.github.io/OneStopService/</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://atibettop.github.io/OneStopService/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://atibettop.github.io/OneStopService/?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://atibettop.github.io/OneStopService/" />
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://atibettop.github.io/OneStopService/?lang=en</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://atibettop.github.io/OneStopService/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://atibettop.github.io/OneStopService/?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://atibettop.github.io/OneStopService/" />
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://atibettop.github.io/OneStopService/pricing.html</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://atibettop.github.io/OneStopService/pricing.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://atibettop.github.io/OneStopService/pricing.html?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://atibettop.github.io/OneStopService/pricing.html" />
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://atibettop.github.io/OneStopService/pricing.html?lang=en</loc>
-    <xhtml:link rel="alternate" hreflang="th" href="https://atibettop.github.io/OneStopService/pricing.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://atibettop.github.io/OneStopService/pricing.html?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://atibettop.github.io/OneStopService/pricing.html" />
-    <lastmod>2026-08-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://atibettop.github.io/OneStopService/event-management.html</loc></url>
+<url><loc>https://atibettop.github.io/OneStopService/foreign-worker.html</loc></url>
+<url><loc>https://atibettop.github.io/OneStopService/hr-consulting.html</loc></url>
+<url><loc>https://atibettop.github.io/OneStopService/hr-foundation.html</loc></url>
+<url><loc>https://atibettop.github.io/OneStopService/</loc></url>
+<url><loc>https://atibettop.github.io/OneStopService/insights.html</loc></url>
+<url><loc>https://atibettop.github.io/OneStopService/payroll-outsourcing.html</loc></url>
+<url><loc>https://atibettop.github.io/OneStopService/prepare-payroll.html</loc></url>
+<url><loc>https://atibettop.github.io/OneStopService/pricing.html</loc></url>
+<url><loc>https://atibettop.github.io/OneStopService/privacy.html</loc></url>
+<url><loc>https://atibettop.github.io/OneStopService/recruitment-brief.html</loc></url>
+<url><loc>https://atibettop.github.io/OneStopService/recruitment.html</loc></url>
+<url><loc>https://atibettop.github.io/OneStopService/request-quotation.html</loc></url>
+<url><loc>https://atibettop.github.io/OneStopService/visa-work-permit.html</loc></url>
 </urlset>

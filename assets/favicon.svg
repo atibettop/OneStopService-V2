@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="เมืองศรีสุข กรุ๊ป">
-  <rect width="64" height="64" rx="13" fill="#0A1F44"/>
-  <rect x="7" y="15" width="4" height="34" rx="2" fill="#D4AF37"/>
+  <rect width="64" height="64" rx="13" fill="#08226D"/>
+  <rect x="7" y="15" width="4" height="34" rx="2" fill="#62D7FF"/>
   <text x="39" y="41" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif"
-        font-size="27" font-weight="700" fill="#D4AF37">MS</text>
+        font-size="27" font-weight="700" fill="#62D7FF">MS</text>
 </svg>
