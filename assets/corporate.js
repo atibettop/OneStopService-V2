@@ -20,12 +20,18 @@
     const url = new URL(raw, location.href); if (url.origin !== location.origin) return;
     url.searchParams.set('lang', 'en'); a.href = url.pathname + url.search + url.hash;
   });
+  document.querySelectorAll('[data-en-placeholder]').forEach(el => { if (en) el.placeholder = el.dataset.enPlaceholder; });
   const header = document.querySelector('.ms-header');
+  const filename = location.pathname.split('/').pop() || 'index.html';
+  const navGroup = /calculator|pricing/.test(filename) ? 'pricing' : /insights|prepare-payroll|recruitment-brief|hr-foundation|checklist|interviews|onboarding|workforce-planning|employee-data-care|hr-technology|corporate-event-planning/.test(filename) ? 'insights' : filename === 'index.html' ? 'home' : 'services';
+  header?.querySelector(`[data-nav="${navGroup}"]`)?.setAttribute('data-active', 'true');
+  header?.querySelectorAll('a[href]').forEach(a => { const u = new URL(a.href); if (u.pathname.split('/').pop() === filename && !u.hash && !a.dataset.lang) a.setAttribute('aria-current','page'); });
+  header?.querySelectorAll('details').forEach(d => d.addEventListener('toggle', () => { if(d.open) header.querySelectorAll('details').forEach(other => { if(other !== d) other.open = false; }); }));
   const toggle = header?.querySelector('.ms-menu-toggle');
   const menu = header?.querySelector('.ms-menu');
   const closeMenu = (restore = false) => {
     menu?.classList.remove('open'); toggle?.setAttribute('aria-expanded', 'false');
-    if (toggle) toggle.textContent = '☰';
+    if (toggle) { toggle.textContent = '☰'; toggle.setAttribute('aria-label',tr('เปิดเมนู','Open navigation')); }
     menu?.querySelectorAll('details[open]').forEach(d => { d.open = false; });
     if (restore) toggle?.focus();
   };
@@ -46,6 +52,18 @@
   window.addEventListener('scroll', scrollHeader, { passive: true }); scrollHeader();
   document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
   const form = document.getElementById('quote-form'); if (!form) return;
+  let estimateText = '';
+  if (params.get('service') === 'recruitment' && params.has('calculator')) {
+    try {
+      const d = JSON.parse(sessionStorage.getItem('msCalculatorDraft') || 'null');
+      if(d?.service === 'recruitment' && d.mode === params.get('calculator')) {
+        const r = d.mode === 'retainer' ? window.MSPricing.retainer(d.plan) : window.MSPricing.success(d.level,d.salary,d.otherAnnual,d.hires);
+        if(r) estimateText = d.mode === 'retainer' ? `Recruitment: ${r.name} — ${r.monthly.toLocaleString()} THB / ${tr('เดือน','month')}` : `Recruitment Success Fee: ${r.level}\n${tr('เงินเดือน','Salary')}: ${r.salary} THB; ${tr('รายได้อื่น/ปี','Other annual income')}: ${r.otherAnnual} THB\n${r.annualIncome.toLocaleString()} × ${r.percent}% × ${r.hires} = ${r.total.toLocaleString()} THB`;
+      }
+    } catch (_) {}
+    const info=document.createElement('div'); info.className='quote-estimate-preview';
+    info.textContent=estimateText || tr('ไม่พบรายละเอียดการคำนวณในเบราว์เซอร์นี้ กรุณาระบุแพ็กเกจหรือข้อมูลตำแหน่งในรายละเอียด','Calculation details are unavailable in this browser. Please enter the package or role details below.');form.prepend(info);
+  }
   const selected = params.get('service'); const serviceInputs = [...form.querySelectorAll('input[name=services]')];
   serviceInputs.forEach(input => { input.checked = input.value === selected; });
   const employeeInput = form.elements.namedItem('employees');
@@ -66,6 +84,7 @@
     const body = fields.map(([key,label]) => `${label}: ${String(data.get(key) || '').trim() || '—'}`);
     const packageKey = params.get('package');
     if (['lite','pro','premium'].includes(packageKey) && selectedInputs.some(i => i.value === 'payroll-outsourcing')) body.push(`Payroll package: ${packageKey}`);
+    if(estimateText && selectedInputs.some(i=>i.value==='recruitment')) body.push(estimateText);
     body.splice(4,0,`${tr('บริการ','Services')}: ${selectedInputs.map(i => i.nextElementSibling.textContent).join(', ')}`);
     prepared.value = body.join('\n\n');
     const subject = tr('ขอใบเสนอราคา — ','Quotation request — ') + String(data.get('company')).trim();

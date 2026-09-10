@@ -20,3 +20,5 @@ for filename,doc in docs.items():
   if target in docs and u.fragment and unquote(u.fragment) not in docs[target].ids:issues.append((filename,href))
   elif target not in docs and not Path(target).exists():issues.append((filename,href))
 print('broken local links:',issues)
+
+raise SystemExit(1 if issues else 0)

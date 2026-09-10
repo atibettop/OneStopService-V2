@@ -1,33 +1,35 @@
 # OneStopService — Muang Srisuk Group
 
-Static Thai/English corporate website hosted on GitHub Pages.
+Static Thai/English corporate website for GitHub Pages.
 
 ## Preview
 
-Run `python -m http.server 8090 --bind 127.0.0.1` in this directory and open http://127.0.0.1:8090/.
-No build step, framework migration or backend is required.
+Run `python -m http.server 8090 --bind 127.0.0.1` in this directory. Open http://127.0.0.1:8090/pricing.html.
 
-## September 2026 redesign
+## September 2026 update
 
-- PDF-inspired deep navy/electric blue/cyan homepage with gradients and angular panels, responsive service cards, payroll illustration, recruitment overview, process, FAQ and verified existing contact channels.
-- Dedicated Payroll, HR Consulting, Foreign Worker, Visa & Work Permit, and Event pages; existing recruitment pricing retained.
-- Existing Payroll rates and calculation model retained, with strict whole-number validation, a 12-month estimate and package/headcount handoff to the quotation form.
-- Quote form prepares an email or copyable message. The visitor must send it using email or LINE. No claim of server receipt, no lead database, no attachment upload and no new external form processor.
-- Thai/English UI, shared mobile navigation, privacy link and updated sitemap.
-- No fabricated testimonials, client logos, office address or certifications.
-
-The V.4 specification in docs is a broader product proposal. CRM, automatic form delivery, file uploads, admin workflow and any new legal/privacy terms require a separately configured backend and operational decisions; they are not implemented by this static website revision.
+- PDF-inspired navy, electric blue and cyan design with technology imagery.
+- Shared opaque navigation, grouped services and pricing, mobile menu and explicit back links.
+- `pricing.html` is the pricing hub. `payroll-calculator.html` and `recruitment-calculator.html` are separate calculators.
+- Payroll retains the published headcount-band schedule (not progressive tiers). Recruitment offers standard retainers and annual-income-based success fees. Existing commercial terms stay in `recruitment.html`.
+- Ten original Thai/English practical articles with search, category filters, related reading, checklists and primary-source links. See `docs/article-sources.md`.
+- Quote form prepares a message for the visitor to send through email or LINE. Calculator details are carried into the draft; there is no backend receipt, automatic delivery or attachment upload.
+- Estimator values persist in session storage. Recruitment salary inputs are not put in the URL. No invented client logos, testimonials or company credentials.
 
 ## Editing
 
-Edit HTML files directly. `assets/corporate.css`, `assets/pdf-style.css` and `assets/corporate.js` contain shared design and interactions. The existing `style.css` and `i18n.js` continue supporting legacy pricing/recruitment/privacy content. Rates remain in `pricing.html`; recruitment commercial terms remain in `recruitment.html`.
+Shared style: `assets/corporate.css`, `assets/pdf-style.css`, `assets/experience.css`. Shared navigation/language/quote interactions: `assets/corporate.js`. Legacy recruitment/privacy content still uses `assets/style.css` and `assets/i18n.js`.
 
-## Tests
+Commercial calculations live in `assets/pricing-model.js`; UI in `assets/calculators.js`. Update the visible explanatory tables as well when changing approved prices.
 
-With Playwright available, run `node scripts/test-site.cjs` against the preview server. Set `PLAYWRIGHT_MODULE` to an installed @playwright/test module path if it is outside this repository. `TEST_BASE_URL` can point at a static preview served at the GitHub Pages subpath.
+Article source data: `scripts/site-data/articles-1.json` and `articles-2.json`. Rebuild with `python scripts/build-content.py`. Pricing pages: `python scripts/build-pricing.py`. Shared header: `scripts/site_helpers.py`; roll it out using `python scripts/update-navigation.py`. These generators preserve the homepage/footer template. Regenerate sitemap when adding pages. 404 has a GitHub Pages `/OneStopService/` base.
 
-The suite covers all content pages in Thai/English at desktop/mobile sizes, missing assets/icons, page overflow, heading structure, navigation, FAQ, quotation draft validation and existing pricing boundaries. It does not send email or LINE messages.
+## Validation
+
+Run preview server first, then `node scripts/test-site.cjs` and `python scripts/check-links.py`. Set `PLAYWRIGHT_MODULE` to an installed `@playwright/test` path if needed.
+
+The suite includes 23 pages × 2 languages × 2 viewport sizes, pricing boundaries and invalid values, article filtering, 48 navigation checks across 320/768/1024/1440 pixels in light/dark preferences, and quotation draft handoff. No email or LINE messages are sent. See `docs/experience-validation.md` for results.
 
 ## Deployment
 
-The production target is https://atibettop.github.io/OneStopService/. Publish the reviewed static files to the repository's configured Pages source. Do not deploy the unrelated payroll application.
+Production: https://atibettop.github.io/OneStopService/. Changes are currently local and have not been pushed. Publish only after authorization for the production push; do not deploy the unrelated Payroll application.

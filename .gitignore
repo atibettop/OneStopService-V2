@@ -21,3 +21,5 @@ Doc/
 *.log
 preview-*.png
 preview-*.jpg
+
+__pycache__/
