@@ -23,7 +23,7 @@
   document.querySelectorAll('[data-en-placeholder]').forEach(el => { if (en) el.placeholder = el.dataset.enPlaceholder; });
   const header = document.querySelector('.ms-header');
   const filename = location.pathname.split('/').pop() || 'index.html';
-  const navGroup = /calculator|pricing/.test(filename) ? 'pricing' : /insights|prepare-payroll|recruitment-brief|hr-foundation|checklist|interviews|onboarding|workforce-planning|employee-data-care|hr-technology|corporate-event-planning/.test(filename) ? 'insights' : filename === 'index.html' ? 'home' : 'services';
+  const navGroup = /calculator|pricing/.test(filename) ? 'pricing' : /insights|prepare-payroll|recruitment-brief|hr-foundation|checklist|interviews|onboarding|workforce-planning|employee-data-care|hr-technology|corporate-event-planning/.test(filename) ? 'insights' : filename === 'index.html' ? 'home' : ['payroll-outsourcing.html','recruitment.html','hr-consulting.html','foreign-worker.html','visa-work-permit.html','event-management.html'].includes(filename) ? 'services' : '';
   header?.querySelector(`[data-nav="${navGroup}"]`)?.setAttribute('data-active', 'true');
   header?.querySelectorAll('a[href]').forEach(a => { const u = new URL(a.href); if (u.pathname.split('/').pop() === filename && !u.hash && !a.dataset.lang) a.setAttribute('aria-current','page'); });
   header?.querySelectorAll('details').forEach(d => d.addEventListener('toggle', () => { if(d.open) header.querySelectorAll('details').forEach(other => { if(other !== d) other.open = false; }); }));
