@@ -12,3 +12,13 @@ API: POST `/leads`, JSON body. Required: requestId (UUID), company, name, phone,
 The browser keeps the same UUID for network retries, locks inputs while sending, and only shows a receipt on a validated successful server response. Without an endpoint the existing email/LINE draft remains available, with no false receipt.
 
 Run integration tests: set PLAYWRIGHT_MODULE and TEST_NODE as needed, then `python scripts/test-lead-api.py` with local preview on 8090. Test data is isolated in a temporary database and no email/LINE messages are sent.
+
+## Local preview (enabled)
+
+On localhost/127.0.0.1 port 8090 only, the form connects to the local receiver on port 8091. It explicitly labels requests as local tests. Public hosts keep direct submission disabled until a production endpoint is configured.
+
+Start after restarting Windows: `scripts/start-local-receiver.ps1 -PythonPath <python.exe> -DatabasePath <private-path-outside-website>`. The script opens no visible terminal window and refuses an occupied port. Set the same database path to retain local requests.
+
+Read receipts locally: `python server/inbox.py --db <private-path> --limit 20`; inspect one with `--show MSG-...`. The reader does not expose data through the website.
+
+English export deliberately disables the local receiver while rendering so test controls are never baked into public HTML. At runtime the preview-only controls appear on local preview pages.

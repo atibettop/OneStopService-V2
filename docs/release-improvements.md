@@ -14,3 +14,5 @@ Build after changing source HTML: `python scripts/prepare-release.py`, then with
 Still requires owner information: approved receiving server URL/deployment access, final public site URL, company address/contact hours/person, and analytics destination if conversion collection is wanted. Production Core Web Vitals cannot be verified from localhost.
 
 Validation results: real inbox API and interrupted-response retry passed; 260 keyboard stops passed; 48 static English checks (JS on/off) passed; recursive page/asset/fragment scan passed. No production submissions or email/LINE messages were sent during tests.
+
+Local continuation: receiver now runs on 127.0.0.1:8091 for the preview at port 8090. A labeled local-only form submission was saved, read back using its receipt, and removed after verification. Database stays outside the web root. Production remains unconfigured. Public English HTML is exported with preview submission disabled.
