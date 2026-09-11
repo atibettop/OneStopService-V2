@@ -29,7 +29,7 @@
    set('payroll-announcement',`${fmt(result.employees)} ${t('คน','employees')}, ${key}: ${fmt(result.monthly)} ${t('บาทต่อเดือน','THB per month')}`);
   }
   input.addEventListener('input',render);radios.forEach(r=>r.addEventListener('change',render));document.querySelectorAll('[data-headcount]').forEach(b=>b.addEventListener('click',()=>{input.value=b.dataset.headcount;render();}));
-  document.querySelector('a[href="#scope-compare"]')?.addEventListener('click',()=>{document.getElementById('scope-compare').open=true;});render();return;
+  render();return;
  }
  const modes=[...document.querySelectorAll('[name=recruitment-mode]')],plans=[...document.querySelectorAll('[name=retainer-plan]')];
  const level=document.getElementById('role-level'),salary=document.getElementById('hire-salary'),other=document.getElementById('hire-other'),count=document.getElementById('hire-count'),quote=document.getElementById('recruitment-quote');
