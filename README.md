@@ -32,4 +32,7 @@ The suite includes 23 pages × 2 languages × 2 viewport sizes, pricing boundari
 
 ## Deployment
 
-Production: https://atibettop.github.io/OneStopService/. Changes are currently local and have not been pushed. Publish only after authorization for the production push; do not deploy the unrelated Payroll application.
+Production: https://atibettop.github.io/OneStopService-V2/. Source is maintained in the private OneStopService-V2 repository. The proposed Pages URL is not yet published; receiving-server and analytics activation remain separate configuration steps.
+
+## Release preparation
+See docs/release-improvements.md and server/README.md for the English build, real lead API, tracking hooks, and configuration still required before launch.

@@ -12,6 +12,7 @@
  const makeRow=(label,value)=>{const row=document.createElement('div');const dt=document.createElement('dt');const dd=document.createElement('dd');dt.textContent=label;dd.textContent=value;row.append(dt,dd);return row;};
  if(root.dataset.calculator==='payroll'){
   const input=document.getElementById('pax'),radios=[...document.querySelectorAll('[name=payroll-plan]')],quote=document.getElementById('payroll-quote');
+  let notice=document.getElementById('payroll-band-note');if(!notice){notice=document.createElement('p');notice.className='payroll-band-note';notice.id='payroll-band-note';document.getElementById('payroll-formula').after(notice);}
   const state=readState().payroll,query=new URLSearchParams(location.search);
   if(state){input.value=state.count;const r=radios.find(x=>x.value===state.plan);if(r)r.checked=true;}
   if(query.has('employees'))input.value=query.get('employees');if(query.has('package')){const r=radios.find(x=>x.value===query.get('package'));if(r)r.checked=true;}
@@ -22,6 +23,8 @@
    model.payrollPlans.forEach(p=>{const r=model.payroll(p.key,input.value);document.querySelector(`[data-plan-price="${p.key}"]`).textContent=r?fmt(r.monthly)+' '+t('บาท/เดือน','THB/month'):'—';});
    document.querySelectorAll('[data-headcount]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.headcount===input.value)));
    saveState({payroll:{count:input.value,plan:key}});
+   notice.hidden=!result;
+   if(result)notice.textContent=t('ใช้อัตราตามจำนวนพนักงานทั้งหมดกับทุกคนที่เกิน 30 คน อัตราต่อคนลดลงที่ 201 และ 501 คน จึงอาจทำให้ยอดรวมต่ำกว่าช่วงก่อนหน้า โปรดยืนยันราคาในใบเสนอราคา','The total-headcount band applies to every employee above 30. Rates fall at 201 and 501 employees, so the total can be lower than the previous band. Confirm the final quotation.');
    if(!result){['payroll-total','payroll-base','payroll-extra','payroll-annual','payroll-extra-label'].forEach(id=>set(id,'—'));set('payroll-formula',t('กรอกจำนวนพนักงานเพื่อดูราคา','Enter headcount to see an estimate.'));set('payroll-announcement',t('จำนวนพนักงานไม่ถูกต้อง','Invalid headcount.'));return;}
    set('payroll-total',fmt(result.monthly));set('payroll-base',fmt(result.base));set('payroll-extra-label',t('ส่วนเพิ่ม ','Additional ')+fmt(result.extra)+t(' คน × ',' employees × ')+fmt(result.rate));set('payroll-extra',fmt(result.extra*result.rate));set('payroll-annual',fmt(result.annual));
    set('payroll-formula',result.extra?t('ราคาเหมา + (จำนวนที่เกิน 30 × อัตราช่วงนี้)','Base fee + (employees above 30 × this band’s rate)'):t('ครอบคลุมจำนวนพนักงานไม่เกิน 30 คนด้วยราคาเหมา','The flat fee covers up to 30 employees.'));

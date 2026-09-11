@@ -4,12 +4,16 @@
   const params = new URLSearchParams(location.search);
   let saved;
   try { saved = localStorage.getItem('oneStopHrLanguage'); } catch (_) {}
-  const en = (params.get('lang') || saved || 'th') === 'en';
+  const en = location.pathname.includes('/en/') || (params.get('lang') || saved || 'th') === 'en';
   document.documentElement.lang = en ? 'en' : 'th';
   const tr = (th, english) => en ? english : th;
   document.querySelectorAll('[data-en]').forEach(el => { if (en) el.innerHTML = el.dataset.en; });
+  document.querySelectorAll('[data-en-content]').forEach(el=>{if(en)el.content=el.dataset.enContent;});
+  if(en){document.querySelector('meta[property="og:title"]')?.setAttribute('content',document.title);document.querySelector('meta[property="og:description"]')?.setAttribute('content',document.querySelector('meta[name=description]')?.content||'');}
   document.querySelectorAll('[data-lang]').forEach(a => {
     const url = new URL(location.href); url.searchParams.set('lang', a.dataset.lang);
+    if(a.dataset.lang==='th')url.pathname=url.pathname.replace('/en/','/');
+    else if(!url.pathname.includes('/en/'))url.pathname=url.pathname.replace(/([^/]+)?$/,m=>'en/'+(m||'index.html'));
     a.href = url.pathname + url.search + url.hash;
     if (a.dataset.lang === (en ? 'en' : 'th')) a.setAttribute('aria-current', 'true');
     a.addEventListener('click', () => { try { localStorage.setItem('oneStopHrLanguage', a.dataset.lang); } catch (_) {} });
@@ -87,6 +91,7 @@
     if(estimateText && selectedInputs.some(i=>i.value==='recruitment')) body.push(estimateText);
     body.splice(4,0,`${tr('บริการ','Services')}: ${selectedInputs.map(i => i.nextElementSibling.textContent).join(', ')}`);
     prepared.value = body.join('\n\n');
+    window.MSMetrics?.track('quotation_prepared');
     const subject = tr('ขอใบเสนอราคา — ','Quotation request — ') + String(data.get('company')).trim();
     document.getElementById('email-draft').href = 'mailto:Thanannaphat.m@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(prepared.value);
     preview.hidden = false; status.textContent = tr('เตรียมข้อความแล้ว กรุณาตรวจสอบและส่งทางช่องทางที่เลือก ข้อมูลยังไม่ถูกส่งถึงทีมงาน', 'Message prepared. Review it and send through your chosen channel. It has not been sent to the team.'); preview.focus();

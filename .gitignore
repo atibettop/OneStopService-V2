@@ -23,3 +23,7 @@ preview-*.png
 preview-*.jpg
 
 __pycache__/
+
+server/data/
+*.sqlite3
+.env
