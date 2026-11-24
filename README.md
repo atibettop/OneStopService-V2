@@ -1,4 +1,4 @@
-# OneStopService — Muang Srisuk Group
+# OneStopService — HR Design
 
 Static Thai/English corporate website for GitHub Pages.
 

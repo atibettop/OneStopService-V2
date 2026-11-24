@@ -14,7 +14,7 @@ meta={
 'foreign-worker':('Foreign Worker Services','Discuss workforce requirements and document coordination for foreign worker services.'),
 'visa-work-permit':('Visa & Work Permit Services','Explore document preparation and coordination for visa and work permit requirements.'),
 'event-management':('Corporate Event Management','Plan and coordinate corporate activities, meetings and events.'),
-'request-quotation':('Request a Quotation','Prepare your service requirements and contact Muang Srisuk Group for a formal quotation.'),
+'request-quotation':('Request a Quotation','Prepare your service requirements and contact HR Design for a formal quotation.'),
 'privacy':('Privacy Policy','Learn how this website handles contact information, browser storage and analytics.'),
 'insights':('HR & Business Insights','Ten practical guides to payroll, recruitment, HR technology and organization development.'),
 '404':('Page Not Found','Return to the homepage or explore HR and business services.')}
@@ -24,7 +24,7 @@ for p in root.glob('*.html'):
  s=p.read_text(encoding='utf-8-sig');name=p.stem;title,description=meta[name]
  s=re.sub(r' data-en-content="[^"]*"','',s)
  s=re.sub(r'https://atibettop.github.io/OneStopService(?:-V2)?/',lambda _:base,s).replace('<base href="/OneStopService/">','<base href="/'+base.split('/',3)[3]+'">')
- s=re.sub(r'<title(?: [^>]*)?>(.*?)</title>',lambda m:'<title data-en="'+escape(title+' | Muang Srisuk Group',quote=True)+'">'+m[1]+'</title>',s)
+ s=re.sub(r'<title(?: [^>]*)?>(.*?)</title>',lambda m:'<title data-en="'+escape(title+' | HR Design',quote=True)+'">'+m[1]+'</title>',s)
  s=re.sub(r'<meta name="description"[^>]*>',lambda m:m[0][:-1]+' data-en-content="'+escape(description,quote=True)+'">',s)
  s=re.sub(r'<link rel="alternate" hreflang="en"[^>]*>','<link rel="alternate" hreflang="en" href="'+base+'en/'+p.name+'">',s)
  if '<link rel="alternate" hreflang="en"' not in s:s=s.replace('</head>','<link rel="alternate" hreflang="en" href="'+base+'en/'+p.name+'"></head>')

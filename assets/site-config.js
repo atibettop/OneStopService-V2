@@ -3,5 +3,5 @@ const msLocalPreview = ['127.0.0.1','localhost'].includes(location.hostname) && 
 window.MS_SITE_CONFIG = Object.freeze({
   leadEndpoint: msLocalPreview ? 'http://' + location.hostname + ':8091/leads' : '',
   leadLocalPreview: msLocalPreview,
-  company: { name: 'Muang Srisuk Group Co., Ltd.', phone: '098-146-5449', email: 'Thanannaphat.m@gmail.com', line: 'koiiikoi', address: '', officeHours: '', contactPerson: '' }
+  company: { name: 'HR Design Co., Ltd.', phone: '063-635-5552', email: 'Thanannaphat.m@gmail.com', line: '0636355552', address: '', officeHours: '', contactPerson: '' }
 });
